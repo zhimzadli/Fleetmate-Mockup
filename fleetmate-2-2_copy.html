@@ -1,0 +1,3227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>FleetMate App</title>
+
+    <!-- Tailwind CSS (precompiled at build time — no runtime JIT on device) -->
+    <style>
+*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:Inter,sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}@media (min-width:1536px){.container{max-width:1536px}}.pointer-events-none{pointer-events:none}.pointer-events-auto{pointer-events:auto}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0}.-left-6{left:-1.5rem}.-left-\[14px\]{left:-14px}.-right-0\.5{right:-.125rem}.-top-0\.5{top:-.125rem}.-top-1\.5{top:-.375rem}.bottom-2{bottom:.5rem}.bottom-3{bottom:.75rem}.bottom-6{bottom:1.5rem}.left-0{left:0}.left-2\.5{left:.625rem}.left-3{left:.75rem}.right-3{right:.75rem}.top-0{top:0}.top-0\.5{top:.125rem}.top-1{top:.25rem}.top-2{top:.5rem}.top-3{top:.75rem}.top-4{top:1rem}.top-\[92px\]{top:92px}.z-0{z-index:0}.z-10{z-index:10}.z-20{z-index:20}.z-30{z-index:30}.z-50{z-index:50}.z-\[1000\]{z-index:1000}.z-\[60\]{z-index:60}.z-\[70\]{z-index:70}.-mx-2{margin-left:-.5rem;margin-right:-.5rem}.mx-2{margin-left:.5rem;margin-right:.5rem}.mx-auto{margin-left:auto;margin-right:auto}.my-6{margin-top:1.5rem;margin-bottom:1.5rem}.-mt-2{margin-top:-.5rem}.mb-0\.5{margin-bottom:.125rem}.mb-1{margin-bottom:.25rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.ml-0\.5{margin-left:.125rem}.ml-1{margin-left:.25rem}.ml-2{margin-left:.5rem}.ml-3{margin-left:.75rem}.ml-8{margin-left:2rem}.ml-auto{margin-left:auto}.mr-1{margin-right:.25rem}.mr-1\.5{margin-right:.375rem}.mr-2{margin-right:.5rem}.mr-3{margin-right:.75rem}.mt-0\.5{margin-top:.125rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}.mt-8{margin-top:2rem}.line-clamp-1{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-1{height:.25rem}.h-1\.5{height:.375rem}.h-10{height:2.5rem}.h-12{height:3rem}.h-16{height:4rem}.h-2{height:.5rem}.h-2\.5{height:.625rem}.h-20{height:5rem}.h-3{height:.75rem}.h-36{height:9rem}.h-4{height:1rem}.h-60{height:15rem}.h-full{height:100%}.max-h-48{max-height:12rem}.max-h-\[180px\]{max-height:180px}.min-h-0{min-height:0}.w-0\.5{width:.125rem}.w-1{width:.25rem}.w-1\.5{width:.375rem}.w-1\/3{width:33.333333%}.w-10{width:2.5rem}.w-12{width:3rem}.w-16{width:4rem}.w-2{width:.5rem}.w-2\.5{width:.625rem}.w-20{width:5rem}.w-3{width:.75rem}.w-4{width:1rem}.w-60{width:15rem}.w-8{width:2rem}.w-\[280px\]{width:280px}.w-full{width:100%}.w-px{width:1px}.min-w-0{min-width:0}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.-translate-x-full{--tw-translate-x:-100%}.-translate-x-full,.translate-x-0{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.translate-x-0{--tw-translate-x:0px}.scale-100{--tw-scale-x:1;--tw-scale-y:1}.scale-100,.scale-110{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1}.scale-95{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes ping{75%,to{transform:scale(2);opacity:0}}.animate-ping{animation:ping 1s cubic-bezier(0,0,.2,1) infinite}.cursor-default{cursor:default}.cursor-not-allowed{cursor:not-allowed}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-3{gap:.75rem}.gap-x-2{-moz-column-gap:.5rem;column-gap:.5rem}.gap-y-4{row-gap:1rem}.space-x-1>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(.25rem*var(--tw-space-x-reverse));margin-left:calc(.25rem*(1 - var(--tw-space-x-reverse)))}.space-x-1\.5>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(.375rem*var(--tw-space-x-reverse));margin-left:calc(.375rem*(1 - var(--tw-space-x-reverse)))}.space-x-2>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(.5rem*var(--tw-space-x-reverse));margin-left:calc(.5rem*(1 - var(--tw-space-x-reverse)))}.space-x-2\.5>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(.625rem*var(--tw-space-x-reverse));margin-left:calc(.625rem*(1 - var(--tw-space-x-reverse)))}.space-x-3>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(.75rem*var(--tw-space-x-reverse));margin-left:calc(.75rem*(1 - var(--tw-space-x-reverse)))}.space-x-4>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem*var(--tw-space-x-reverse));margin-left:calc(1rem*(1 - var(--tw-space-x-reverse)))}.space-x-6>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1.5rem*var(--tw-space-x-reverse));margin-left:calc(1.5rem*(1 - var(--tw-space-x-reverse)))}.space-y-1>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.25rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.25rem*var(--tw-space-y-reverse))}.space-y-2>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.5rem*var(--tw-space-y-reverse))}.space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.75rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem*var(--tw-space-y-reverse))}.divide-y>:not([hidden])~:not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px*(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px*var(--tw-divide-y-reverse))}.divide-gray-50>:not([hidden])~:not([hidden]){--tw-divide-opacity:1;border-color:rgb(249 250 251/var(--tw-divide-opacity,1))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis}.truncate,.whitespace-nowrap{white-space:nowrap}.rounded{border-radius:.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-sm{border-radius:.125rem}.rounded-xl{border-radius:.75rem}.rounded-t-3xl{border-top-left-radius:1.5rem;border-top-right-radius:1.5rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-l{border-left-width:1px}.border-l-\[3px\]{border-left-width:3px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-gray-100{--tw-border-opacity:1;border-color:rgb(243 244 246/var(--tw-border-opacity,1))}.border-gray-100\/80{border-color:rgba(243,244,246,.8)}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235/var(--tw-border-opacity,1))}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219/var(--tw-border-opacity,1))}.border-gray-50{--tw-border-opacity:1;border-color:rgb(249 250 251/var(--tw-border-opacity,1))}.border-orange-100{--tw-border-opacity:1;border-color:rgb(255 237 213/var(--tw-border-opacity,1))}.border-primary{--tw-border-opacity:1;border-color:rgb(255 111 0/var(--tw-border-opacity,1))}.border-secondary{--tw-border-opacity:1;border-color:rgb(0 26 51/var(--tw-border-opacity,1))}.border-slate-200\/80{border-color:rgba(226,232,240,.8)}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255/var(--tw-border-opacity,1))}.border-white\/30{border-color:hsla(0,0%,100%,.3)}.border-white\/40{border-color:hsla(0,0%,100%,.4)}.border-white\/60{border-color:hsla(0,0%,100%,.6)}.border-white\/70{border-color:hsla(0,0%,100%,.7)}.border-l-primary{--tw-border-opacity:1;border-left-color:rgb(255 111 0/var(--tw-border-opacity,1))}.bg-bgLight{--tw-bg-opacity:1;background-color:rgb(245 247 250/var(--tw-bg-opacity,1))}.bg-black\/40{background-color:rgba(0,0,0,.4)}.bg-blue-100{--tw-bg-opacity:1;background-color:rgb(219 234 254/var(--tw-bg-opacity,1))}.bg-blue-200{--tw-bg-opacity:1;background-color:rgb(191 219 254/var(--tw-bg-opacity,1))}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255/var(--tw-bg-opacity,1))}.bg-blue-500{--tw-bg-opacity:1;background-color:rgb(59 130 246/var(--tw-bg-opacity,1))}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246/var(--tw-bg-opacity,1))}.bg-gray-200{--tw-bg-opacity:1;background-color:rgb(229 231 235/var(--tw-bg-opacity,1))}.bg-gray-400{--tw-bg-opacity:1;background-color:rgb(156 163 175/var(--tw-bg-opacity,1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251/var(--tw-bg-opacity,1))}.bg-gray-50\/80{background-color:rgba(249,250,251,.8)}.bg-green-100{--tw-bg-opacity:1;background-color:rgb(220 252 231/var(--tw-bg-opacity,1))}.bg-green-400{--tw-bg-opacity:1;background-color:rgb(74 222 128/var(--tw-bg-opacity,1))}.bg-green-50{--tw-bg-opacity:1;background-color:rgb(240 253 244/var(--tw-bg-opacity,1))}.bg-green-500{--tw-bg-opacity:1;background-color:rgb(34 197 94/var(--tw-bg-opacity,1))}.bg-orange-100{--tw-bg-opacity:1;background-color:rgb(255 237 213/var(--tw-bg-opacity,1))}.bg-orange-50{--tw-bg-opacity:1;background-color:rgb(255 247 237/var(--tw-bg-opacity,1))}.bg-orange-50\/70{background-color:rgba(255,247,237,.7)}.bg-orange-500{--tw-bg-opacity:1;background-color:rgb(249 115 22/var(--tw-bg-opacity,1))}.bg-primary{--tw-bg-opacity:1;background-color:rgb(255 111 0/var(--tw-bg-opacity,1))}.bg-red-400{--tw-bg-opacity:1;background-color:rgb(248 113 113/var(--tw-bg-opacity,1))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242/var(--tw-bg-opacity,1))}.bg-red-500{--tw-bg-opacity:1;background-color:rgb(239 68 68/var(--tw-bg-opacity,1))}.bg-red-600{--tw-bg-opacity:1;background-color:rgb(220 38 38/var(--tw-bg-opacity,1))}.bg-secondary{--tw-bg-opacity:1;background-color:rgb(0 26 51/var(--tw-bg-opacity,1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249/var(--tw-bg-opacity,1))}.bg-slate-400{--tw-bg-opacity:1;background-color:rgb(148 163 184/var(--tw-bg-opacity,1))}.bg-transparent{background-color:transparent}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.bg-white\/20{background-color:hsla(0,0%,100%,.2)}.bg-white\/50{background-color:hsla(0,0%,100%,.5)}.bg-white\/90{background-color:hsla(0,0%,100%,.9)}.bg-white\/95{background-color:hsla(0,0%,100%,.95)}.bg-yellow-400{--tw-bg-opacity:1;background-color:rgb(250 204 21/var(--tw-bg-opacity,1))}.bg-yellow-50{--tw-bg-opacity:1;background-color:rgb(254 252 232/var(--tw-bg-opacity,1))}.bg-yellow-500{--tw-bg-opacity:1;background-color:rgb(234 179 8/var(--tw-bg-opacity,1))}.bg-gradient-to-br{background-image:linear-gradient(to bottom right,var(--tw-gradient-stops))}.from-blue-400{--tw-gradient-from:#60a5fa var(--tw-gradient-from-position);--tw-gradient-to:rgba(96,165,250,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.to-blue-600{--tw-gradient-to:#2563eb var(--tw-gradient-to-position)}.object-cover{-o-object-fit:cover;object-fit:cover}.p-1{padding:.25rem}.p-2{padding:.5rem}.p-2\.5{padding:.625rem}.p-3{padding:.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.px-1{padding-left:.25rem;padding-right:.25rem}.px-1\.5{padding-left:.375rem;padding-right:.375rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-2\.5{padding-left:.625rem;padding-right:.625rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-0\.5{padding-top:.125rem;padding-bottom:.125rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-3\.5{padding-top:.875rem;padding-bottom:.875rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-1{padding-bottom:.25rem}.pb-3{padding-bottom:.75rem}.pb-4{padding-bottom:1rem}.pb-5{padding-bottom:1.25rem}.pb-6{padding-bottom:1.5rem}.pl-4{padding-left:1rem}.pl-6{padding-left:1.5rem}.pr-0\.5{padding-right:.125rem}.pr-2{padding-right:.5rem}.pt-10{padding-top:2.5rem}.pt-2{padding-top:.5rem}.pt-2\.5{padding-top:.625rem}.pt-3{padding-top:.75rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[13px\]{font-size:13px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-wide{letter-spacing:.025em}.text-blue-500{--tw-text-opacity:1;color:rgb(59 130 246/var(--tw-text-opacity,1))}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235/var(--tw-text-opacity,1))}.text-blue-800{--tw-text-opacity:1;color:rgb(30 64 175/var(--tw-text-opacity,1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219/var(--tw-text-opacity,1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175/var(--tw-text-opacity,1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128/var(--tw-text-opacity,1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99/var(--tw-text-opacity,1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81/var(--tw-text-opacity,1))}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55/var(--tw-text-opacity,1))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39/var(--tw-text-opacity,1))}.text-green-500{--tw-text-opacity:1;color:rgb(34 197 94/var(--tw-text-opacity,1))}.text-green-600{--tw-text-opacity:1;color:rgb(22 163 74/var(--tw-text-opacity,1))}.text-orange-800{--tw-text-opacity:1;color:rgb(154 52 18/var(--tw-text-opacity,1))}.text-primary{--tw-text-opacity:1;color:rgb(255 111 0/var(--tw-text-opacity,1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68/var(--tw-text-opacity,1))}.text-red-600{--tw-text-opacity:1;color:rgb(220 38 38/var(--tw-text-opacity,1))}.text-secondary{--tw-text-opacity:1;color:rgb(0 26 51/var(--tw-text-opacity,1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139/var(--tw-text-opacity,1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.text-white\/70{color:hsla(0,0%,100%,.7)}.text-yellow-500{--tw-text-opacity:1;color:rgb(234 179 8/var(--tw-text-opacity,1))}.text-yellow-600{--tw-text-opacity:1;color:rgb(202 138 4/var(--tw-text-opacity,1))}.opacity-0{opacity:0}.opacity-100{opacity:1}.opacity-50{opacity:.5}.opacity-75{opacity:.75}.opacity-80{opacity:.8}.opacity-90{opacity:.9}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgba(0,0,0,.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color)}.shadow-2xl,.shadow-\[0_-10px_30px_rgba\(0\2c 0\2c 0\2c 0\.08\)\]{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-\[0_-10px_30px_rgba\(0\2c 0\2c 0\2c 0\.08\)\]{--tw-shadow:0 -10px 30px rgba(0,0,0,.08);--tw-shadow-colored:0 -10px 30px var(--tw-shadow-color)}.shadow-\[0_-16px_34px_rgba\(15\2c 23\2c 42\2c 0\.10\)\]{--tw-shadow:0 -16px 34px rgba(15,23,42,.1);--tw-shadow-colored:0 -16px 34px var(--tw-shadow-color)}.shadow-\[0_-16px_34px_rgba\(15\2c 23\2c 42\2c 0\.10\)\],.shadow-lg{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color)}.shadow-md{--tw-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color)}.shadow-md,.shadow-none{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-none{--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000}.shadow-sm{--tw-shadow:0 1px 2px 0 rgba(0,0,0,.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color)}.ring-1,.ring-2{box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.ring-2{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color)}.ring-primary{--tw-ring-opacity:1;--tw-ring-color:rgb(255 111 0/var(--tw-ring-opacity,1))}.ring-white\/10{--tw-ring-color:hsla(0,0%,100%,.1)}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-shadow{transition-property:box-shadow;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-200{transition-duration:.2s}.duration-300{transition-duration:.3s}.ease-out{transition-timing-function:cubic-bezier(0,0,.2,1)}.last\:border-b-0:last-child{border-bottom-width:0}.hover\:border-primary\/30:hover{border-color:rgba(255,111,0,.3)}.hover\:bg-gray-50:hover{--tw-bg-opacity:1;background-color:rgb(249 250 251/var(--tw-bg-opacity,1))}.hover\:bg-gray-50\/80:hover{background-color:rgba(249,250,251,.8)}.hover\:bg-red-50:hover{--tw-bg-opacity:1;background-color:rgb(254 242 242/var(--tw-bg-opacity,1))}.hover\:text-gray-600:hover{--tw-text-opacity:1;color:rgb(75 85 99/var(--tw-text-opacity,1))}.hover\:text-primary:hover{--tw-text-opacity:1;color:rgb(255 111 0/var(--tw-text-opacity,1))}.hover\:underline:hover{text-decoration-line:underline}.hover\:shadow-lg:hover{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.focus\:ring-primary:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(255 111 0/var(--tw-ring-opacity,1))}.active\:scale-90:active{--tw-scale-x:.9;--tw-scale-y:.9;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.active\:bg-gray-100:active{--tw-bg-opacity:1;background-color:rgb(243 244 246/var(--tw-bg-opacity,1))}.active\:bg-gray-50:active{--tw-bg-opacity:1;background-color:rgb(249 250 251/var(--tw-bg-opacity,1))}.active\:opacity-70:active{opacity:.7}@media (min-width:640px){.sm\:inline{display:inline}}
+    </style>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- React & ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js">
+    </script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js">
+    </script>
+
+    <!-- Recharts -->
+    <script crossorigin src="https://unpkg.com/react-is@18.2.0/umd/react-is.production.min.js">
+    </script>
+    <script src="https://unpkg.com/prop-types@15.8.1/prop-types.min.js">
+    </script>
+    <script src="https://unpkg.com/recharts@2.12.7/umd/Recharts.js">
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@1.22.0">
+    </script>
+
+    <!-- Leaflet Maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+
+    <style>
+        /* --- base reset & container --- */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #dfe7ef 0%, #f7fafc 52%, #dbe4ec 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #172033;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: geometricPrecision;
+        }
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+        button,
+        input {
+            font: inherit;
+        }
+        button {
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+        #mobile-container .icon-action-btn {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            min-height: 40px;
+            padding: 0;
+            margin-left: 8px;
+            border: none;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 0;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        #mobile-container .icon-action-btn:disabled {
+            pointer-events: none;
+            opacity: 0.85;
+        }
+
+        /* --- phone frame --- */
+        #mobile-container {
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            background: linear-gradient(180deg, #F9FBFD 0%, #EEF3F7 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            isolation: isolate;
+        }
+        @media (min-width: 640px) {
+            #mobile-container {
+                width: 393px;
+                height: 852px;
+                max-height: 90vh;
+                border-radius: 40px;
+                border: 10px solid #182230;
+                box-shadow: 0 26px 70px -18px rgba(15, 23, 42, 0.45), 0 12px 28px -18px rgba(15, 23, 42, 0.35);
+            }
+        }
+
+        /* --- scrollbar hide --- */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* --- map background (abstract grid) --- */
+        .map-bg {
+            background-color: #E7ECE3;
+            background-image: url('data:image/svg+xml;utf8,<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="400" fill="%23E7ECE3"/><path d="M-20 320 Q 40 278 95 326 T 165 360 L 165 420 L -20 420 Z" fill="%23BFE0EF" opacity="0.9"/><ellipse cx="332" cy="96" rx="56" ry="42" fill="%23CFE3C2"/><circle cx="300" cy="70" r="9" fill="%239FCB8E" opacity="0.8"/><circle cx="355" cy="112" r="7" fill="%239FCB8E" opacity="0.8"/><rect x="14" y="14" width="100" height="80" rx="6" fill="%23F6F8F3" stroke="%23DDE3D6" stroke-width="1.5"/><rect x="14" y="152" width="100" height="32" rx="6" fill="%23F6F8F3" stroke="%23DDE3D6" stroke-width="1.5"/><rect x="172" y="14" width="120" height="80" rx="6" fill="%23F6F8F3" stroke="%23DDE3D6" stroke-width="1.5"/><rect x="172" y="152" width="44" height="32" rx="6" fill="%23F6F8F3" stroke="%23DDE3D6" stroke-width="1.5"/><rect x="242" y="152" width="50" height="32" rx="6" fill="%23F6F8F3" stroke="%23DDE3D6" stroke-width="1.5"/><rect x="14" y="222" width="100" height="58" rx="6" fill="%23F6F8F3" stroke="%23DDE3D6" stroke-width="1.5"/><rect x="172" y="222" width="120" height="58" rx="6" fill="%23F6F8F3" stroke="%23DDE3D6" stroke-width="1.5"/><rect x="172" y="312" width="58" height="68" rx="6" fill="%23F6F8F3" stroke="%23DDE3D6" stroke-width="1.5"/><rect x="252" y="312" width="38" height="68" rx="6" fill="%23F6F8F3" stroke="%23DDE3D6" stroke-width="1.5"/><rect x="322" y="162" width="64" height="106" rx="6" fill="%23F6F8F3" stroke="%23DDE3D6" stroke-width="1.5"/><rect x="322" y="290" width="64" height="90" rx="6" fill="%23F6F8F3" stroke="%23DDE3D6" stroke-width="1.5"/><g stroke="%23FFFFFF" stroke-width="13" stroke-linecap="round"><line x1="0" y1="58" x2="400" y2="58"/><line x1="0" y1="200" x2="400" y2="200"/><line x1="0" y1="358" x2="400" y2="358"/><line x1="58" y1="0" x2="58" y2="400"/><line x1="228" y1="0" x2="228" y2="400"/><line x1="368" y1="0" x2="368" y2="400"/></g><g stroke="%23D7DCE2" stroke-width="9" stroke-linecap="round"><line x1="0" y1="58" x2="400" y2="58"/><line x1="0" y1="200" x2="400" y2="200"/><line x1="0" y1="358" x2="400" y2="358"/><line x1="58" y1="0" x2="58" y2="400"/><line x1="228" y1="0" x2="228" y2="400"/><line x1="368" y1="0" x2="368" y2="400"/></g><g stroke="%23AEB6C0" stroke-width="30" stroke-linecap="round"><line x1="-20" y1="120" x2="420" y2="120"/><line x1="-20" y1="300" x2="420" y2="300"/><line x1="140" y1="-20" x2="140" y2="420"/><line x1="310" y1="-20" x2="310" y2="420"/></g><g stroke="%23C7CDD4" stroke-width="24" stroke-linecap="round"><line x1="-20" y1="120" x2="420" y2="120"/><line x1="-20" y1="300" x2="420" y2="300"/><line x1="140" y1="-20" x2="140" y2="420"/><line x1="310" y1="-20" x2="310" y2="420"/></g><g stroke="%23FFFFFF" stroke-width="2.5" stroke-dasharray="12 10" stroke-linecap="round" opacity="0.9"><line x1="-20" y1="120" x2="420" y2="120"/><line x1="-20" y1="300" x2="420" y2="300"/><line x1="140" y1="-20" x2="140" y2="420"/><line x1="310" y1="-20" x2="310" y2="420"/></g><path d="M-30 384 Q 150 262 232 180 T 432 28" stroke="%23FFD9AD" stroke-width="30" fill="none" stroke-linecap="round"/><path d="M-30 384 Q 150 262 232 180 T 432 28" stroke="%23FF6F00" stroke-width="3.5" stroke-dasharray="14 10" fill="none" stroke-linecap="round" opacity="0.95"/><g fill="%23AEB6C0"><circle cx="140" cy="120" r="17"/><circle cx="310" cy="120" r="15"/><circle cx="140" cy="300" r="15"/><circle cx="310" cy="300" r="15"/></g><g fill="%23C7CDD4"><circle cx="140" cy="120" r="13"/><circle cx="310" cy="120" r="12"/><circle cx="140" cy="300" r="12"/><circle cx="310" cy="300" r="12"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* --- header --- */
+        #mobile-container .app-header {
+            background: linear-gradient(135deg, #FF7A1A 0%, #FF6F00 54%, #E65100 100%);
+            box-shadow: 0 12px 24px -20px rgba(0, 26, 51, 0.55);
+        }
+        #mobile-container .header-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.14);
+            transition: transform 160ms ease, background-color 160ms ease;
+        }
+        #mobile-container .header-button:active,
+        #mobile-container .touch-lift:active {
+            transform: scale(0.96);
+        }
+        #mobile-container .header-button:hover {
+            background: rgba(255, 255, 255, 0.22);
+        }
+
+        /* --- cards --- */
+        #mobile-container .fleet-card {
+            background: rgba(255, 255, 255, 0.96);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 10px 24px -18px rgba(15, 23, 42, 0.45);
+            transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+        }
+        #mobile-container .fleet-card:hover {
+            border-color: rgba(255, 111, 0, 0.24);
+            box-shadow: 0 16px 34px -24px rgba(15, 23, 42, 0.52);
+        }
+        #mobile-container .icon-chip {
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- bottom nav --- */
+        #mobile-container .bottom-nav-shell {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(14px);
+            box-shadow: 0 -16px 30px -28px rgba(15, 23, 42, 0.55);
+        }
+        #mobile-container .bottom-nav-item {
+            width: 58px;
+            min-height: 50px;
+            border-radius: 16px;
+            transition: color 160ms ease, background-color 160ms ease, transform 160ms ease;
+        }
+        #mobile-container .bottom-nav-item.active {
+            color: #FF6F00;
+            background: #FFF4E8;
+        }
+        #mobile-container .bottom-nav-item:active {
+            transform: translateY(1px) scale(0.98);
+        }
+
+        /* --- primary action --- */
+        #mobile-container .primary-action {
+            background: linear-gradient(135deg, #FF7A1A 0%, #FF6F00 100%);
+            box-shadow: 0 12px 22px -16px rgba(255, 111, 0, 0.8);
+        }
+
+        /* --- map overlay --- */
+        #mobile-container .map-bg {
+            position: relative;
+        }
+        #mobile-container .map-bg::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.02));
+        }
+
+        #mobile-container .status-item {
+            transition: border-color 160ms ease, transform 160ms ease;
+        }
+        #mobile-container .status-item:active {
+            transform: scale(0.99);
+        }
+
+        /* --- fade in --- */
+        @keyframes viewFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px) scale(0.995);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        #mobile-container .view-fade-in {
+            animation: viewFadeIn 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+        #mobile-container .tnum {
+            font-variant-numeric: tabular-nums;
+            letter-spacing: -0.01em;
+        }
+
+        /* --- brand glow --- */
+        @keyframes brandGlow {
+            0%,
+            100% {
+                opacity: 0.45;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                opacity: 0.7;
+                transform: translate(-50%, -50%) scale(1.06);
+            }
+        }
+        .brand-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(255, 167, 64, 0.55) 0%, rgba(255, 167, 64, 0) 70%);
+            animation: brandGlow 3.4s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* --- login bg --- */
+        .login-bg {
+            background-color: #FF6F00;
+            background-image: linear-gradient(180deg, rgba(255, 130, 32, 0.96) 0%, rgba(255, 111, 0, 0.94) 52%, rgba(0, 26, 51, 0.94) 170%), url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="a" patternUnits="userSpaceOnUse" width="100" height="100"><path d="M50 0 L100 50 L50 100 L0 50 Z" fill="none" stroke="%23FFFFFF" stroke-width="1.5" opacity="0.16"/></pattern></defs><rect width="100%" height="100%" fill="url(%23a)"/></svg>');
+        }
+
+        /* --- status dot pulse --- */
+        @keyframes pulseRing {
+            0% {
+                transform: scale(0.6);
+                opacity: 0.55;
+            }
+            70% {
+                transform: scale(2.2);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(2.2);
+                opacity: 0;
+            }
+        }
+        .pulse-ring {
+            animation: pulseRing 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        /* --- status list item hover --- */
+        .status-item {
+            transition: background 160ms ease, transform 140ms ease;
+        }
+        .status-item:active {
+            transform: scale(0.97);
+        }
+
+        /* --- leaflet overrides --- */
+        .leaflet-container {
+            font-family: 'Inter', sans-serif !important;
+            background: #f0f0f0 !important;
+        }
+        .leaflet-div-icon {
+            background: transparent !important;
+            border: none !important;
+        }
+
+        /* --- misc --- */
+        .dismiss-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: #9ca3af;
+            transition: background 160ms ease, color 160ms ease;
+            cursor: pointer;
+            flex-shrink: 0;
+            margin-left: 8px;
+        }
+        .dismiss-btn:hover {
+            background: #e5e7eb;
+            color: #ef4444;
+        }
+        .dismiss-btn:active {
+            transform: scale(0.9);
+        }
+        @keyframes dotFade {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.4);
+            }
+        }
+        .dot-fade-out {
+            animation: dotFade 200ms ease forwards;
+        }
+
+        /* screen-scroll */
+        #mobile-container .screen-scroll {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.52) 0%, rgba(244, 248, 251, 0) 28%), linear-gradient(180deg, #F7FAFC 0%, #EEF3F7 100%);
+        }
+        #mobile-container .soft-input {
+            box-shadow: 0 10px 28px -22px rgba(0, 26, 51, 0.45);
+            transition: box-shadow 160ms ease, transform 160ms ease;
+        }
+        #mobile-container .soft-input:focus-within {
+            box-shadow: 0 14px 32px -22px rgba(0, 26, 51, 0.65), 0 0 0 3px rgba(255, 255, 255, 0.32);
+            transform: translateY(-1px);
+        }
+        #mobile-container .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 48px 24px;
+            color: #9CA3AF;
+        }
+        #mobile-container .empty-state .icon-chip {
+            width: 56px;
+            height: 56px;
+            border-radius: 18px;
+            background: #F3F4F6;
+            color: #9CA3AF;
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="root" style="width:100%;height:100%;display:flex;justify-content:center;align-items:center;"></div>
+
+    <script>
+const {
+  useState,
+  useEffect,
+  useRef
+} = React;
+const {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  BarChart,
+  Bar
+} = window.Recharts;
+
+// --- COMPANY LOGO ---
+const LOGO_DATA_URI = "data:image/jpeg;base64,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";
+
+// --- ICON COMPONENT ---
+const Icon = ({
+  name,
+  size = 24,
+  className = ""
+}) => {
+  const iconRef = useRef(null);
+  useEffect(() => {
+    if (iconRef.current && window.lucide) {
+      iconRef.current.innerHTML = `<i data-lucide="${name}" class="${className}"></i>`;
+      window.lucide.createIcons({
+        root: iconRef.current,
+        attrs: {
+          width: size,
+          height: size
+        }
+      });
+    }
+  }, [name, size, className]);
+  return /*#__PURE__*/React.createElement("span", {
+    ref: iconRef,
+    className: "inline-flex items-center justify-center shrink-0",
+    style: {
+      width: size,
+      height: size
+    }
+  }, " ");
+};
+
+// --- MOCK DATA ---
+const fuelData = [{
+  day: '1 May',
+  value: 30
+}, {
+  day: '4 May',
+  value: 55
+}, {
+  day: '6 May',
+  value: 52
+}, {
+  day: '8 May',
+  value: 50
+}, {
+  day: '10 May',
+  value: 72
+}, {
+  day: '12 May',
+  value: 62
+}, {
+  day: '14 May',
+  value: 55
+}, {
+  day: '15 May',
+  value: 50
+}, {
+  day: '17 May',
+  value: 59
+}, {
+  day: '19 May',
+  value: 80
+}, {
+  day: '21 May',
+  value: 91
+}, {
+  day: '22 May',
+  value: 87
+}, {
+  day: '24 May',
+  value: 78
+}, {
+  day: '26 May',
+  value: 65
+}, {
+  day: '28 May',
+  value: 62
+}, {
+  day: '29 May',
+  value: 73
+}, {
+  day: '31 May',
+  value: 90
+}];
+const reportData = [{
+  week: '1-7 May',
+  distance: 720,
+  fuel: 110
+}, {
+  week: '8-14 May',
+  distance: 680,
+  fuel: 104
+}, {
+  week: '15-21 May',
+  distance: 630,
+  fuel: 96
+}, {
+  week: '22-31 May',
+  distance: 760,
+  fuel: 116
+}];
+const vehicleFuelUsage = [{
+  id: 'WXX 1234',
+  fuel: '128.40 L',
+  cost: 'RM 522.59'
+}, {
+  id: 'WYY 5678',
+  fuel: '96.20 L',
+  cost: 'RM 391.53'
+}, {
+  id: 'WZZ 9101',
+  fuel: '74.50 L',
+  cost: 'RM 303.22'
+}, {
+  id: 'WAA 1111',
+  fuel: '72.60 L',
+  cost: 'RM 295.48'
+}, {
+  id: 'WBB 2222',
+  fuel: '55.10 L',
+  cost: 'RM 224.26'
+}];
+const initialNotifs = [{
+  id: 1,
+  type: 'maintenance',
+  title: 'Maintenance Due',
+  desc: 'WXX 1234 - Oil Change is due in 3 days',
+  time: '10:30 AM',
+  icon: 'clipboard-list',
+  bg: 'bg-primary',
+  unread: true,
+  showDot: true
+}, {
+  id: 2,
+  type: 'alert',
+  title: 'Fuel Alert',
+  desc: 'WYY 5678 - Fuel level is low (15%)',
+  time: '9:15 AM',
+  icon: 'fuel',
+  bg: 'bg-red-500',
+  unread: true,
+  showDot: true
+}, {
+  id: 3,
+  type: 'alert',
+  title: 'Route Alert',
+  desc: 'WZZ 9101 - Deviated from assigned route',
+  time: '8:45 AM',
+  icon: 'map',
+  bg: 'bg-yellow-500',
+  unread: false,
+  showDot: true,
+  dotColor: 'text-yellow-500'
+}, {
+  id: 4,
+  type: 'maintenance',
+  title: 'Maintenance Overdue',
+  desc: 'WAA 1111 - Tyre rotation is overdue',
+  time: 'Yesterday',
+  icon: 'wrench',
+  bg: 'bg-red-500',
+  unread: true,
+  showDot: true
+}, {
+  id: 5,
+  type: 'system',
+  title: 'System Update',
+  desc: 'New features have been updated',
+  time: 'Yesterday',
+  icon: 'settings',
+  bg: 'bg-blue-500',
+  unread: false,
+  showDot: true,
+  dotColor: 'text-blue-500'
+}, {
+  id: 6,
+  type: 'system',
+  title: 'Driver Check-in',
+  desc: 'Haziq has started a new trip',
+  time: '2 days ago',
+  icon: 'user',
+  bg: 'bg-green-500',
+  unread: false,
+  showDot: true,
+  dotColor: 'text-green-500'
+}, {
+  id: 7,
+  type: 'maintenance',
+  title: 'Vehicle In Workshop',
+  desc: 'WBB 2222 - Transmission service in progress',
+  time: 'Today',
+  icon: 'wrench',
+  bg: 'bg-orange-500',
+  unread: true,
+  showDot: true
+}];
+const fleetVehicles = [{
+  id: 'WXX 1234',
+  driver: 'Haziq',
+  phone: '+60123456701',
+  status: 'Moving',
+  statusColor: 'green',
+  speed: '68 km/h',
+  location: 'Jalan Klang Lama, KL',
+  lat: 3.109,
+  lng: 101.647
+}, {
+  id: 'WYY 5678',
+  driver: 'Aziz',
+  phone: '+60123456702',
+  status: 'Moving',
+  statusColor: 'green',
+  speed: '52 km/h',
+  location: 'Persiaran Kewajipan, Shah Alam',
+  lat: 3.058,
+  lng: 101.518
+}, {
+  id: 'WZZ 9101',
+  driver: 'Hafiz',
+  phone: '+60123456703',
+  status: 'Idle',
+  statusColor: 'yellow',
+  speed: '0 km/h',
+  location: 'Jalan Sultan, Klang',
+  lat: 3.043,
+  lng: 101.445
+}, {
+  id: 'WAA 1111',
+  driver: 'Faiz',
+  phone: '+60123456704',
+  status: 'Moving',
+  statusColor: 'green',
+  speed: '45 km/h',
+  location: 'Lebuhraya ELITE, Putrajaya',
+  lat: 2.926,
+  lng: 101.696
+}, {
+  id: 'WBB 2222',
+  driver: null,
+  phone: null,
+  inMaintenance: true,
+  status: 'Maintenance',
+  statusColor: 'gray',
+  speed: '—',
+  location: 'FleetMate Workshop, Subang Jaya',
+  lat: 3.082,
+  lng: 101.585
+}];
+const statusDotClass = {
+  green: 'bg-green-500',
+  yellow: 'bg-yellow-500',
+  red: 'bg-red-500',
+  gray: 'bg-slate-400'
+};
+const statusTextClass = {
+  green: 'text-green-600',
+  yellow: 'text-yellow-600',
+  red: 'text-red-600',
+  gray: 'text-slate-500'
+};
+const statusLabel = {
+  green: 'Moving',
+  yellow: 'Idle',
+  red: 'Stopped',
+  gray: 'Maintenance'
+};
+const markerColorByStatus = {
+  green: '#22c55e',
+  yellow: '#eab308',
+  red: '#ef4444',
+  gray: '#94a3b8'
+};
+const displayDriver = v => v && (v.inMaintenance || !v.driver) ? 'None' : v.driver;
+const chipBgByStatus = {
+  green: '#ECFDF5',
+  yellow: '#FFFBEB',
+  red: '#FEF2F2',
+  gray: '#F1F5F9'
+};
+const callDriver = v => {
+  if (!v || v.inMaintenance || !v.driver || !v.phone) return;
+  window.location.href = `tel:${v.phone}`;
+};
+const tripDataByVehicle = {
+  'WXX 1234': {
+    driver: 'Haziq',
+    date: '14 May 2025',
+    status: 'Completed',
+    startTime: '07:30 AM',
+    startLocation: 'Kuala Lumpur',
+    endTime: '01:15 PM',
+    endLocation: 'Melaka',
+    distance: '256.8 km',
+    drivingTime: '5h 45m',
+    fuelUsed: '48.60 L',
+    fuelCost: 'RM 197.80',
+    avgSpeed: '45 km/h',
+    route: [{
+      x: 90,
+      y: 60,
+      lat: 3.139,
+      lng: 101.687
+    }, {
+      x: 130,
+      y: 140,
+      lat: 2.944,
+      lng: 101.789
+    }, {
+      x: 110,
+      y: 230,
+      lat: 2.549,
+      lng: 102.019
+    }, {
+      x: 170,
+      y: 320,
+      lat: 2.189,
+      lng: 102.251
+    }]
+  },
+  'WYY 5678': {
+    driver: 'Aziz',
+    date: '13 May 2025',
+    status: 'Completed',
+    startTime: '08:00 AM',
+    startLocation: 'Shah Alam',
+    endTime: '11:40 AM',
+    endLocation: 'Seremban',
+    distance: '98.4 km',
+    drivingTime: '3h 40m',
+    fuelUsed: '18.20 L',
+    fuelCost: 'RM 74.07',
+    avgSpeed: '27 km/h',
+    route: [{
+      x: 60,
+      y: 80,
+      lat: 3.073,
+      lng: 101.518
+    }, {
+      x: 120,
+      y: 150,
+      lat: 2.944,
+      lng: 101.789
+    }, {
+      x: 150,
+      y: 260,
+      lat: 2.726,
+      lng: 101.938
+    }]
+  },
+  'WZZ 9101': {
+    driver: 'Hafiz',
+    date: '12 May 2025',
+    status: 'On the Road',
+    startTime: '06:45 AM',
+    startLocation: 'Klang',
+    endTime: '--',
+    endLocation: 'Ipoh (in progress)',
+    distance: '142.1 km',
+    drivingTime: '4h 10m',
+    fuelUsed: '26.50 L',
+    fuelCost: 'RM 107.86',
+    avgSpeed: '34 km/h',
+    route: [{
+      x: 50,
+      y: 250,
+      lat: 3.044,
+      lng: 101.445
+    }, {
+      x: 130,
+      y: 190,
+      lat: 3.273,
+      lng: 101.467
+    }, {
+      x: 220,
+      y: 120,
+      lat: 3.564,
+      lng: 101.506
+    }, {
+      x: 290,
+      y: 50,
+      lat: 4.597,
+      lng: 101.090
+    }]
+  },
+  'WAA 1111': {
+    driver: 'Faiz',
+    date: '11 May 2025',
+    status: 'Completed',
+    startTime: '09:15 AM',
+    startLocation: 'Petaling Jaya',
+    endTime: '02:50 PM',
+    endLocation: 'Malacca City',
+    distance: '178.6 km',
+    drivingTime: '5h 35m',
+    fuelUsed: '32.90 L',
+    fuelCost: 'RM 133.90',
+    avgSpeed: '32 km/h',
+    route: [{
+      x: 80,
+      y: 70,
+      lat: 3.107,
+      lng: 101.607
+    }, {
+      x: 140,
+      y: 160,
+      lat: 2.944,
+      lng: 101.789
+    }, {
+      x: 120,
+      y: 250,
+      lat: 2.549,
+      lng: 102.019
+    }, {
+      x: 200,
+      y: 310,
+      lat: 2.189,
+      lng: 102.251
+    }]
+  },
+  'WBB 2222': {
+    driver: null,
+    date: '10 May 2025',
+    status: 'Completed',
+    startTime: '07:00 AM',
+    startLocation: 'Subang Jaya',
+    endTime: '10:20 AM',
+    endLocation: 'Putrajaya',
+    distance: '64.3 km',
+    drivingTime: '3h 20m',
+    fuelUsed: '12.80 L',
+    fuelCost: 'RM 52.10',
+    avgSpeed: '19 km/h',
+    route: [{
+      x: 70,
+      y: 200,
+      lat: 3.082,
+      lng: 101.585
+    }, {
+      x: 160,
+      y: 220,
+      lat: 2.984,
+      lng: 101.634
+    }, {
+      x: 240,
+      y: 280,
+      lat: 2.926,
+      lng: 101.696
+    }]
+  }
+};
+
+// --- SUB-COMPONENTS ---
+
+const SidebarMenu = ({
+  isOpen,
+  onClose,
+  setView,
+  currentView
+}) => {
+  const menuItems = [{
+    id: 'dashboard',
+    label: 'Dashboard',
+    icon: 'home'
+  }, {
+    id: 'tracking',
+    label: 'Live Tracking',
+    icon: 'map'
+  }, {
+    id: 'fuel',
+    label: 'Fuel Tracker',
+    icon: 'fuel'
+  }, {
+    id: 'maintenance',
+    label: 'Maintenance',
+    icon: 'wrench'
+  }, {
+    id: 'more',
+    label: 'Reports',
+    icon: 'bar-chart-2'
+  }];
+  const handleItemClick = viewId => {
+    setView(viewId);
+    onClose();
+  };
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    onClick: onClose,
+    className: `absolute inset-0 bg-black/40 z-[60] transition-opacity duration-300 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`
+  }), " ", /*#__PURE__*/React.createElement("div", {
+    className: `absolute top-0 left-0 h-full w-[280px] bg-white z-[70] shadow-2xl transition-transform duration-300 ease-out flex flex-col ${isOpen ? 'translate-x-0' : '-translate-x-full'}`
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "app-header text-white pt-10 pb-5 px-5"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center space-x-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "w-12 h-12 rounded-2xl overflow-hidden shadow-sm shrink-0"
+  }, /*#__PURE__*/React.createElement("img", {
+    src: LOGO_DATA_URI,
+    alt: "FleetMate logo",
+    className: "w-full h-full object-cover"
+  })), " ", /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h2", {
+    className: "text-lg font-bold leading-tight"
+  }, " FleetMate "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "text-xs text-white/70"
+  }, " Track.Manage.Optimize. "), " "), " "), " "), /*#__PURE__*/React.createElement("div", {
+    className: "px-5 py-4 border-b border-gray-100"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center space-x-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-bold text-sm"
+  }, "TE "), " ", /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
+    className: "font-semibold text-gray-900 text-sm"
+  }, " Termizi "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "text-xs text-gray-500"
+  }, " Fleet Manager "), " "), " "), " "), /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 py-3 px-3 space-y-1"
+  }, " ", menuItems.map(item => {
+    const isActive = currentView === item.id;
+    return /*#__PURE__*/React.createElement("button", {
+      key: item.id,
+      onClick: () => handleItemClick(item.id),
+      className: `w-full flex items-center space-x-3 px-3 py-3 rounded-xl transition-colors text-left ${isActive ? 'bg-primary text-white shadow-md' : 'text-gray-700 hover:bg-gray-50'}`
+    }, /*#__PURE__*/React.createElement(Icon, {
+      name: item.icon,
+      size: 20,
+      className: isActive ? 'text-white' : 'text-gray-500'
+    }), " ", /*#__PURE__*/React.createElement("span", {
+      className: "font-medium text-sm"
+    }, " ", item.label, " "), " ", isActive && /*#__PURE__*/React.createElement(Icon, {
+      name: "chevron-right",
+      size: 16,
+      className: "ml-auto"
+    }), " ");
+  }), " "), /*#__PURE__*/React.createElement("div", {
+    className: "p-3 border-t border-gray-100 space-y-1"
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      setView('notifications');
+      onClose();
+    },
+    className: "w-full flex items-center space-x-3 px-3 py-3 rounded-xl transition-colors text-left text-gray-700 hover:bg-gray-50"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "relative"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "bell",
+    size: 20,
+    className: "text-gray-500"
+  })), " ", /*#__PURE__*/React.createElement("span", {
+    className: "font-medium text-sm"
+  }, " Notifications "), " "), " ", /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      setView('login');
+      onClose();
+    },
+    className: "w-full flex items-center space-x-3 px-3 py-3 rounded-xl transition-colors text-left text-red-600 hover:bg-red-50"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "log-out",
+    size: 20
+  }), " ", /*#__PURE__*/React.createElement("span", {
+    className: "font-medium text-sm"
+  }, " Logout "), " "), " "), " "), " ");
+};
+const BottomNav = ({
+  activeTab,
+  setView
+}) => {
+  const tabs = [{
+    id: 'dashboard',
+    label: 'Dashboard',
+    icon: 'home'
+  }, {
+    id: 'tracking',
+    label: 'Tracking',
+    icon: 'map'
+  }, {
+    id: 'fuel',
+    label: 'Fuel',
+    icon: 'fuel'
+  }, {
+    id: 'maintenance',
+    label: 'Maintenance',
+    icon: 'wrench'
+  }, {
+    id: 'more',
+    label: 'More',
+    icon: 'more-horizontal'
+  }];
+  return /*#__PURE__*/React.createElement("div", {
+    className: "bottom-nav-shell px-3 py-2 flex justify-between items-center w-full"
+  }, " ", tabs.map(tab => {
+    const isActive = activeTab === tab.id;
+    return /*#__PURE__*/React.createElement("button", {
+      key: tab.id,
+      onClick: () => setView(tab.id),
+      className: `bottom-nav-item relative flex flex-col items-center justify-center ${isActive ? 'active' : 'text-gray-400'}`
+    }, isActive && /*#__PURE__*/React.createElement("span", {
+      className: "absolute -top-1.5 w-1 h-1 rounded-full bg-primary"
+    }, " "), " ", /*#__PURE__*/React.createElement(Icon, {
+      name: tab.icon,
+      size: 22,
+      className: `mb-1 transition-transform ${isActive ? 'scale-110' : ''}`
+    }), " ", /*#__PURE__*/React.createElement("span", {
+      className: "text-[10px] font-medium"
+    }, " ", tab.label, " "), " ");
+  }), " ");
+};
+const Header = ({
+  title,
+  leftIcon = 'menu',
+  rightIcon = 'bell',
+  onLeftClick,
+  onRightClick,
+  showBadge = false,
+  badgeCount = 0
+}) => {
+  return /*#__PURE__*/React.createElement("div", {
+    className: "app-header text-white pt-10 pb-3 px-4 flex justify-between items-center shrink-0"
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: onLeftClick,
+    className: "header-button"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: leftIcon,
+    size: 24
+  }), " "), " ", /*#__PURE__*/React.createElement("h1", {
+    className: "text-lg font-bold flex-1 text-center leading-tight"
+  }, " ", title, " "), " ", /*#__PURE__*/React.createElement("button", {
+    onClick: onRightClick,
+    className: "header-button relative"
+  }, " ", rightIcon && /*#__PURE__*/React.createElement(Icon, {
+    name: rightIcon,
+    size: 24
+  }), " ", showBadge && /*#__PURE__*/React.createElement("span", {
+    className: "absolute -top-0.5 -right-0.5 bg-red-600 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center border border-white/70"
+  }, badgeCount, " "), " "), " ");
+};
+
+// --- VIEWS ---
+
+const LoginView = ({
+  setView
+}) => {
+  const [showPassword, setShowPassword] = useState(false);
+  return /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 flex flex-col login-bg p-6 text-white overflow-y-auto no-scrollbar"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 flex flex-col items-center justify-center mb-3 pt-10"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "rounded-3xl mb-4 w-60 h-60 shadow-2xl ring-1 ring-white/10 relative overflow-hidden"
+  }, /*#__PURE__*/React.createElement("img", {
+    src: LOGO_DATA_URI,
+    alt: "FleetMate logo",
+    className: "w-full h-full object-cover"
+  })), /*#__PURE__*/React.createElement("h2", {
+    className: "text-3xl font-bold mb-1"
+  }, " Welcome Back! "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "text-sm mb-4 opacity-90"
+  }, " Login to your FleetMate account "), /*#__PURE__*/React.createElement("div", {
+    className: "w-full space-y-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "soft-input bg-white rounded-2xl flex items-center px-4 py-3 text-gray-700"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "user",
+    className: "text-gray-400 mr-3",
+    size: 20
+  }), " ", /*#__PURE__*/React.createElement("input", {
+    type: "text",
+    placeholder: "Email or Username",
+    className: "flex-1 bg-transparent outline-none w-full",
+    defaultValue: "termizi@fleet.com"
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "soft-input bg-white rounded-2xl flex items-center px-4 py-3 text-gray-700"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "lock",
+    className: "text-gray-400 mr-3",
+    size: 20
+  }), " ", /*#__PURE__*/React.createElement("input", {
+    type: "password",
+    placeholder: "Password",
+    className: "flex-1 bg-transparent outline-none w-full",
+    defaultValue: "password123"
+  }), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: () => setShowPassword(prev => !prev),
+    className: "text-gray-400 ml-3 cursor-pointer",
+    "aria-label": "Toggle password visibility"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: showPassword ? "eye-off" : "eye",
+    size: 20
+  }), " "), " "), /*#__PURE__*/React.createElement("div", {
+    className: "flex justify-between items-center text-sm py-2"
+  }, /*#__PURE__*/React.createElement("label", {
+    className: "flex items-center space-x-2 cursor-pointer"
+  }, /*#__PURE__*/React.createElement("input", {
+    type: "checkbox",
+    className: "w-4 h-4 rounded border-gray-300",
+    defaultChecked: true
+  }), /*#__PURE__*/React.createElement("span", null, " Remember Me "), " "), " ", /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: () => window.alert('Password reset is not connected yet, but the button is working.'),
+    className: "hover:underline"
+  }, " Forgot Password ? "), " "), /*#__PURE__*/React.createElement("button", {
+    onClick: () => setView('dashboard'),
+    className: "touch-lift w-full bg-secondary text-white font-bold py-3.5 rounded-2xl shadow-lg mt-4 transition-transform"
+  }, "LOGIN "), /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center my-6"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 border-t border-white/30"
+  }, " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: "px-3 text-sm opacity-80"
+  }, " or "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 border-t border-white/30"
+  }, " "), " "), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: () => window.alert('Google sign-in is not connected yet, but the button is working.'),
+    className: "touch-lift w-full bg-white text-gray-700 font-medium py-3 rounded-2xl shadow-md hover:shadow-lg flex items-center justify-center space-x-2 active:bg-gray-50 transition-shadow"
+  }, /*#__PURE__*/React.createElement("svg", {
+    viewBox: "0 0 24 24",
+    width: "20",
+    height: "20",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z",
+    fill: "#4285F4"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z",
+    fill: "#34A853"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z",
+    fill: "#FBBC05"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z",
+    fill: "#EA4335"
+  })), " ", /*#__PURE__*/React.createElement("span", null, " Sign in with Google "), " "), " "), /*#__PURE__*/React.createElement("div", {
+    className: "mt-8 text-sm pb-4"
+  }, /*#__PURE__*/React.createElement("span", null, " Don't have an account? "), " ", /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: () => window.alert('Sign-up flow can be connected next.'),
+    className: "font-bold hover:underline"
+  }, " Sign Up "), " "), " "), " ");
+};
+
+// --- DASHBOARD VIEW (E20 Highway removed) ---
+const DashboardView = ({
+  setView,
+  onMenuOpen,
+  unreadCount,
+  onSelectVehicle
+}) => {
+  // Vehicle status list data (all 5)
+  const statusList = fleetVehicles.slice().sort((a, b) => a.inMaintenance === b.inMaintenance ? 0 : a.inMaintenance ? 1 : -1).map(v => ({
+    ...v,
+    label: statusLabel[v.statusColor] || v.status,
+    dotColor: statusDotClass[v.statusColor],
+    textColor: statusTextClass[v.statusColor]
+  }));
+
+  // Count active (Moving) and in maintenance
+  const activeCount = fleetVehicles.filter(v => v.statusColor === 'green').length;
+  const maintenanceCount = fleetVehicles.filter(v => v.inMaintenance).length;
+
+  // Greet based on time of day
+  const hour = new Date().getHours();
+  const greeting = hour < 12 ? 'Good morning!' : hour < 18 ? 'Good afternoon!' : 'Good evening!';
+
+  // --- Mini live-tracking map (real Leaflet preview, mirrors the full Tracking map) ---
+  const miniMapRef = useRef(null);
+  const miniMapInstanceRef = useRef(null);
+  const openVehicle = id => {
+    onSelectVehicle && onSelectVehicle(id);
+    setView('tracking');
+  };
+
+  // Used by "View All" and by tapping the mini-map background (not a specific
+  // vehicle pin) — clears any previously selected vehicle so the full Tracking
+  // map opens showing an overview of the whole fleet, instead of flying in on
+  // whichever vehicle happened to be selected last.
+  const viewAllVehicles = () => {
+    onSelectVehicle && onSelectVehicle(null);
+    setView('tracking');
+  };
+  useEffect(() => {
+    if (!miniMapRef.current || miniMapInstanceRef.current) return;
+    let cancelled = false;
+    let rafId = null;
+    let resizeObserver = null;
+
+    // Don't hand the container to Leaflet until it actually has a real,
+    // non-zero size. Right after login the card's height (Tailwind's h-36
+    // class, applied via the CDN runtime which styles newly-mounted nodes
+    // asynchronously) plus the view-fade-in mount animation mean the box can
+    // still measure 0x0 on the very first frame or two. Initializing Leaflet
+    // against a 0x0 box is what produces the blank/grey map — a later
+    // invalidateSize() call doesn't reliably undo that. Polling a frame at a
+    // time until the box is real sidesteps the race entirely, however long it
+    // takes to settle.
+    const init = () => {
+      if (cancelled) return;
+      const el = miniMapRef.current;
+      if (!el) return;
+      if (el.clientWidth === 0 || el.clientHeight === 0) {
+        rafId = requestAnimationFrame(init);
+        return;
+      }
+      const map = L.map(el, {
+        zoomControl: false,
+        attributionControl: false,
+        dragging: false,
+        scrollWheelZoom: false,
+        doubleClickZoom: false,
+        boxZoom: false,
+        keyboard: false,
+        tap: false
+      }).setView([3.07, 101.58], 11);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19
+      }).addTo(map);
+      const markersLayer = L.layerGroup().addTo(map);
+      fleetVehicles.forEach(v => {
+        const bgColor = markerColorByStatus[v.statusColor] || '#94a3b8';
+        const isMoving = v.statusColor === 'green';
+        const pulseHtml = isMoving ? '<span style="position:absolute;width:28px;height:28px;border-radius:50%;background:#22c55e;opacity:0.35;animation:pulseRing 2s cubic-bezier(0.4,0,0.6,1) infinite;"></span>' : '';
+        const iconHtml = `<div style="position:relative;display:flex;align-items:center;justify-content:center;width:28px;height:28px;">
+                            ${pulseHtml}
+                            <div style="width:18px;height:18px;border-radius:50%;background:${bgColor};border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.35);position:relative;z-index:2;"></div>
+                        </div>`;
+        const icon = L.divIcon({
+          className: '',
+          html: iconHtml,
+          iconSize: [28, 28],
+          iconAnchor: [14, 14]
+        });
+        const marker = L.marker([v.lat, v.lng], {
+          icon
+        }).addTo(markersLayer);
+        marker.on('click', e => {
+          L.DomEvent.stopPropagation(e);
+          openVehicle(v.id);
+        });
+      });
+      map.on('click', () => viewAllVehicles());
+      const bounds = L.latLngBounds(fleetVehicles.map(v => [v.lat, v.lng]));
+      miniMapInstanceRef.current = map;
+      map.invalidateSize();
+      map.fitBounds(bounds, {
+        padding: [26, 26]
+      });
+
+      // Safety net for later layout changes (e.g. orientation change) —
+      // the container already has a real size by the time we get here.
+      resizeObserver = new ResizeObserver(() => {
+        map.invalidateSize();
+        map.fitBounds(bounds, {
+          padding: [26, 26]
+        });
+      });
+      resizeObserver.observe(el);
+    };
+    rafId = requestAnimationFrame(init);
+    return () => {
+      cancelled = true;
+      if (rafId) cancelAnimationFrame(rafId);
+      if (resizeObserver) resizeObserver.disconnect();
+      if (miniMapInstanceRef.current) {
+        miniMapInstanceRef.current.remove();
+        miniMapInstanceRef.current = null;
+      }
+    };
+  }, []);
+  return /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 flex flex-col bg-bgLight w-full h-full overflow-hidden"
+  }, /*#__PURE__*/React.createElement(Header, {
+    title: "FleetMate",
+    showBadge: unreadCount > 0,
+    badgeCount: unreadCount,
+    onLeftClick: onMenuOpen,
+    onRightClick: () => setView('notifications')
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "screen-scroll flex-1 overflow-y-auto p-4 space-y-3 pb-4 no-scrollbar"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h2", {
+    className: "text-2xl font-bold text-gray-900"
+  }, " Hello, Termizi "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "text-sm text-gray-600"
+  }, " ", greeting, " Here's your fleet overview. "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "grid grid-cols-3 gap-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card touch-lift rounded-2xl p-3 flex flex-col"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex justify-between items-start mb-2"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "tnum text-2xl font-bold text-gray-900"
+  }, " 5 "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "icon-chip bg-blue-50 text-secondary"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "truck",
+    size: 19
+  }), " "), " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: "text-xs text-gray-500 font-medium"
+  }, " Total Trucks "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card touch-lift rounded-2xl p-3 flex flex-col"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex justify-between items-start mb-2"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "tnum text-2xl font-bold text-gray-900"
+  }, " ", activeCount, " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "icon-chip bg-green-50 text-green-600"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "map-pin",
+    size: 19
+  }), " "), " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: "text-xs text-gray-500 font-medium"
+  }, " On the Road "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card touch-lift rounded-2xl p-3 flex flex-col"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex justify-between items-start mb-2"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "tnum text-2xl font-bold text-gray-900"
+  }, " ", maintenanceCount, " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "icon-chip bg-orange-50 text-primary"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "wrench",
+    size: 19
+  }), " "), " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: "text-xs text-gray-500 font-medium"
+  }, " Maintenance "), " "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card rounded-2xl overflow-hidden flex flex-col"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "p-4 flex justify-between items-center border-b border-gray-50 shrink-0"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center space-x-2"
+  }, /*#__PURE__*/React.createElement("h3", {
+    className: "font-bold text-gray-900"
+  }, " Live Tracking "), " ", /*#__PURE__*/React.createElement("span", {
+    className: "relative flex h-2 w-2"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
+  }, " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: "relative inline-flex rounded-full h-2 w-2 bg-green-500"
+  }, " "), " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: "text-[10px] font-semibold text-green-600 bg-green-50 px-2 py-0.5 rounded-full ml-1"
+  }, " LIVE "), " "), " ", /*#__PURE__*/React.createElement("button", {
+    onClick: viewAllVehicles,
+    className: "text-sm font-semibold text-primary flex items-center hover:underline"
+  }, "View All ", /*#__PURE__*/React.createElement(Icon, {
+    name: "chevron-right",
+    size: 14,
+    className: "ml-0.5"
+  })), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "h-36 relative cursor-pointer overflow-hidden bg-gray-100"
+  }, /*#__PURE__*/React.createElement("div", {
+    ref: miniMapRef,
+    className: "absolute inset-0"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "absolute inset-0 pointer-events-none",
+    style: {
+      background: 'linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0) 30%)'
+    }
+  }), " ", /*#__PURE__*/React.createElement("div", {
+    className: "absolute bottom-3 left-3 z-[1000] bg-green-500 text-white text-[10px] px-2.5 py-1.5 rounded-full font-semibold shadow-sm flex items-center space-x-1.5 pointer-events-none"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "relative flex h-2 w-2"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"
+  }, " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: "relative inline-flex rounded-full h-2 w-2 bg-white"
+  }, " "), " "), " ", /*#__PURE__*/React.createElement("span", null, " ", activeCount, " active "), " "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "px-3 pb-3 pt-2 bg-gray-50/80 border-t border-gray-100"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center justify-between mb-2"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "text-[11px] font-semibold text-gray-500 uppercase tracking-wide"
+  }, "Vehicle Status "), " ", /*#__PURE__*/React.createElement("span", {
+    className: "text-[10px] text-gray-400"
+  }, " Tap to track "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "grid grid-cols-1 gap-1.5 max-h-[180px] overflow-y-auto no-scrollbar pr-0.5"
+  }, " ", statusList.map(v => {
+    const dot = statusDotClass[v.statusColor];
+    const label = statusLabel[v.statusColor];
+    return /*#__PURE__*/React.createElement("div", {
+      key: v.id,
+      onClick: () => openVehicle(v.id),
+      className: `status-item flex items-center justify-between bg-white rounded-xl px-3 py-2 border shadow-sm cursor-pointer active:bg-gray-50 ${v.inMaintenance ? 'border-slate-200/80 opacity-90' : 'border-gray-100/80 hover:border-primary/30'}`
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "flex items-center space-x-2.5 min-w-0"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: `w-2.5 h-2.5 rounded-full ${dot} border border-white shadow-sm shrink-0`
+    }, " "), " ", /*#__PURE__*/React.createElement("span", {
+      className: "text-[13px] font-semibold text-gray-800 truncate"
+    }, v.id, " "), " ", /*#__PURE__*/React.createElement("span", {
+      className: `text-[11px] truncate hidden sm:inline ${v.inMaintenance ? 'text-slate-400 italic' : 'text-gray-400'}`
+    }, displayDriver(v), " "), " "), " ", /*#__PURE__*/React.createElement("div", {
+      className: "flex items-center space-x-2 shrink-0"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: `text-[11px] font-medium ${statusTextClass[v.statusColor] || 'text-gray-600'}`
+    }, label, " "), " ", /*#__PURE__*/React.createElement(Icon, {
+      name: "chevron-right",
+      size: 14,
+      className: "text-gray-300"
+    })), " ");
+  }), " "), " "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card rounded-2xl p-4"
+  }, /*#__PURE__*/React.createElement("h3", {
+    className: "font-bold text-gray-900 mb-3"
+  }, " Fuel Summary (Today) "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "flex justify-between items-center"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center space-x-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "icon-chip bg-blue-50 text-secondary"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "fuel",
+    size: 21
+  }), " "), " ", /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
+    className: "text-xs text-gray-500"
+  }, " Total Fuel "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "tnum text-lg font-bold text-gray-900"
+  }, " 128.40 L "), " "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "h-10 w-px bg-gray-200"
+  }, " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center space-x-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "icon-chip bg-orange-50 text-primary"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "dollar-sign",
+    size: 21
+  }), " "), " ", /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
+    className: "text-xs text-gray-500"
+  }, " Total Cost "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "tnum text-lg font-bold text-gray-900"
+  }, " RM 512.00 "), " "), " "), " "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card touch-lift rounded-2xl p-4 mb-3 cursor-pointer",
+    onClick: () => setView('maintenance')
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex justify-between items-center mb-3"
+  }, /*#__PURE__*/React.createElement("h3", {
+    className: "font-bold text-gray-900"
+  }, " Upcoming Maintenance "), " ", /*#__PURE__*/React.createElement("button", {
+    onClick: () => setView('maintenance'),
+    className: "text-sm font-semibold text-primary flex items-center hover:underline"
+  }, "View All ", /*#__PURE__*/React.createElement(Icon, {
+    name: "chevron-right",
+    size: 14,
+    className: "ml-0.5"
+  })), " "), /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center justify-between"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center space-x-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "icon-chip bg-orange-50 text-primary"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "wrench",
+    size: 21
+  }), " "), " ", /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h4", {
+    className: "font-bold text-gray-900"
+  }, " WXX 1234 "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "text-sm text-gray-600"
+  }, " Oil Change "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "text-xs text-red-500 font-medium"
+  }, " Due in 3 days "), " "), " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: "text-xs text-gray-500"
+  }, " 15 May 2025 "), " "), " "), " "), " ");
+};
+
+// --- TRACKING VIEW (simplified) ---
+const TrackingView = ({
+  setView,
+  vehicleId,
+  routeMode,
+  onExitRoute,
+  onSelectVehicle,
+  onMenuOpen,
+  unreadCount
+}) => {
+  const [selectedId, setSelectedId] = useState(vehicleId || fleetVehicles[0].id);
+  const [filter, setFilter] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchFocused, setSearchFocused] = useState(false);
+  const [recenterPulse, setRecenterPulse] = useState(false);
+  const [mapReady, setMapReady] = useState(false);
+  const mapContainerRef = useRef(null);
+  const mapRef = useRef(null);
+  const markersLayerRef = useRef(null);
+  const routeLayerRef = useRef(null);
+  const dashAnimRef = useRef(null);
+  const dashOffsetRef = useRef(0);
+  const selectedVehicle = fleetVehicles.find(v => v.id === selectedId) || fleetVehicles[0];
+  const trip = tripDataByVehicle[selectedId];
+  const routePoints = routeMode && trip ? trip.route : null;
+  const filterMap = {
+    'All': null,
+    'Moving': 'green',
+    'Idle': 'yellow',
+    'Stopped': 'red'
+  };
+  const q = searchQuery.trim().toLowerCase();
+  const matchesSearchText = v => !q || v.id.toLowerCase().includes(q) || v.driver && v.driver.toLowerCase().includes(q) || v.inMaintenance && 'maintenance'.includes(q);
+  const visibleVehicles = fleetVehicles.filter(v => {
+    const matchesStatus = !filterMap[filter] || v.statusColor === filterMap[filter];
+    return matchesStatus && matchesSearchText(v);
+  });
+  // The quick-jump dropdown lists vehicles that are actually available right
+  // now — matching both the typed search text AND the active status filter —
+  // so it never offers a vehicle the map itself isn't showing. With no text
+  // typed yet, this is simply the full list of currently available vehicles,
+  // so tapping the search box lets you browse instead of forcing you to type
+  // a plate or driver name first.
+  const searchResults = visibleVehicles;
+  // Per-status counts of vehicles matching the current search text (independent of
+  // the active filter), so the All/Moving/Idle/Stopped pills can dynamically reflect
+  // what's actually searchable as the user types.
+  const filterCounts = {
+    All: fleetVehicles.filter(matchesSearchText).length,
+    Moving: fleetVehicles.filter(v => v.statusColor === 'green' && matchesSearchText(v)).length,
+    Idle: fleetVehicles.filter(v => v.statusColor === 'yellow' && matchesSearchText(v)).length,
+    Stopped: fleetVehicles.filter(v => v.statusColor === 'red' && matchesSearchText(v)).length
+  };
+  // If the active filter has no matches for the current search text, fall back to
+  // "All" rather than leaving a disabled, highlighted pill and an empty map.
+  useEffect(() => {
+    if (q && filter !== 'All' && filterCounts[filter] === 0 && filterCounts.All > 0) {
+      setFilter('All');
+    }
+  }, [q, filter, filterCounts.All, filterCounts.Moving, filterCounts.Idle, filterCounts.Stopped]);
+  const trackedCount = visibleVehicles.length;
+  const liveBadgeText = filter === 'Moving' ? `${trackedCount} vehicle${trackedCount !== 1 ? 's' : ''} live` : filter === 'All' ? `${trackedCount} vehicle${trackedCount !== 1 ? 's' : ''} tracked` : `${trackedCount} vehicle${trackedCount !== 1 ? 's' : ''} ${filter.toLowerCase()}`;
+  const badgeDotClass = {
+    All: 'bg-green-500',
+    Moving: 'bg-green-500',
+    Idle: 'bg-yellow-500',
+    Stopped: 'bg-red-500'
+  }[filter] || 'bg-green-500';
+  const badgePingClass = {
+    All: 'bg-green-400',
+    Moving: 'bg-green-400',
+    Idle: 'bg-yellow-400',
+    Stopped: 'bg-red-400'
+  }[filter] || 'bg-green-400';
+  useEffect(() => {
+    if (!mapContainerRef.current || mapRef.current) return;
+    let cancelled = false;
+    let rafId = null;
+    let resizeObserver = null;
+
+    // Same fix as the dashboard mini-map: wait until the container has a
+    // real, non-zero size before ever creating the Leaflet map, rather than
+    // creating it against a possibly-0x0 box and hoping invalidateSize()
+    // later fixes it up.
+    const init = () => {
+      if (cancelled) return;
+      const el = mapContainerRef.current;
+      if (!el) return;
+      if (el.clientWidth === 0 || el.clientHeight === 0) {
+        rafId = requestAnimationFrame(init);
+        return;
+      }
+      const map = L.map(el, {
+        zoomControl: false,
+        attributionControl: false
+      }).setView([3.07, 101.58], 11);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19
+      }).addTo(map);
+      mapRef.current = map;
+      markersLayerRef.current = L.layerGroup().addTo(map);
+      routeLayerRef.current = L.layerGroup().addTo(map);
+      map.invalidateSize();
+      setMapReady(true);
+
+      // Safety net for later layout changes (e.g. orientation change) —
+      // the container already has a real size by the time we get here.
+      resizeObserver = new ResizeObserver(() => map.invalidateSize());
+      resizeObserver.observe(el);
+    };
+    rafId = requestAnimationFrame(init);
+    return () => {
+      cancelled = true;
+      if (rafId) cancelAnimationFrame(rafId);
+      if (dashAnimRef.current) cancelAnimationFrame(dashAnimRef.current);
+      if (resizeObserver) resizeObserver.disconnect();
+      if (mapRef.current) {
+        mapRef.current.remove();
+        mapRef.current = null;
+      }
+      markersLayerRef.current = null;
+      routeLayerRef.current = null;
+    };
+  }, []);
+  useEffect(() => {
+    if (!mapRef.current || !markersLayerRef.current) return;
+    markersLayerRef.current.clearLayers();
+    if (routeMode) return;
+    visibleVehicles.forEach(v => {
+      const isSelected = selectedId === v.id;
+      const size = isSelected ? 40 : 28;
+      const anchor = size / 2;
+      const bgColor = markerColorByStatus[v.statusColor] || '#94a3b8';
+      const pulseHtml = isSelected && v.statusColor === 'green' ? '<span style="position:absolute;width:36px;height:36px;border-radius:50%;background:#22c55e;opacity:0.4;animation:pulseRing 2s cubic-bezier(0.4,0,0.6,1) infinite;"></span>' : '';
+      const iconHtml = `<div style="position:relative;display:flex;align-items:center;justify-content:center;width:${size}px;height:${size}px;">
+                            ${pulseHtml}
+                            <div style="width:${isSelected ? 32 : 24}px;height:${isSelected ? 32 : 24}px;border-radius:50%;background:${bgColor};border:${isSelected ? 3 : 2}px solid white;display:flex;align-items:center;justify-content:center;box-shadow:0 ${isSelected ? 2 : 1}px ${isSelected ? 8 : 4}px rgba(0,0,0,0.3);position:relative;z-index:2;">
+                                <svg width="${isSelected ? 14 : 11}" height="${isSelected ? 14 : 11}" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                            </div>
+                        </div>`;
+      const icon = L.divIcon({
+        className: '',
+        html: iconHtml,
+        iconSize: [size, size],
+        iconAnchor: [anchor, anchor]
+      });
+      const marker = L.marker([v.lat, v.lng], {
+        icon
+      }).addTo(markersLayerRef.current);
+      marker.on('click', () => selectVehicle(v.id));
+    });
+  }, [visibleVehicles, selectedId, routeMode, mapReady]);
+  useEffect(() => {
+    if (!mapRef.current || !routeLayerRef.current) return;
+    routeLayerRef.current.clearLayers();
+    if (dashAnimRef.current) {
+      cancelAnimationFrame(dashAnimRef.current);
+      dashAnimRef.current = null;
+    }
+    if (routeMode && routePoints && routePoints.length > 0) {
+      const latLngs = routePoints.map(p => [p.lat, p.lng]);
+      L.polyline(latLngs, {
+        color: 'white',
+        weight: 7,
+        opacity: 0.9,
+        lineCap: 'round',
+        lineJoin: 'round'
+      }).addTo(routeLayerRef.current);
+      L.polyline(latLngs, {
+        color: '#FF6F00',
+        weight: 4,
+        opacity: 0.9,
+        lineCap: 'round',
+        lineJoin: 'round'
+      }).addTo(routeLayerRef.current);
+      const dashedLine = L.polyline(latLngs, {
+        color: 'white',
+        weight: 2,
+        opacity: 0.9,
+        dashArray: '10 6',
+        dashOffset: '0',
+        lineCap: 'round',
+        lineJoin: 'round'
+      }).addTo(routeLayerRef.current);
+      const animateDash = () => {
+        dashOffsetRef.current -= 0.5;
+        dashedLine.setStyle({
+          dashOffset: String(dashOffsetRef.current)
+        });
+        dashAnimRef.current = requestAnimationFrame(animateDash);
+      };
+      animateDash();
+      const start = routePoints[0];
+      const end = routePoints[routePoints.length - 1];
+      const startIcon = L.divIcon({
+        className: '',
+        html: '<div style="width:14px;height:14px;border-radius:50%;background:#10B981;border:2.5px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.3);"></div>',
+        iconSize: [14, 14],
+        iconAnchor: [7, 7]
+      });
+      L.marker([start.lat, start.lng], {
+        icon: startIcon
+      }).addTo(routeLayerRef.current);
+      const endIcon = L.divIcon({
+        className: '',
+        html: '<div style="width:14px;height:14px;border-radius:50%;background:#EF4444;border:2.5px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.3);"></div>',
+        iconSize: [14, 14],
+        iconAnchor: [7, 7]
+      });
+      L.marker([end.lat, end.lng], {
+        icon: endIcon
+      }).addTo(routeLayerRef.current);
+      const startLabel = L.divIcon({
+        className: '',
+        html: `<div style="background:white;border-radius:6px;padding:3px 8px;box-shadow:0 1px 4px rgba(0,0,0,0.15);font-size:10px;font-weight:600;color:#333;white-space:nowrap;display:flex;align-items:center;gap:4px;font-family:Inter,sans-serif;"><span style="width:6px;height:6px;border-radius:50%;background:#10B981;flex-shrink:0;"></span>${trip.startLocation}</div>`,
+        iconSize: [120, 20],
+        iconAnchor: [60, 30]
+      });
+      L.marker([start.lat, start.lng], {
+        icon: startLabel,
+        interactive: false
+      }).addTo(routeLayerRef.current);
+      const endLabel = L.divIcon({
+        className: '',
+        html: `<div style="background:white;border-radius:6px;padding:3px 8px;box-shadow:0 1px 4px rgba(0,0,0,0.15);font-size:10px;font-weight:600;color:#333;white-space:nowrap;display:flex;align-items:center;gap:4px;font-family:Inter,sans-serif;"><span style="width:6px;height:6px;border-radius:50%;background:#EF4444;flex-shrink:0;"></span>${trip.endLocation}</div>`,
+        iconSize: [120, 20],
+        iconAnchor: [60, 30]
+      });
+      L.marker([end.lat, end.lng], {
+        icon: endLabel,
+        interactive: false
+      }).addTo(routeLayerRef.current);
+      const bounds = L.latLngBounds(latLngs);
+      mapRef.current.fitBounds(bounds, {
+        padding: [50, 50],
+        maxZoom: 14,
+        animate: true
+      });
+    }
+  }, [routeMode, routePoints, mapReady]);
+  useEffect(() => {
+    if (!mapRef.current) return;
+    if (vehicleId) {
+      setSelectedId(vehicleId);
+      const v = fleetVehicles.find(veh => veh.id === vehicleId);
+      if (v) mapRef.current.flyTo([v.lat, v.lng], 14, {
+        duration: 0.6
+      });
+    } else {
+      // "View All" — no specific vehicle was chosen, so show an overview
+      // of the whole fleet instead of flying to whichever vehicle happened
+      // to be selected last.
+      const bounds = L.latLngBounds(fleetVehicles.map(v => [v.lat, v.lng]));
+      mapRef.current.fitBounds(bounds, {
+        padding: [60, 60],
+        maxZoom: 13,
+        animate: true
+      });
+    }
+  }, [vehicleId, mapReady]);
+  const selectVehicle = id => {
+    setSelectedId(id);
+    onSelectVehicle && onSelectVehicle(id);
+    if (mapRef.current) {
+      const v = fleetVehicles.find(veh => veh.id === id);
+      if (v) mapRef.current.flyTo([v.lat, v.lng], 14, {
+        duration: 0.5
+      });
+    }
+  };
+  const openDriverDetails = (id = selectedId) => {
+    const v = fleetVehicles.find(veh => veh.id === id);
+    if (!v || v.inMaintenance || !v.driver) return;
+    selectVehicle(id);
+    setView('driver_details');
+  };
+  const zoomIn = () => mapRef.current && mapRef.current.zoomIn();
+  const zoomOut = () => mapRef.current && mapRef.current.zoomOut();
+  const recenter = () => {
+    if (!mapRef.current) return;
+    const target = routeMode && routePoints && routePoints.length > 0 ? routePoints[routePoints.length - 1] : selectedVehicle;
+    mapRef.current.flyTo([target.lat, target.lng], 14, {
+      duration: 0.5
+    });
+    setRecenterPulse(true);
+    setTimeout(() => setRecenterPulse(false), 500);
+  };
+  const handleBack = () => {
+    onExitRoute && onExitRoute();
+    setView('trip_details');
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 flex flex-col bg-bgLight w-full h-full overflow-hidden relative"
+  }, /*#__PURE__*/React.createElement(Header, {
+    title: routeMode ? `Route - ${selectedId}` : 'Live Tracking',
+    leftIcon: routeMode ? 'arrow-left' : 'menu',
+    onLeftClick: routeMode ? handleBack : onMenuOpen,
+    rightIcon: routeMode ? null : 'bell',
+    onRightClick: routeMode ? undefined : () => setView('notifications'),
+    showBadge: !routeMode && unreadCount > 0,
+    badgeCount: unreadCount
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 relative flex flex-col min-h-0"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 relative overflow-hidden"
+  }, /*#__PURE__*/React.createElement("div", {
+    ref: mapContainerRef,
+    style: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0
+    }
+  }), !routeMode && /*#__PURE__*/React.createElement("div", {
+    className: "absolute top-3 left-3 right-3 z-[1000] space-y-2",
+    onMouseDown: e => e.stopPropagation(),
+    onTouchStart: e => e.stopPropagation()
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "bg-white/95 backdrop-blur-sm rounded-2xl shadow-md flex items-center px-3 py-2.5 border border-white/70"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "search",
+    size: 18,
+    className: "text-gray-400 mr-2"
+  }), /*#__PURE__*/React.createElement("input", {
+    type: "text",
+    value: searchQuery,
+    onChange: e => setSearchQuery(e.target.value),
+    onFocus: () => setSearchFocused(true),
+    onBlur: () => setTimeout(() => setSearchFocused(false), 150),
+    placeholder: "Search vehicle or driver",
+    className: "flex-1 outline-none text-sm w-full bg-transparent"
+  }), searchQuery && /*#__PURE__*/React.createElement("button", {
+    onClick: () => setSearchQuery(''),
+    className: "ml-1 text-gray-400 hover:text-gray-600 shrink-0"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "x",
+    size: 16
+  }))), (q || searchFocused) && /*#__PURE__*/React.createElement("div", {
+    className: "bg-white/95 backdrop-blur-sm rounded-2xl shadow-md max-h-48 overflow-y-auto no-scrollbar border border-white/70"
+  }, !q && /*#__PURE__*/React.createElement("p", {
+    className: "px-3 pt-2.5 pb-1 text-[11px] font-semibold text-gray-400 uppercase tracking-wide"
+  }, "Available Vehicles"), searchResults.length > 0 ? searchResults.map(v => /*#__PURE__*/React.createElement("button", {
+    key: v.id,
+    onClick: () => {
+      selectVehicle(v.id);
+      setSearchQuery('');
+      setSearchFocused(false);
+    },
+    className: "w-full flex items-center justify-between px-3 py-2.5 hover:bg-gray-50 active:bg-gray-100 text-left border-b border-gray-100 last:border-b-0"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center space-x-2 min-w-0"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: `w-2 h-2 rounded-full shrink-0 ${statusDotClass[v.statusColor]}`
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "min-w-0"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "text-sm font-semibold text-gray-900 truncate"
+  }, v.id), /*#__PURE__*/React.createElement("p", {
+    className: `text-xs truncate ${v.inMaintenance ? 'text-slate-400 italic' : 'text-gray-500'}`
+  }, displayDriver(v)))), /*#__PURE__*/React.createElement("span", {
+    className: "text-xs text-gray-400 shrink-0"
+  }, v.status))) : /*#__PURE__*/React.createElement("p", {
+    className: "px-3 py-2.5 text-sm text-gray-400"
+  }, q ? 'No vehicle or driver found' : 'No vehicles available for this filter')), /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center space-x-2 overflow-x-auto no-scrollbar"
+  }, " ", ['All', 'Moving', 'Idle', 'Stopped'].map(f => {
+    const count = filterCounts[f];
+    const isDisabled = !!q && count === 0;
+    return /*#__PURE__*/React.createElement("button", {
+      key: f,
+      onClick: () => !isDisabled && setFilter(f),
+      disabled: isDisabled,
+      className: `touch-lift px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shadow-sm border transition-colors flex items-center gap-1 ${isDisabled ? 'bg-white/50 text-gray-300 border-white/40 shadow-none cursor-not-allowed' : filter === f ? 'bg-secondary text-white border-secondary' : 'bg-white/90 text-gray-600 border-white/60'}`
+    }, /*#__PURE__*/React.createElement("span", null, f), /*#__PURE__*/React.createElement("span", {
+      className: `tnum text-[10px] font-bold px-1.5 py-0.5 rounded-full ${filter === f && !isDisabled ? 'bg-white/20 text-white' : isDisabled ? 'bg-gray-100 text-gray-300' : 'bg-gray-100 text-gray-500'}`
+    }, count));
+  }), " "), " "), !routeMode && !(q || searchFocused) && /*#__PURE__*/React.createElement("div", {
+    className: "absolute right-3 bottom-3 flex flex-col items-end space-y-2 z-[1000]",
+    onMouseDown: e => e.stopPropagation(),
+    onTouchStart: e => e.stopPropagation()
+  }, trackedCount > 0 && /*#__PURE__*/React.createElement("div", {
+    className: "bg-white/95 backdrop-blur-sm rounded-full shadow-sm px-3 py-1.5 flex items-center space-x-1.5 border border-white/70"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "relative flex h-2 w-2"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: `animate-ping absolute inline-flex h-full w-full rounded-full ${badgePingClass} opacity-75`
+  }, " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: `relative inline-flex rounded-full h-2 w-2 ${badgeDotClass}`
+  }, " "), " "), /*#__PURE__*/React.createElement("span", {
+    className: "text-[11px] font-medium text-gray-700"
+  }, " ", liveBadgeText, " "), " "), /*#__PURE__*/React.createElement("button", {
+    onClick: recenter,
+    className: `w-10 h-10 shrink-0 bg-white/95 rounded-full shadow-md active:scale-90 transition-all hover:shadow-lg flex items-center justify-center ${recenterPulse ? 'ring-2 ring-primary text-primary' : 'text-gray-700'}`
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "crosshair",
+    size: 18,
+    className: recenterPulse ? 'text-primary' : 'text-gray-700'
+  }), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "bg-white/95 rounded-2xl shadow-md flex flex-col overflow-hidden"
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: zoomIn,
+    className: "p-2.5 border-b border-gray-100 active:bg-gray-50 active:scale-90 transition-transform"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "plus",
+    size: 18,
+    className: "text-gray-700"
+  })), " ", /*#__PURE__*/React.createElement("button", {
+    onClick: zoomOut,
+    className: "p-2.5 active:bg-gray-50 active:scale-90 transition-transform"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "minus",
+    size: 18,
+    className: "text-gray-700"
+  })), " "), " "), " "), !routeMode && /*#__PURE__*/React.createElement("div", {
+    className: "bg-white rounded-t-3xl shadow-[0_-16px_34px_rgba(15,23,42,0.10)] p-4 z-20 shrink-0 border-t border-gray-100 max-h-[45vh] overflow-y-auto"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "w-12 h-1 bg-gray-200 rounded-full mx-auto mb-3"
+  }, " "), /*#__PURE__*/React.createElement("div", {
+    className: "flex justify-between items-center mb-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center space-x-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "icon-chip",
+    style: {
+      backgroundColor: chipBgByStatus[selectedVehicle.statusColor] || '#F1F5F9'
+    }
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "truck",
+    size: 22,
+    className: "text-secondary"
+  })), " ", /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", {
+    className: "text-base font-bold text-gray-900 leading-tight"
+  }, " ", selectedVehicle.id, " "), " ", /*#__PURE__*/React.createElement("p", {
+    className: `text-xs ${selectedVehicle.inMaintenance ? 'text-slate-400 italic' : 'text-gray-500'}`
+  }, " ", displayDriver(selectedVehicle), " "), " "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: `flex items-center text-xs font-semibold px-2.5 py-1 rounded-full ${selectedVehicle.statusColor === 'green' ? 'bg-green-50 text-green-600' : selectedVehicle.statusColor === 'yellow' ? 'bg-yellow-50 text-yellow-600' : selectedVehicle.statusColor === 'gray' ? 'bg-slate-100 text-slate-600' : 'bg-red-50 text-red-600'}`
+  }, /*#__PURE__*/React.createElement("span", {
+    className: `w-1.5 h-1.5 rounded-full mr-1.5 ${statusDotClass[selectedVehicle.statusColor]}`
+  }, " "), " ", statusLabel[selectedVehicle.statusColor] || selectedVehicle.status, " "), " "), selectedVehicle.inMaintenance && /*#__PURE__*/React.createElement("div", {
+    className: "flex items-start space-x-2 bg-orange-50 border border-orange-100 rounded-xl px-3 py-2.5 mb-3"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "wrench",
+    size: 16,
+    className: "text-primary shrink-0 mt-0.5"
+  }), /*#__PURE__*/React.createElement("p", {
+    className: "text-xs text-orange-800 leading-relaxed"
+  }, "This lorry is under maintenance. No driver is assigned until service is complete.")), /*#__PURE__*/React.createElement("div", {
+    className: "flex justify-between bg-gray-50 rounded-2xl py-2.5 px-1 mb-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 text-center"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "text-[10px] text-gray-500 mb-0.5"
+  }, " Driver "), " ", /*#__PURE__*/React.createElement("p", {
+    className: `font-semibold text-sm truncate px-1 ${selectedVehicle.inMaintenance ? 'text-slate-400 italic cursor-default' : 'text-gray-900 cursor-pointer hover:text-primary'}`,
+    onClick: () => !selectedVehicle.inMaintenance && selectedVehicle.driver && openDriverDetails()
+  }, displayDriver(selectedVehicle), " "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 text-center border-l border-gray-200"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "text-[10px] text-gray-500 mb-0.5"
+  }, " Speed "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "tnum font-semibold text-gray-900 text-sm"
+  }, " ", selectedVehicle.speed, " "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 text-center border-l border-gray-200"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "text-[10px] text-gray-500 mb-0.5"
+  }, " Updated "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "font-semibold text-gray-900 text-sm"
+  }, " ", selectedVehicle.inMaintenance ? 'In workshop' : '2 min ago', " "), " "), " "), /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center justify-between"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center space-x-2 text-gray-700 min-w-0"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "map-pin",
+    size: 16,
+    className: "text-gray-400 shrink-0"
+  }), /*#__PURE__*/React.createElement("p", {
+    className: "text-sm truncate"
+  }, " ", selectedVehicle.location, " "), " "), " ", /*#__PURE__*/React.createElement("button", {
+    onClick: () => callDriver(selectedVehicle),
+    disabled: selectedVehicle.inMaintenance || !selectedVehicle.driver || !selectedVehicle.phone,
+    "aria-label": "Call driver",
+    className: `icon-action-btn touch-lift active:scale-90 transition-transform shadow-sm ${selectedVehicle.inMaintenance || !selectedVehicle.driver || !selectedVehicle.phone ? 'bg-gray-100 text-gray-300 cursor-not-allowed' : 'bg-orange-50 text-primary'}`
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "phone",
+    size: 16
+  }), " "), " "), " "), routeMode && trip && /*#__PURE__*/React.createElement("div", {
+    className: "bg-white rounded-t-3xl shadow-[0_-10px_30px_rgba(0,0,0,0.08)] p-4 z-20 shrink-0 border-t border-gray-100 max-h-[45vh] overflow-y-auto"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "w-12 h-1 bg-gray-200 rounded-full mx-auto mb-3"
+  }, " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center text-sm"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 flex items-center space-x-2 min-w-0"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "w-2.5 h-2.5 rounded-full bg-green-500 shrink-0"
+  }, " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: "text-gray-700 truncate"
+  }, " ", trip.startLocation, " "), " "), " ", /*#__PURE__*/React.createElement(Icon, {
+    name: "arrow-right",
+    size: 16,
+    className: "text-gray-300 mx-2 shrink-0"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 flex items-center justify-end space-x-2 min-w-0"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "text-gray-700 truncate"
+  }, " ", trip.endLocation, " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: "w-2.5 h-2.5 rounded-full bg-red-500 shrink-0"
+  }, " "), " "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "grid grid-cols-2 gap-3 mt-3 text-center"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "bg-gray-50 rounded-xl py-2.5"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "text-[10px] text-gray-500"
+  }, " Distance "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "font-bold text-gray-900 text-sm"
+  }, " ", trip.distance, " "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "bg-gray-50 rounded-xl py-2.5"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "text-[10px] text-gray-500"
+  }, " Driving Time "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "font-bold text-gray-900 text-sm"
+  }, " ", trip.drivingTime, " "), " "), " "), " "), " "), " ");
+};
+
+// --- FUEL VIEW ---
+const FuelView = ({
+  setView,
+  setSelectedVehicleId,
+  onMenuOpen
+}) => {
+  return /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 flex flex-col bg-bgLight w-full h-full overflow-hidden"
+  }, /*#__PURE__*/React.createElement(Header, {
+    title: "Fuel Tracker",
+    leftIcon: "menu",
+    rightIcon: "more-horizontal",
+    onLeftClick: onMenuOpen,
+    onRightClick: () => setView('more')
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "screen-scroll flex-1 overflow-y-auto p-4 space-y-3 pb-4 no-scrollbar"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex justify-center items-center space-x-1 py-1"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "font-semibold text-gray-800"
+  }, " This Month "), " ", /*#__PURE__*/React.createElement(Icon, {
+    name: "chevron-down",
+    size: 16,
+    className: "text-gray-600"
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "grid grid-cols-2 gap-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card rounded-2xl p-4"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "text-xs text-gray-500 mb-1 text-center"
+  }, " Total Fuel Used "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "tnum text-xl font-bold text-gray-900 text-center"
+  }, " 426.80 L "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card rounded-2xl p-4"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "text-xs text-gray-500 mb-1 text-center"
+  }, " Total Cost "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "tnum text-xl font-bold text-gray-900 text-center"
+  }, " RM 1,737.08 "), " "), " "), /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card rounded-2xl p-4"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex justify-between items-center mb-3"
+  }, /*#__PURE__*/React.createElement("h3", {
+    className: "font-bold text-gray-900"
+  }, " Fuel Overview "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "text-xs text-gray-500 flex items-center"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "w-2 h-2 rounded-full bg-primary mr-1.5 inline-block"
+  }, " "), "Litres (L) "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "h-36 w-full"
+  }, /*#__PURE__*/React.createElement(ResponsiveContainer, {
+    width: "100%",
+    height: "100%"
+  }, /*#__PURE__*/React.createElement(LineChart, {
+    data: fuelData,
+    margin: {
+      top: 5,
+      right: 0,
+      left: -25,
+      bottom: 0
+    }
+  }, /*#__PURE__*/React.createElement(CartesianGrid, {
+    strokeDasharray: "3 3",
+    vertical: false,
+    stroke: "#f0f0f0"
+  }), /*#__PURE__*/React.createElement(XAxis, {
+    dataKey: "day",
+    axisLine: false,
+    tickLine: false,
+    tick: {
+      fontSize: 10,
+      fill: '#888'
+    },
+    ticks: ['1 May', '8 May', '15 May', '22 May', '29 May']
+  }), " ", /*#__PURE__*/React.createElement(YAxis, {
+    axisLine: false,
+    tickLine: false,
+    tick: {
+      fontSize: 10,
+      fill: '#888'
+    },
+    domain: [0, 120],
+    ticks: [0, 30, 60, 90, 120]
+  }), " ", /*#__PURE__*/React.createElement(Tooltip, {
+    contentStyle: {
+      borderRadius: '8px',
+      fontSize: '12px',
+      border: 'none',
+      boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'
+    }
+  }), " ", /*#__PURE__*/React.createElement(Line, {
+    type: "monotone",
+    dataKey: "value",
+    stroke: "#FF6F00",
+    strokeWidth: 2,
+    dot: {
+      r: 3,
+      fill: '#FF6F00'
+    },
+    activeDot: {
+      r: 5
+    }
+  }), " "), " "), " "), " "), /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card rounded-2xl p-4"
+  }, /*#__PURE__*/React.createElement("h3", {
+    className: "font-bold text-gray-900 mb-3"
+  }, " Top Vehicles by Fuel Usage "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "space-y-3"
+  }, " ", vehicleFuelUsage.map(vehicle => /*#__PURE__*/React.createElement("div", {
+    key: vehicle.id,
+    className: "flex items-center justify-between cursor-pointer hover:bg-gray-50 p-2 -mx-2 rounded-xl transition-colors",
+    onClick: () => {
+      setSelectedVehicleId(vehicle.id);
+      setView('trip_details');
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center space-x-3 w-1/3"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "fuel",
+    size: 18,
+    className: "text-gray-500"
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "font-medium text-gray-900 text-sm"
+  }, " ", vehicle.id, " "), " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: "text-gray-600 text-sm w-1/3 text-center"
+  }, " ", vehicle.fuel, " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: "font-medium text-gray-900 text-sm w-1/3 text-right"
+  }, " ", vehicle.cost, " "), " ")), " "), " "), " "), " ");
+};
+
+// --- MAINTENANCE VIEW (simplified) ---
+const initialMaintenance = [{
+  id: 5,
+  vehicle: 'WBB 2222',
+  task: 'Transmission Service',
+  date: '01 Jul 2025',
+  due: 'In Progress',
+  icon: 'wrench',
+  iconBg: 'bg-orange-50',
+  iconColor: 'text-primary'
+}, {
+  id: 1,
+  vehicle: 'WXX 1234',
+  task: 'Oil Change',
+  date: '15 May 2025',
+  due: 'Due in 3 days',
+  icon: 'wrench',
+  iconBg: 'bg-orange-50',
+  iconColor: 'text-primary'
+}, {
+  id: 2,
+  vehicle: 'WYY 5678',
+  task: 'Tyre Rotation',
+  date: '19 May 2025',
+  due: 'Due in 7 days',
+  icon: 'aperture',
+  iconBg: 'bg-gray-100',
+  iconColor: 'text-gray-800'
+}, {
+  id: 3,
+  vehicle: 'WZZ 9101',
+  task: 'Air Filter Change',
+  date: '22 May 2025',
+  due: 'Due in 10 days',
+  icon: 'box',
+  iconBg: 'bg-red-50',
+  iconColor: 'text-red-500'
+}, {
+  id: 4,
+  vehicle: 'WAA 1111',
+  task: 'Brake Inspection',
+  date: '27 May 2025',
+  due: 'Due in 15 days',
+  icon: 'disc',
+  iconBg: 'bg-orange-50',
+  iconColor: 'text-primary'
+}];
+const maintenanceHistory = [{
+  id: 101,
+  vehicle: 'WXX 1234',
+  task: 'Brake Pad Replacement',
+  date: '02 Apr 2025',
+  due: 'Completed',
+  icon: 'check-circle',
+  iconBg: 'bg-green-50',
+  iconColor: 'text-green-600'
+}, {
+  id: 102,
+  vehicle: 'WBB 2222',
+  task: 'Engine Oil & Filter',
+  date: '18 Mar 2025',
+  due: 'Completed',
+  icon: 'check-circle',
+  iconBg: 'bg-green-50',
+  iconColor: 'text-green-600'
+}, {
+  id: 103,
+  vehicle: 'WYY 5678',
+  task: 'Battery Replacement',
+  date: '02 Mar 2025',
+  due: 'Completed',
+  icon: 'check-circle',
+  iconBg: 'bg-green-50',
+  iconColor: 'text-green-600'
+}, {
+  id: 104,
+  vehicle: 'WZZ 9101',
+  task: 'Tyre Alignment',
+  date: '14 Feb 2025',
+  due: 'Completed',
+  icon: 'check-circle',
+  iconBg: 'bg-green-50',
+  iconColor: 'text-green-600'
+}];
+const maintenanceSchedule = [{
+  id: 201,
+  vehicle: 'WXX 1234',
+  task: 'Annual Inspection',
+  date: '10 Jul 2025',
+  due: 'Scheduled',
+  icon: 'calendar',
+  iconBg: 'bg-blue-50',
+  iconColor: 'text-blue-600'
+}, {
+  id: 202,
+  vehicle: 'WAA 1111',
+  task: 'Coolant Flush',
+  date: '22 Jul 2025',
+  due: 'Scheduled',
+  icon: 'calendar',
+  iconBg: 'bg-blue-50',
+  iconColor: 'text-blue-600'
+}, {
+  id: 203,
+  vehicle: 'WBB 2222',
+  task: 'Transmission Service',
+  date: '05 Aug 2025',
+  due: 'Scheduled',
+  icon: 'calendar',
+  iconBg: 'bg-blue-50',
+  iconColor: 'text-blue-600'
+}];
+const AddMaintenanceModal = ({
+  onClose,
+  onSave
+}) => {
+  const [vehicle, setVehicle] = useState('');
+  const [task, setTask] = useState('');
+  const [date, setDate] = useState('');
+  const isValid = vehicle.trim() && task.trim() && date.trim();
+  const handleSave = () => {
+    if (!isValid) return;
+    onSave({
+      id: Date.now(),
+      vehicle: vehicle.trim(),
+      task: task.trim(),
+      date: date.trim(),
+      due: 'Newly scheduled',
+      icon: 'wrench',
+      iconBg: 'bg-blue-50',
+      iconColor: 'text-blue-600'
+    });
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    className: "absolute inset-0 z-50 flex items-end justify-center bg-black/40",
+    onClick: onClose
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "bg-white w-full rounded-t-3xl p-5 pb-6 shadow-2xl",
+    onClick: e => e.stopPropagation()
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "w-12 h-1 bg-gray-200 rounded-full mx-auto mb-4"
+  }, " "), " ", /*#__PURE__*/React.createElement("h3", {
+    className: "text-lg font-bold text-gray-900 mb-4"
+  }, " Add Maintenance "), /*#__PURE__*/React.createElement("div", {
+    className: "space-y-3"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
+    className: "text-xs text-gray-500 mb-1 block"
+  }, " Vehicle Plate "), " ", /*#__PURE__*/React.createElement("input", {
+    type: "text",
+    value: vehicle,
+    onChange: e => setVehicle(e.target.value),
+    placeholder: "e.g. WXX 1234",
+    className: "w-full bg-gray-100 rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary"
+  })), " ", /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
+    className: "text-xs text-gray-500 mb-1 block"
+  }, " Task "), " ", /*#__PURE__*/React.createElement("input", {
+    type: "text",
+    value: task,
+    onChange: e => setTask(e.target.value),
+    placeholder: "e.g. Oil Change",
+    className: "w-full bg-gray-100 rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary"
+  })), " ", /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
+    className: "text-xs text-gray-500 mb-1 block"
+  }, " Due Date "), " ", /*#__PURE__*/React.createElement("input", {
+    type: "text",
+    value: date,
+    onChange: e => setDate(e.target.value),
+    placeholder: "e.g. 30 June 2026",
+    className: "w-full bg-gray-100 rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary"
+  })), " "), /*#__PURE__*/React.createElement("div", {
+    className: "flex space-x-3 mt-5"
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: onClose,
+    className: "touch-lift flex-1 bg-gray-100 text-gray-700 font-semibold py-3 rounded-2xl transition-transform"
+  }, "Cancel "), " ", /*#__PURE__*/React.createElement("button", {
+    onClick: handleSave,
+    disabled: !isValid,
+    className: `touch-lift flex-1 font-semibold py-3 rounded-2xl shadow-md transition-transform ${isValid ? 'primary-action text-white' : 'bg-gray-200 text-gray-400'}`
+  }, "Save "), " "), " "), " ");
+};
+const MaintenanceView = ({
+  setView,
+  onMenuOpen
+}) => {
+  const [activeTab, setActiveTab] = useState('Upcoming');
+  const [items, setItems] = useState(initialMaintenance);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const handleSave = newItem => {
+    setItems(prev => [newItem, ...prev]);
+    setShowAddModal(false);
+  };
+  const tabData = {
+    Upcoming: {
+      list: items,
+      heading: 'Upcoming Maintenance',
+      empty: 'No upcoming maintenance scheduled.'
+    },
+    History: {
+      list: maintenanceHistory,
+      heading: 'Maintenance History',
+      empty: 'No maintenance history yet.'
+    },
+    Schedule: {
+      list: maintenanceSchedule,
+      heading: 'Scheduled Maintenance',
+      empty: 'Nothing scheduled yet.'
+    }
+  };
+  const current = tabData[activeTab];
+  return /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 flex flex-col bg-bgLight w-full h-full overflow-hidden relative"
+  }, /*#__PURE__*/React.createElement(Header, {
+    title: "Maintenance",
+    leftIcon: "menu",
+    rightIcon: "more-horizontal",
+    onLeftClick: onMenuOpen,
+    onRightClick: () => setView('more')
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "screen-scroll flex-1 overflow-y-auto p-4 space-y-3 pb-4 no-scrollbar"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card flex space-x-2 bg-white p-1 rounded-2xl"
+  }, " ", ['Upcoming', 'History', 'Schedule'].map(tab => /*#__PURE__*/React.createElement("button", {
+    key: tab,
+    className: `flex-1 py-1.5 text-sm rounded-xl font-medium transition-colors ${activeTab === tab ? 'bg-primary text-white' : 'text-gray-600 bg-transparent'}`,
+    onClick: () => setActiveTab(tab)
+  }, tab, " ")), " "), /*#__PURE__*/React.createElement("h3", {
+    className: "font-bold text-gray-900 mt-2"
+  }, " ", current.heading, " "), current.list.length > 0 ? /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card rounded-2xl p-2"
+  }, " ", current.list.map((item, idx) => /*#__PURE__*/React.createElement("div", {
+    key: item.id,
+    className: `flex items-start justify-between p-3 ${idx !== current.list.length - 1 ? 'border-b border-gray-100' : ''}`
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-start space-x-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: `${item.iconBg} icon-chip mt-1 shrink-0`
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: item.icon,
+    size: 20,
+    className: item.iconColor
+  }), " "), " ", /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h4", {
+    className: "font-bold text-gray-900"
+  }, " ", item.vehicle, " "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "text-sm text-gray-700"
+  }, " ", item.task, " "), " ", /*#__PURE__*/React.createElement("p", {
+    className: `text-xs font-medium mt-1 ${activeTab === 'Upcoming' ? 'text-red-500' : activeTab === 'History' ? 'text-green-600' : 'text-blue-600'}`
+  }, " ", item.due, " "), " "), " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: "text-xs text-gray-500 shrink-0"
+  }, " ", item.date, " "), " ")), " ") : /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card rounded-2xl p-6 text-center text-sm text-gray-400"
+  }, " ", current.empty, " "), /*#__PURE__*/React.createElement("button", {
+    onClick: () => setShowAddModal(true),
+    className: "touch-lift primary-action w-full text-white font-semibold py-3.5 rounded-2xl flex items-center justify-center space-x-2 mt-4 transition-transform"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "plus",
+    size: 18
+  }), " ", /*#__PURE__*/React.createElement("span", null, " Add Maintenance "), " "), " "), showAddModal && /*#__PURE__*/React.createElement(AddMaintenanceModal, {
+    onClose: () => setShowAddModal(false),
+    onSave: handleSave
+  }), " ");
+};
+
+// --- DRIVER DETAILS VIEW ---
+const DriverDetailsView = ({
+  setView,
+  vehicleId
+}) => {
+  const vehicle = fleetVehicles.find(v => v.id === vehicleId) || fleetVehicles[0];
+  const trip = tripDataByVehicle[vehicle.id] || tripDataByVehicle[fleetVehicles[0].id];
+  const driverIndex = fleetVehicles.findIndex(v => v.id === vehicle.id);
+  const driverId = `DRV${String(driverIndex + 1).padStart(3, '0')}`;
+  const noDriver = vehicle.inMaintenance || !vehicle.driver;
+  if (noDriver) {
+    return /*#__PURE__*/React.createElement("div", {
+      className: "flex-1 flex flex-col bg-bgLight w-full h-full overflow-hidden"
+    }, /*#__PURE__*/React.createElement(Header, {
+      title: "Driver Details",
+      leftIcon: "arrow-left",
+      rightIcon: "bell",
+      onLeftClick: () => setView('tracking'),
+      onRightClick: () => setView('notifications')
+    }), /*#__PURE__*/React.createElement("div", {
+      className: "screen-scroll flex-1 overflow-y-auto p-4 space-y-3 pb-4 no-scrollbar"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "fleet-card rounded-2xl p-6 text-center"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "w-16 h-16 mx-auto mb-3 rounded-full bg-slate-100 flex items-center justify-center"
+    }, /*#__PURE__*/React.createElement(Icon, {
+      name: "wrench",
+      size: 28,
+      className: "text-slate-400"
+    })), " ", /*#__PURE__*/React.createElement("h2", {
+      className: "text-lg font-bold text-gray-900 mb-1"
+    }, " No Driver Assigned "), " ", /*#__PURE__*/React.createElement("p", {
+      className: "text-sm text-gray-500 mb-3"
+    }, vehicle.id, " is currently under maintenance. Driver details are unavailable until the vehicle returns to service. "), " ", /*#__PURE__*/React.createElement("div", {
+      className: "inline-flex items-center text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-100 text-slate-600"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "w-1.5 h-1.5 rounded-full mr-1.5 bg-slate-400"
+    }, " "), "Under Maintenance "), " "), " ", /*#__PURE__*/React.createElement("button", {
+      onClick: () => setView('maintenance'),
+      className: "touch-lift w-full primary-action text-white font-semibold py-3 rounded-2xl shadow-md flex items-center justify-center space-x-2"
+    }, /*#__PURE__*/React.createElement(Icon, {
+      name: "wrench",
+      size: 18
+    }), " ", /*#__PURE__*/React.createElement("span", null, " View Maintenance "), " "), " "), " ");
+  }
+  return /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 flex flex-col bg-bgLight w-full h-full overflow-hidden"
+  }, /*#__PURE__*/React.createElement(Header, {
+    title: "Driver Details",
+    leftIcon: "arrow-left",
+    rightIcon: "bell",
+    onLeftClick: () => setView('tracking'),
+    onRightClick: () => setView('notifications')
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "screen-scroll flex-1 overflow-y-auto p-4 space-y-3 pb-4 no-scrollbar"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card rounded-2xl p-4 flex items-center justify-between mb-2"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center space-x-4 min-w-0"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "w-20 h-20 shrink-0 bg-blue-200 rounded-full flex items-center justify-center overflow-hidden border-2 border-white shadow-sm"
+  }, /*#__PURE__*/React.createElement("svg", {
+    viewBox: "0 0 100 100",
+    className: "w-full h-full text-blue-800"
+  }, /*#__PURE__*/React.createElement("rect", {
+    width: "100",
+    height: "100",
+    fill: "#93C5FD"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "50",
+    cy: "40",
+    r: "20",
+    fill: "#FCD34D"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M 20 100 Q 50 60 80 100",
+    fill: "#1E3A8A"
+  })), " "), " ", /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h2", {
+    className: "text-xl font-bold text-gray-900"
+  }, " ", vehicle.driver, " "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "text-sm text-gray-500 mb-1"
+  }, " Driver ID: ", driverId, " "), " ", vehicle.phone && /*#__PURE__*/React.createElement("p", {
+    className: "text-sm text-gray-500"
+  }, vehicle.phone), " ", /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center text-xs mt-1"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: `w-2.5 h-2.5 rounded-full mr-1 ${statusDotClass[vehicle.statusColor]}`
+  }, " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: `${statusTextClass[vehicle.statusColor]} font-medium`
+  }, statusLabel[vehicle.statusColor] || vehicle.status, " "), " "), " "), " "), " ", /*#__PURE__*/React.createElement("button", {
+    onClick: () => callDriver(vehicle),
+    disabled: !vehicle.phone,
+    "aria-label": "Call driver",
+    className: `icon-action-btn touch-lift active:scale-90 transition-transform shadow-sm ${vehicle.phone ? 'bg-orange-50 text-primary' : 'bg-gray-100 text-gray-300 cursor-not-allowed'}`
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "phone",
+    size: 18
+  }), " "), " "), /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card rounded-2xl p-4"
+  }, /*#__PURE__*/React.createElement("h3", {
+    className: "font-bold text-gray-900 mb-3"
+  }, " Today's Summary "), /*#__PURE__*/React.createElement("div", {
+    className: "grid grid-cols-2 gap-y-4 gap-x-2"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-start space-x-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "icon-chip bg-green-100 text-green-600 shrink-0"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "git-merge",
+    size: 16
+  }), " "), " ", /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
+    className: "text-xs text-gray-500"
+  }, " Distance "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "font-bold text-gray-900"
+  }, " ", trip.distance, " "), " "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "flex items-start space-x-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "icon-chip bg-blue-100 text-blue-600 shrink-0"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "clock",
+    size: 16
+  }), " "), " ", /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
+    className: "text-xs text-gray-500"
+  }, " Driving Time "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "font-bold text-gray-900"
+  }, " ", trip.drivingTime, " "), " "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "flex items-start space-x-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "icon-chip bg-orange-100 text-primary shrink-0"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "fuel",
+    size: 16
+  }), " "), " ", /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
+    className: "text-xs text-gray-500"
+  }, " Fuel Used "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "font-bold text-gray-900"
+  }, " ", trip.fuelUsed, " "), " "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "flex items-start space-x-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "icon-chip bg-green-100 text-green-600 font-bold text-[10px] shrink-0"
+  }, "RM "), " ", /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
+    className: "text-xs text-gray-500"
+  }, " Fuel Cost "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "font-bold text-gray-900"
+  }, " ", trip.fuelCost, " "), " "), " "), " "), " "), /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card rounded-2xl p-4 mb-3"
+  }, /*#__PURE__*/React.createElement("h3", {
+    className: "font-bold text-gray-900 mb-3"
+  }, " Driver Activity "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "relative pl-6 space-y-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "absolute left-2.5 top-2 bottom-2 w-0.5 bg-green-500"
+  }, " "), /*#__PURE__*/React.createElement("div", {
+    className: "relative"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "absolute -left-6 top-0.5 bg-green-500 text-white p-1 rounded-full border-2 border-white shadow-sm"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "flag",
+    size: 10
+  }), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "flex justify-between items-start"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
+    className: "font-bold text-sm text-gray-900"
+  }, " Trip Started "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "text-sm text-gray-500"
+  }, " ", trip.startLocation, " "), " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: "text-xs text-gray-500"
+  }, " ", trip.startTime, " "), " "), " "), /*#__PURE__*/React.createElement("div", {
+    className: "relative"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "absolute -left-6 top-1 bg-green-500 text-white p-1 rounded-full border-2 border-white shadow-sm"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "w-2.5 h-2.5"
+  }, " "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "flex justify-between items-start"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
+    className: "font-bold text-sm text-gray-900"
+  }, " Checkpoint "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "text-sm text-gray-500"
+  }, " Seremban "), " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: "text-xs text-gray-500"
+  }, " 09: 15 AM "), " "), " "), /*#__PURE__*/React.createElement("div", {
+    className: "relative"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "absolute -left-6 top-1 bg-green-500 text-white p-1 rounded-full border-2 border-white shadow-sm"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "w-2.5 h-2.5"
+  }, " "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "flex justify-between items-start"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
+    className: "font-bold text-sm text-gray-900"
+  }, " Checkpoint "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "text-sm text-gray-500"
+  }, " Ayer Keroh "), " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: "text-xs text-gray-500"
+  }, " 11: 45 AM "), " "), " "), /*#__PURE__*/React.createElement("div", {
+    className: "relative"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "absolute -left-6 top-0.5 bg-primary text-white p-1 rounded-full border-2 border-white shadow-sm z-10"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "flag",
+    size: 10
+  }), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "absolute -left-[14px] top-4 h-full w-0.5 bg-white z-0"
+  }, " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "flex justify-between items-start"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
+    className: "font-bold text-sm text-gray-900"
+  }, " ", trip.endTime === '--' ? 'Trip Ongoing' : 'Trip Completed', " "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "text-sm text-gray-500"
+  }, " ", trip.endLocation, " "), " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: "text-xs text-gray-500"
+  }, " ", trip.endTime === '--' ? vehicle.speed : trip.endTime, " "), " "), " "), " "), " "), " "), " ");
+};
+
+// --- NOTIFICATIONS VIEW ---
+const NotificationsView = ({
+  setView,
+  notifications,
+  markAsRead,
+  dismissNotification,
+  markAllAsRead
+}) => {
+  const [activeTab, setActiveTab] = useState('All');
+  const tabs = ['All', 'Alerts', 'Maintenance', 'System'];
+  const [dismissingId, setDismissingId] = useState(null);
+  const tabTypeMap = {
+    'All': null,
+    'Alerts': 'alert',
+    'Maintenance': 'maintenance',
+    'System': 'system'
+  };
+  const visibleNotifs = notifications.filter(n => !tabTypeMap[activeTab] || n.type === tabTypeMap[activeTab]);
+  const hasUnread = notifications.some(n => n.unread);
+  const getDotColor = item => {
+    if (item.unread) return 'bg-red-500';
+    if (item.dotColor) return item.dotColor;
+    return null;
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 flex flex-col bg-bgLight w-full h-full overflow-hidden"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "app-header text-white pt-10 pb-3 px-4 flex justify-between items-center shrink-0"
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => setView('dashboard'),
+    className: "header-button"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "arrow-left",
+    size: 24
+  }), " "), " ", /*#__PURE__*/React.createElement("h1", {
+    className: "text-lg font-bold flex-1 text-center leading-tight"
+  }, " Notifications "), " ", /*#__PURE__*/React.createElement("button", {
+    onClick: markAllAsRead,
+    disabled: !hasUnread,
+    className: `text-xs font-semibold px-2 py-2 rounded-xl transition-opacity ${hasUnread ? 'bg-white/20 opacity-100 active:opacity-70' : 'opacity-50 cursor-not-allowed'}`
+  }, "Mark all "), " "), /*#__PURE__*/React.createElement("div", {
+    className: "screen-scroll flex-1 flex flex-col min-h-0"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex px-4 py-3 overflow-x-auto no-scrollbar space-x-2 shrink-0"
+  }, " ", tabs.map(tab => /*#__PURE__*/React.createElement("button", {
+    key: tab,
+    className: `touch-lift px-4 py-1.5 text-sm rounded-xl font-medium whitespace-nowrap transition-colors shadow-sm ${activeTab === tab ? 'bg-primary text-white' : 'text-gray-600 bg-white border border-gray-100'}`,
+    onClick: () => setActiveTab(tab)
+  }, tab, " ")), " "), /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 overflow-y-auto no-scrollbar px-4 pb-4 space-y-2"
+  }, " ", visibleNotifs.length === 0 && /*#__PURE__*/React.createElement("div", {
+    className: "empty-state"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "icon-chip"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "bell-off",
+    size: 24
+  }), " "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "font-semibold text-gray-500 text-sm"
+  }, " You're all caught up "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "text-xs text-gray-400 mt-0.5"
+  }, " No notifications in this category. "), " "), " ", visibleNotifs.map(item => {
+    const dotColor = getDotColor(item);
+    const isDismissing = dismissingId === item.id;
+    const showDot = item.showDot !== false && !!dotColor;
+    return /*#__PURE__*/React.createElement("div", {
+      key: item.id,
+      onClick: () => markAsRead(item.id),
+      className: `fleet-card rounded-2xl p-4 flex items-start space-x-3 cursor-pointer active:bg-gray-50 transition-all duration-200 ${item.unread ? 'bg-orange-50/70 border-l-[3px] border-l-primary' : ''} ${isDismissing ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`
+    }, /*#__PURE__*/React.createElement("div", {
+      className: `${item.bg} text-white icon-chip shrink-0 shadow-sm mt-0.5`
+    }, /*#__PURE__*/React.createElement(Icon, {
+      name: item.icon,
+      size: 20
+    }), " "), " ", /*#__PURE__*/React.createElement("div", {
+      className: "flex-1 min-w-0"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "flex justify-between items-start mb-0.5"
+    }, /*#__PURE__*/React.createElement("h4", {
+      className: "font-bold text-gray-900 text-sm truncate pr-2"
+    }, item.title, " "), " ", /*#__PURE__*/React.createElement("span", {
+      className: "text-xs text-gray-500 whitespace-nowrap"
+    }, " ", item.time, " "), " "), " ", /*#__PURE__*/React.createElement("div", {
+      className: "flex justify-between items-center"
+    }, /*#__PURE__*/React.createElement("p", {
+      className: "text-sm text-gray-600 line-clamp-1 pr-2"
+    }, " ", item.desc, " "), " ", showDot && /*#__PURE__*/React.createElement("div", {
+      className: `w-2 h-2 rounded-full ${dotColor} shrink-0 ${isDismissing ? 'dot-fade-out' : ''}`
+    }), " "), " "), " ", /*#__PURE__*/React.createElement("div", {
+      className: "dismiss-btn",
+      onClick: e => {
+        e.stopPropagation();
+        setDismissingId(item.id);
+        setTimeout(() => {
+          dismissNotification(item.id);
+          setDismissingId(null);
+        }, 200);
+      }
+    }, "× "), " ");
+  }), " "), " "), " ");
+};
+
+// --- TRIP DETAILS VIEW ---
+const TripDetailsView = ({
+  setView,
+  vehicleId,
+  onViewRoute
+}) => {
+  const id = vehicleId || 'WXX 1234';
+  const trip = tripDataByVehicle[id] || tripDataByVehicle['WXX 1234'];
+  const vehicleMeta = fleetVehicles.find(v => v.id === id);
+  const isCompleted = trip.status === 'Completed';
+  const rows = [{
+    label: 'Start Time',
+    val: trip.startTime,
+    icon: 'clock'
+  }, {
+    label: 'Start Location',
+    val: trip.startLocation,
+    icon: 'map-pin'
+  }, {
+    label: 'End Time',
+    val: trip.endTime,
+    icon: 'clock'
+  }, {
+    label: 'End Location',
+    val: trip.endLocation,
+    icon: 'map-pin'
+  }, {
+    label: 'Total Distance',
+    val: trip.distance,
+    icon: 'git-merge'
+  }, {
+    label: 'Driving Time',
+    val: trip.drivingTime,
+    icon: 'clock'
+  }, {
+    label: 'Fuel Used',
+    val: trip.fuelUsed,
+    icon: 'fuel'
+  }, {
+    label: 'Fuel Cost',
+    val: trip.fuelCost,
+    icon: 'dollar-sign'
+  }, {
+    label: 'Avg Speed',
+    val: trip.avgSpeed,
+    icon: 'activity'
+  }];
+  return /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 flex flex-col bg-bgLight w-full h-full overflow-hidden"
+  }, /*#__PURE__*/React.createElement(Header, {
+    title: "Trip Details",
+    leftIcon: "arrow-left",
+    rightIcon: "share-2",
+    onLeftClick: () => setView('fuel'),
+    onRightClick: () => window.alert(`Shared trip details for ${id}.`)
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "screen-scroll flex-1 overflow-y-auto p-4 space-y-3 pb-4 no-scrollbar"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card rounded-2xl p-4"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex justify-between items-center mb-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center space-x-2"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "icon-chip bg-orange-50 text-primary"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "fuel",
+    size: 20
+  }), " "), " ", /*#__PURE__*/React.createElement("h2", {
+    className: "font-bold text-lg text-gray-900"
+  }, " ", id, " "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center text-xs"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: `w-2 h-2 rounded-full mr-1.5 ${isCompleted ? 'bg-green-500' : 'bg-yellow-500'}`
+  }, " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: `font-medium ${isCompleted ? 'text-green-600' : 'text-yellow-600'}`
+  }, trip.status, " "), " "), " "), /*#__PURE__*/React.createElement("div", {
+    className: "flex border-t border-gray-100 pt-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 border-r border-gray-100"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "text-xs text-gray-500 mb-1"
+  }, " Driver "), " ", /*#__PURE__*/React.createElement("p", {
+    className: `font-semibold text-sm ${vehicleMeta && vehicleMeta.inMaintenance ? 'text-slate-400 italic' : 'text-gray-900'}`
+  }, " ", displayDriver(vehicleMeta), " "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 pl-4"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "text-xs text-gray-500 mb-1"
+  }, " Date "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "font-semibold text-gray-900 text-sm"
+  }, " ", trip.date, " "), " "), " "), " "), /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card rounded-2xl overflow-hidden"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "divide-y divide-gray-50"
+  }, " ", rows.map(item => /*#__PURE__*/React.createElement("div", {
+    key: item.label,
+    className: "flex justify-between items-center p-4 hover:bg-gray-50/80 transition-colors"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center space-x-3"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: item.icon,
+    size: 18,
+    className: "text-gray-500"
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "text-sm text-gray-700"
+  }, " ", item.label, " "), " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: "tnum font-semibold text-gray-900 text-sm text-right"
+  }, item.val, " "), " ")), " "), " "), /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      onViewRoute && onViewRoute();
+      setView('tracking');
+    },
+    className: "touch-lift primary-action w-full text-white font-semibold py-3.5 rounded-2xl mt-4 mb-2 transition-transform"
+  }, "View Route on Map "), " "), " ");
+};
+
+// --- REPORTS VIEW ---
+const ReportsView = ({
+  setView,
+  onMenuOpen,
+  setSelectedVehicleId
+}) => {
+  const [activeTab, setActiveTab] = useState('Summary');
+  return /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 flex flex-col bg-bgLight w-full h-full overflow-hidden"
+  }, /*#__PURE__*/React.createElement(Header, {
+    title: "Reports",
+    leftIcon: "menu",
+    onLeftClick: onMenuOpen,
+    rightIcon: null
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "screen-scroll flex-1 overflow-y-auto p-4 space-y-3 pb-4 no-scrollbar"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex space-x-2 overflow-x-auto no-scrollbar py-1 shrink-0"
+  }, " ", ['Summary', 'Fuel', 'Trips', 'Maintenance'].map(tab => /*#__PURE__*/React.createElement("button", {
+    key: tab,
+    className: `touch-lift px-4 py-1.5 text-sm rounded-xl font-medium whitespace-nowrap transition-colors border shadow-sm ${activeTab === tab ? 'bg-primary text-white border-primary' : 'text-gray-600 bg-white border-gray-100'}`,
+    onClick: () => setActiveTab(tab)
+  }, tab, " ")), " "), /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card rounded-2xl p-3 flex justify-between items-center"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center space-x-3"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "home",
+    size: 18,
+    className: "text-gray-500 shrink-0"
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "text-sm font-medium text-gray-800 truncate"
+  }, "01 May 2025 - 31 May 2025 "), " "), " ", /*#__PURE__*/React.createElement(Icon, {
+    name: "calendar",
+    size: 18,
+    className: "text-gray-500 shrink-0"
+  })), activeTab === 'Summary' && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", {
+    className: "font-bold text-gray-900 mb-3 text-sm"
+  }, " Fleet Summary "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "grid grid-cols-2 gap-3"
+  }, " ", [{
+    label: 'Total Distance',
+    val: '2,156.4 km'
+  }, {
+    label: 'Total Fuel Used',
+    val: '426.80 L'
+  }, {
+    label: 'Total Fuel Cost',
+    val: 'RM 1,737.08'
+  }, {
+    label: 'Total Trips',
+    val: '38'
+  }, {
+    label: 'Total Driving Time',
+    val: '42h 30m'
+  }, {
+    label: 'Avg Fuel Efficiency',
+    val: '5.05 km/L'
+  }].map(item => /*#__PURE__*/React.createElement("div", {
+    key: item.label,
+    className: "fleet-card touch-lift rounded-2xl p-3"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "text-[11px] text-gray-500 mb-1"
+  }, " ", item.label, " "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "tnum font-bold text-gray-900 text-sm"
+  }, " ", item.val, " "), " ")), " "), " "), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", {
+    className: "font-bold text-gray-900 mb-3 text-sm"
+  }, " Performance Overview "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card rounded-2xl p-4 pt-2"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex justify-center space-x-6 mb-3 text-xs"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "w-3 h-3 bg-primary mr-2 rounded-sm"
+  }, " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: "text-gray-600"
+  }, " Distance (km) "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "w-3 h-3 bg-gray-400 mr-2 rounded-sm"
+  }, " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: "text-gray-600"
+  }, " Fuel Used (L) "), " "), " "), /*#__PURE__*/React.createElement("div", {
+    className: "h-36 w-full relative"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "absolute left-0 top-0 bottom-6 flex flex-col justify-between text-[10px] text-gray-500 w-8"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "-mt-2"
+  }, " (km) "), " ", /*#__PURE__*/React.createElement("span", null, " 800 "), " ", /*#__PURE__*/React.createElement("span", null, " 600 "), " ", /*#__PURE__*/React.createElement("span", null, " 400 "), " ", /*#__PURE__*/React.createElement("span", null, " 200 "), " ", /*#__PURE__*/React.createElement("span", null, " 0 "), " "), /*#__PURE__*/React.createElement("div", {
+    className: "ml-8 h-full"
+  }, /*#__PURE__*/React.createElement(ResponsiveContainer, {
+    width: "100%",
+    height: "100%"
+  }, /*#__PURE__*/React.createElement(BarChart, {
+    data: reportData,
+    margin: {
+      top: 10,
+      right: 0,
+      left: 0,
+      bottom: 0
+    },
+    barGap: 2
+  }, /*#__PURE__*/React.createElement(CartesianGrid, {
+    strokeDasharray: "3 3",
+    vertical: false,
+    stroke: "#f0f0f0"
+  }), /*#__PURE__*/React.createElement(XAxis, {
+    dataKey: "week",
+    axisLine: true,
+    tickLine: false,
+    tick: {
+      fontSize: 10,
+      fill: '#666'
+    },
+    tickMargin: 10
+  }), " ", /*#__PURE__*/React.createElement(YAxis, {
+    hide: true,
+    domain: [0, 800]
+  }), " ", /*#__PURE__*/React.createElement(Tooltip, {
+    contentStyle: {
+      borderRadius: '8px',
+      fontSize: '12px',
+      border: 'none',
+      boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'
+    },
+    cursor: {
+      fill: '#f9fafb'
+    }
+  }), " ", /*#__PURE__*/React.createElement(Bar, {
+    dataKey: "distance",
+    fill: "#FF6F00",
+    radius: [2, 2, 0, 0],
+    barSize: 12
+  }), " ", /*#__PURE__*/React.createElement(Bar, {
+    dataKey: "fuel",
+    fill: "#9CA3AF",
+    radius: [2, 2, 0, 0],
+    barSize: 12
+  }), " "), " "), " "), " "), " "), " "), " "), activeTab === 'Fuel' && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    className: "grid grid-cols-2 gap-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card rounded-2xl p-4"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "text-xs text-gray-500 mb-1 text-center"
+  }, " Total Fuel Used "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "tnum text-xl font-bold text-gray-900 text-center"
+  }, " 426.80 L "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card rounded-2xl p-4"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "text-xs text-gray-500 mb-1 text-center"
+  }, " Total Cost "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "tnum text-xl font-bold text-gray-900 text-center"
+  }, " RM 1,737.08 "), " "), " "), /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card rounded-2xl p-4"
+  }, /*#__PURE__*/React.createElement("h3", {
+    className: "font-bold text-gray-900 mb-3 text-sm"
+  }, " Fuel Usage Trend "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "h-36 w-full"
+  }, /*#__PURE__*/React.createElement(ResponsiveContainer, {
+    width: "100%",
+    height: "100%"
+  }, /*#__PURE__*/React.createElement(LineChart, {
+    data: fuelData,
+    margin: {
+      top: 5,
+      right: 0,
+      left: -25,
+      bottom: 0
+    }
+  }, /*#__PURE__*/React.createElement(CartesianGrid, {
+    strokeDasharray: "3 3",
+    vertical: false,
+    stroke: "#f0f0f0"
+  }), /*#__PURE__*/React.createElement(XAxis, {
+    dataKey: "day",
+    axisLine: false,
+    tickLine: false,
+    tick: {
+      fontSize: 10,
+      fill: '#888'
+    },
+    ticks: ['1 May', '8 May', '15 May', '22 May', '29 May']
+  }), " ", /*#__PURE__*/React.createElement(YAxis, {
+    axisLine: false,
+    tickLine: false,
+    tick: {
+      fontSize: 10,
+      fill: '#888'
+    },
+    domain: [0, 120],
+    ticks: [0, 30, 60, 90, 120]
+  }), " ", /*#__PURE__*/React.createElement(Tooltip, {
+    contentStyle: {
+      borderRadius: '8px',
+      fontSize: '12px',
+      border: 'none',
+      boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'
+    }
+  }), " ", /*#__PURE__*/React.createElement(Line, {
+    type: "monotone",
+    dataKey: "value",
+    stroke: "#FF6F00",
+    strokeWidth: 2,
+    dot: {
+      r: 3,
+      fill: '#FF6F00'
+    },
+    activeDot: {
+      r: 5
+    }
+  }), " "), " "), " "), " "), /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card rounded-2xl p-4"
+  }, /*#__PURE__*/React.createElement("h3", {
+    className: "font-bold text-gray-900 mb-3 text-sm"
+  }, " Top Vehicles by Fuel Usage "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "space-y-3"
+  }, " ", vehicleFuelUsage.map(vehicle => /*#__PURE__*/React.createElement("div", {
+    key: vehicle.id,
+    className: "flex items-center justify-between cursor-pointer hover:bg-gray-50 p-2 -mx-2 rounded-xl transition-colors",
+    onClick: () => {
+      setSelectedVehicleId(vehicle.id);
+      setView('trip_details');
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center space-x-3 w-1/3"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "fuel",
+    size: 18,
+    className: "text-gray-500"
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "font-medium text-gray-900 text-sm"
+  }, " ", vehicle.id, " "), " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: "text-gray-600 text-sm w-1/3 text-center"
+  }, " ", vehicle.fuel, " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: "font-medium text-gray-900 text-sm w-1/3 text-right"
+  }, " ", vehicle.cost, " "), " ")), " "), " "), " "), activeTab === 'Trips' && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h3", {
+    className: "font-bold text-gray-900 mb-3 text-sm"
+  }, " Recent Trips "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card rounded-2xl p-2"
+  }, " ", fleetVehicles.map((v, idx) => {
+    const trip = tripDataByVehicle[v.id];
+    if (!trip) return null;
+    return /*#__PURE__*/React.createElement("div", {
+      key: v.id,
+      onClick: () => {
+        setSelectedVehicleId(v.id);
+        setView('trip_details');
+      },
+      className: `flex items-center justify-between p-3 cursor-pointer hover:bg-gray-50 transition-colors ${idx !== fleetVehicles.length - 1 ? 'border-b border-gray-100' : ''}`
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "flex items-center space-x-3 min-w-0"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "icon-chip bg-orange-50 text-primary shrink-0"
+    }, /*#__PURE__*/React.createElement(Icon, {
+      name: "git-merge",
+      size: 18
+    }), " "), " ", /*#__PURE__*/React.createElement("div", {
+      className: "min-w-0"
+    }, /*#__PURE__*/React.createElement("h4", {
+      className: "font-bold text-gray-900 text-sm truncate"
+    }, " ", v.id, " "), " ", /*#__PURE__*/React.createElement("p", {
+      className: `text-xs truncate ${v.inMaintenance ? 'text-slate-400 italic' : 'text-gray-500'}`
+    }, " ", displayDriver(v), " • ", trip.date, " "), " "), " "), " ", /*#__PURE__*/React.createElement("div", {
+      className: "text-right shrink-0 ml-2"
+    }, /*#__PURE__*/React.createElement("p", {
+      className: "tnum font-semibold text-gray-900 text-sm"
+    }, " ", trip.distance, " "), " ", /*#__PURE__*/React.createElement("p", {
+      className: `text-[11px] font-medium ${trip.status === 'Completed' ? 'text-green-600' : 'text-yellow-600'}`
+    }, trip.status, " "), " "), " ");
+  }), " "), " "), activeTab === 'Maintenance' && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    className: "grid grid-cols-2 gap-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card rounded-2xl p-4"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "text-xs text-gray-500 mb-1 text-center"
+  }, " Upcoming "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "tnum text-xl font-bold text-gray-900 text-center"
+  }, " ", initialMaintenance.length, " "), " "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card rounded-2xl p-4"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "text-xs text-gray-500 mb-1 text-center"
+  }, " Completed "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "tnum text-xl font-bold text-gray-900 text-center"
+  }, " ", maintenanceHistory.length, " "), " "), " "), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", {
+    className: "font-bold text-gray-900 mb-3 text-sm"
+  }, " Upcoming Maintenance "), " ", /*#__PURE__*/React.createElement("div", {
+    className: "fleet-card rounded-2xl p-2"
+  }, " ", initialMaintenance.map((item, idx) => /*#__PURE__*/React.createElement("div", {
+    key: item.id,
+    className: `flex items-start justify-between p-3 ${idx !== initialMaintenance.length - 1 ? 'border-b border-gray-100' : ''}`
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-start space-x-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: `${item.iconBg} icon-chip mt-1 shrink-0`
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: item.icon,
+    size: 20,
+    className: item.iconColor
+  }), " "), " ", /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h4", {
+    className: "font-bold text-gray-900"
+  }, " ", item.vehicle, " "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "text-sm text-gray-700"
+  }, " ", item.task, " "), " ", /*#__PURE__*/React.createElement("p", {
+    className: "text-xs font-medium mt-1 text-red-500"
+  }, " ", item.due, " "), " "), " "), " ", /*#__PURE__*/React.createElement("span", {
+    className: "text-xs text-gray-500 shrink-0"
+  }, " ", item.date, " "), " ")), " "), " "), /*#__PURE__*/React.createElement("button", {
+    onClick: () => setView('maintenance'),
+    className: "touch-lift primary-action w-full text-white font-semibold py-3.5 rounded-2xl flex items-center justify-center space-x-2 transition-transform"
+  }, /*#__PURE__*/React.createElement("span", null, " Open Maintenance "), " ", /*#__PURE__*/React.createElement(Icon, {
+    name: "arrow-right",
+    size: 18
+  }), " "), " ")), " ");
+};
+
+// --- MAIN APP ---
+const App = () => {
+  const [view, setView] = useState('login');
+  const [selectedVehicleId, setSelectedVehicleId] = useState('WXX 1234');
+  const [routeMode, setRouteMode] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [notifications, setNotifications] = useState(initialNotifs);
+  const markAsRead = id => {
+    setNotifications(prev => prev.map(n => {
+      if (n.id === id) return {
+        ...n,
+        unread: false,
+        showDot: false,
+        dotColor: null
+      };
+      return n;
+    }));
+  };
+  const dismissNotification = id => {
+    setNotifications(prev => prev.filter(n => n.id !== id));
+  };
+  const markAllAsRead = () => {
+    setNotifications(prev => prev.map(n => ({
+      ...n,
+      unread: false,
+      showDot: false,
+      dotColor: null
+    })));
+  };
+  const unreadCount = notifications.filter(n => n.unread).length;
+  const navigate = v => {
+    setRouteMode(false);
+    setSidebarOpen(false);
+    setView(v);
+  };
+  const showBottomNav = view !== 'login' && !sidebarOpen;
+  const showSidebar = view !== 'login';
+  return /*#__PURE__*/React.createElement("div", {
+    id: "mobile-container",
+    className: "shadow-2xl"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex-1 flex flex-col w-full min-h-0 overflow-hidden relative"
+  }, showSidebar && /*#__PURE__*/React.createElement(SidebarMenu, {
+    isOpen: sidebarOpen,
+    onClose: () => setSidebarOpen(false),
+    setView: navigate,
+    currentView: view
+  }), /*#__PURE__*/React.createElement("div", {
+    key: view,
+    className: "view-fade-in flex-1 flex flex-col w-full min-h-0"
+  }, view === 'login' && /*#__PURE__*/React.createElement(LoginView, {
+    setView: navigate
+  }), " ", view === 'dashboard' && /*#__PURE__*/React.createElement(DashboardView, {
+    setView: navigate,
+    onMenuOpen: () => setSidebarOpen(true),
+    unreadCount: unreadCount,
+    onSelectVehicle: setSelectedVehicleId
+  }), " ", view === 'tracking' && /*#__PURE__*/React.createElement(TrackingView, {
+    setView: navigate,
+    vehicleId: selectedVehicleId,
+    onSelectVehicle: setSelectedVehicleId,
+    routeMode: routeMode,
+    onExitRoute: () => setRouteMode(false),
+    onMenuOpen: () => setSidebarOpen(true),
+    unreadCount: unreadCount
+  }), " ", view === 'fuel' && /*#__PURE__*/React.createElement(FuelView, {
+    setView: navigate,
+    setSelectedVehicleId: setSelectedVehicleId,
+    onMenuOpen: () => setSidebarOpen(true)
+  }), " ", view === 'maintenance' && /*#__PURE__*/React.createElement(MaintenanceView, {
+    setView: navigate,
+    onMenuOpen: () => setSidebarOpen(true)
+  }), " ", view === 'driver_details' && /*#__PURE__*/React.createElement(DriverDetailsView, {
+    setView: navigate,
+    vehicleId: selectedVehicleId
+  }), " ", view === 'notifications' && /*#__PURE__*/React.createElement(NotificationsView, {
+    setView: navigate,
+    notifications: notifications,
+    markAsRead: markAsRead,
+    dismissNotification: dismissNotification,
+    markAllAsRead: markAllAsRead
+  }), " ", view === 'trip_details' && /*#__PURE__*/React.createElement(TripDetailsView, {
+    setView: navigate,
+    vehicleId: selectedVehicleId,
+    onViewRoute: () => {
+      setRouteMode(true);
+      setView('tracking');
+    }
+  }), " ", view === 'more' && /*#__PURE__*/React.createElement(ReportsView, {
+    setView: navigate,
+    onMenuOpen: () => setSidebarOpen(true),
+    setSelectedVehicleId: setSelectedVehicleId
+  }), " "), " "), showBottomNav && /*#__PURE__*/React.createElement("div", {
+    className: "w-full z-30 shrink-0"
+  }, /*#__PURE__*/React.createElement(BottomNav, {
+    activeTab: view,
+    setView: navigate
+  }), " "), " ");
+};
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(/*#__PURE__*/React.createElement(App, null));
+    </script>
+</body>
+</html>
