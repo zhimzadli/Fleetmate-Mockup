@@ -2,8 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
     <title>FleetMate App</title>
+        <!-- PWA Manifest -->
+    <link rel="manifest" href="data:application/json;charset=utf-8,{"name":"FleetMate","short_name":"FleetMate","description":"Track, Manage, and Optimize your fleet operations","start_url":".","display":"standalone","background_color":"#FF6F00","theme_color":"#FF6F00"}" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="theme-color" content="#FF6F00" />
 
     <!-- Tailwind CSS (precompiled at build time — no runtime JIT on device) -->
     <style>
@@ -360,7 +365,49 @@
             animation: dotFade 200ms ease forwards;
         }
 
-        /* screen-scroll */
+        /* Focus and accessibility styles */
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+            20% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            80% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+        }
+        .animate-fadeInOut {
+            animation: fadeInOut 3s ease forwards;
+        }
+
+        /* Focus visible styles for keyboard navigation */
+        *:focus-visible {
+            outline: 2px solid #FF6F00;
+            outline-offset: 2px;
+        }
+        button:focus-visible,
+        a:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid #FF6F00;
+            outline-offset: 2px;
+        }
+        /* Skip link focus */
+        .skip-link:focus {
+            left: 0;
+            width: auto;
+            padding: 8px 16px;
+        }
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+/* screen-scroll */
         #mobile-container .screen-scroll {
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.52) 0%, rgba(244, 248, 251, 0) 28%), linear-gradient(180deg, #F7FAFC 0%, #EEF3F7 100%);
         }
@@ -392,6 +439,7 @@
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:0;background:#000;color:#fff;padding:8px;z-index:10000;text-decoration:none;">Skip to main content</a>
 
     <div id="root" style="width:100%;height:100%;display:flex;justify-content:center;align-items:center;"></div>
 
@@ -902,7 +950,7 @@ const SidebarMenu = ({
     onClick: onClose,
     className: `absolute inset-0 bg-black/40 z-[60] transition-opacity duration-300 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`
   }), " ", /*#__PURE__*/React.createElement("div", {
-    className: `absolute top-0 left-0 h-full w-[280px] bg-white z-[70] shadow-2xl transition-transform duration-300 ease-out flex flex-col ${isOpen ? 'translate-x-0' : '-translate-x-full'}`
+    className: `absolute top-0 left-0 h-full w-[280px] bg-white z-[70] shadow-2xl transition-transform duration-300 ease-out flex flex-col ${isOpen ? 'translate-x-0' : '-translate-x-full'}` role="navigation" aria-label="Main navigation"
   }, /*#__PURE__*/React.createElement("div", {
     className: "app-header text-white pt-10 pb-5 px-5"
   }, /*#__PURE__*/React.createElement("div", {
@@ -928,13 +976,16 @@ const SidebarMenu = ({
   }, " Termizi "), " ", /*#__PURE__*/React.createElement("p", {
     className: "text-xs text-gray-500"
   }, " Fleet Manager "), " "), " "), " "), /*#__PURE__*/React.createElement("div", {
-    className: "flex-1 py-3 px-3 space-y-1"
+    className: "flex-1 py-3 px-3 space-y-1" role="menu"
   }, " ", menuItems.map(item => {
     const isActive = currentView === item.id;
     return /*#__PURE__*/React.createElement("button", {
       key: item.id,
       onClick: () => handleItemClick(item.id),
       className: `w-full flex items-center space-x-3 px-3 py-3 rounded-xl transition-colors text-left ${isActive ? 'bg-primary text-white shadow-md' : 'text-gray-700 hover:bg-gray-50'}`
+      role="menuitem"
+      tabIndex={0}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); handleItemClick(item.id); } }}
     }, /*#__PURE__*/React.createElement(Icon, {
       name: item.icon,
       size: 20,
@@ -1001,13 +1052,23 @@ const BottomNav = ({
     icon: 'more-horizontal'
   }];
   return /*#__PURE__*/React.createElement("div", {
-    className: "bottom-nav-shell px-3 py-2 flex justify-between items-center w-full"
+    className: "bottom-nav-shell px-3 py-2 flex justify-between items-center w-full" role="tablist"
   }, " ", tabs.map(tab => {
     const isActive = activeTab === tab.id;
     return /*#__PURE__*/React.createElement("button", {
       key: tab.id,
       onClick: () => setView(tab.id),
+      onKeyDown: (e) => {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+          e.preventDefault();
+          setView(tab.id);
+        }
+      },
       className: `bottom-nav-item relative flex flex-col items-center justify-center ${isActive ? 'active' : 'text-gray-400'}`
+      role="tab"
+      aria-selected={isActive}
+      aria-label={tab.label}
+      tabIndex={0}
     }, isActive && /*#__PURE__*/React.createElement("span", {
       className: "absolute -top-1.5 w-1 h-1 rounded-full bg-primary"
     }, " "), " ", /*#__PURE__*/React.createElement(Icon, {
@@ -1029,10 +1090,11 @@ const Header = ({
   badgeCount = 0
 }) => {
   return /*#__PURE__*/React.createElement("div", {
-    className: "app-header text-white pt-10 pb-3 px-4 flex justify-between items-center shrink-0"
+    className: "app-header text-white pt-10 pb-3 px-4 flex justify-between items-center shrink-0" role="banner"
   }, /*#__PURE__*/React.createElement("button", {
     onClick: onLeftClick,
     className: "header-button"
+    aria-label: leftIcon === "menu" ? "Open menu" : "Go back"
   }, /*#__PURE__*/React.createElement(Icon, {
     name: leftIcon,
     size: 24
@@ -1041,6 +1103,7 @@ const Header = ({
   }, " ", title, " "), " ", /*#__PURE__*/React.createElement("button", {
     onClick: onRightClick,
     className: "header-button relative"
+    aria-label: rightIcon === "bell" ? "Notifications" : "More options"
   }, " ", rightIcon && /*#__PURE__*/React.createElement(Icon, {
     name: rightIcon,
     size: 24
@@ -1111,7 +1174,7 @@ const LoginView = ({
     defaultChecked: true
   }), /*#__PURE__*/React.createElement("span", null, " Remember Me "), " "), " ", /*#__PURE__*/React.createElement("button", {
     type: "button",
-    onClick: () => { const toast = document.createElement('div'); toast.textContent = 'Password reset coming soon'; toast.style.cssText = 'position:fixed;top:20%;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.8);color:white;padding:12px 24px;border-radius:12px;z-index:9999;font-size:14px;animation:fadeInOut 2s ease'; document.body.appendChild(toast); setTimeout(() => toast.remove(), 2000); },
+    onClick: () => addToast("Password reset coming soon", "info"),
     className: "hover:underline"
   }, " Forgot Password ? "), " "), /*#__PURE__*/React.createElement("button", {
     onClick: () => setView('dashboard'),
@@ -1126,7 +1189,7 @@ const LoginView = ({
     className: "flex-1 border-t border-white/30"
   }, " "), " "), /*#__PURE__*/React.createElement("button", {
     type: "button",
-    onClick: () => { const toast = document.createElement('div'); toast.textContent = 'Google sign-in coming soon'; toast.style.cssText = 'position:fixed;top:20%;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.8);color:white;padding:12px 24px;border-radius:12px;z-index:9999;font-size:14px;animation:fadeInOut 2s ease'; document.body.appendChild(toast); setTimeout(() => toast.remove(), 2000); },
+    onClick: () => addToast("Google sign-in coming soon", "info"),
     className: "touch-lift w-full bg-white text-gray-700 font-medium py-3 rounded-2xl shadow-md hover:shadow-lg flex items-center justify-center space-x-2 active:bg-gray-50 transition-shadow"
   }, /*#__PURE__*/React.createElement("svg", {
     viewBox: "0 0 24 24",
@@ -1149,7 +1212,7 @@ const LoginView = ({
     className: "mt-8 text-sm pb-4"
   }, /*#__PURE__*/React.createElement("span", null, " Don't have an account? "), " ", /*#__PURE__*/React.createElement("button", {
     type: "button",
-    onClick: () => { const toast = document.createElement('div'); toast.textContent = 'Sign-up coming soon'; toast.style.cssText = 'position:fixed;top:20%;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.8);color:white;padding:12px 24px;border-radius:12px;z-index:9999;font-size:14px;animation:fadeInOut 2s ease'; document.body.appendChild(toast); setTimeout(() => toast.remove(), 2000); },
+    onClick: () => addToast("Sign-up coming soon", "info"),
     className: "font-bold hover:underline"
   }, " Sign Up "), " "), " "), " ");
 };
@@ -3160,8 +3223,154 @@ const ReportsView = ({
   }), " "), " ")), " ");
 };
 
+
+// --- TOAST NOTIFICATION SYSTEM ---
+const ToastContext = React.createContext();
+
+const ToastProvider = ({ children }) => {
+  const [toasts, setToasts] = useState([]);
+  
+  const addToast = (message, type = 'info', duration = 3000) => {
+    const id = Date.now();
+    setToasts(prev => [...prev, { id, message, type }]);
+    
+    // Auto-remove after duration
+    setTimeout(() => {
+      setToasts(prev => prev.filter(toast => toast.id !== id));
+    }, duration);
+    
+    // Haptic feedback for mobile devices
+    if (navigator.vibrate) {
+      navigator.vibrate(50); // 50ms vibration
+    }
+  };
+  
+  const ToastContainer = () => (
+    /*#__PURE__*/React.createElement("div", {
+      className: "fixed top-4 left-1/2 transform -translate-x-1/2 z-[10000] flex flex-col space-y-2",
+      role: "status",
+      "aria-live": "polite",
+      "aria-atomic": "true"
+    }, toasts.map(toast => (
+      /*#__PURE__*/React.createElement("div", {
+        key: toast.id,
+        className: `min-w-[280px] max-w-[320px] px-4 py-3 rounded-xl shadow-lg text-white text-sm font-medium 
+                   ${toast.type === 'success' ? 'bg-green-500' : 
+                     toast.type === 'error' ? 'bg-red-500' : 
+                     toast.type === 'warning' ? 'bg-yellow-500' : 'bg-gray-800'}
+                   animate-fadeInOut`,
+        role: "alert",
+        "aria-live": "polite"
+      }, toast.message)
+    ))
+  );
+  
+  return /*#__PURE__*/React.createElement(ToastContext.Provider, { value: { addToast } },
+    children,
+    /*#__PURE__*/React.createElement(ToastContainer, null)
+  );
+};
+
+// --- INTL UTILITIES ---
+const formatCurrency = (amount, currency = 'MYR') => {
+  return new Intl.NumberFormat('en-MY', {
+    style: 'currency',
+    currency: currency,
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  }).format(amount);
+};
+
+const formatDate = (date, options = {}) => {
+  const defaultOptions = {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    ...options
+  };
+  return new Intl.DateTimeFormat('en-MY', defaultOptions).format(date);
+};
+
+// --- LOADING OVERLAY COMPONENT ---
+const LoadingOverlay = ({ isLoading = false, message = 'Loading...' }) => {
+  if (!isLoading) return null;
+  
+  return /*#__PURE__*/React.createElement("div", {
+    className: "fixed inset-0 bg-black/50 backdrop-blur-sm z-[10000] flex items-center justify-center",
+    role: "status",
+    "aria-live": "polite"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "bg-white rounded-2xl p-6 shadow-2xl max-w-[300px] text-center"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"
+  }), /*#__PURE__*/React.createElement("p", {
+    className: "text-gray-700 font-medium"
+  }, message)));
+};
+
+// --- SKELETON COMPONENT ---
+const Skeleton = ({ className = '', width = '100%', height = '20px', variant = 'text' }) => {
+  const baseClasses = 'bg-gray-200 rounded animate-pulse';
+  const variants = {
+    text: 'h-4 rounded',
+    circular: 'rounded-full aspect-square',
+    rectangular: 'rounded-lg',
+    card: 'rounded-xl'
+  };
+  
+  return /*#__PURE__*/React.createElement("div", {
+    className: `${baseClasses} ${variants[variant] || ''} ${className}`,
+    style: { width, height },
+    role: "status",
+    "aria-live": "polite"
+  });
+};
+
+// --- DARK MODE UTILITIES ---
+const useDarkMode = () => {
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('fleetmate-theme');
+      if (saved) return saved === 'dark';
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    return false;
+  });
+  
+  useEffect(() => {
+    const root = document.documentElement;
+    if (isDark) {
+      root.setAttribute('data-theme', 'dark');
+    } else {
+      root.setAttribute('data-theme', 'light');
+    }
+    localStorage.setItem('fleetmate-theme', isDark ? 'dark' : 'light');
+  }, [isDark]);
+  
+  const toggle = () => setIsDark(prev => !prev);
+  const enable = () => setIsDark(true);
+  const disable = () => setIsDark(false);
+  
+  return { isDark, toggle, enable, disable };
+};
+
+// --- HOOK FOR CONSISTENT HANDLER PATTERNS ---
+const useStableCallback = (callback, dependencies) => {
+  const ref = useRef(callback);
+  
+  useEffect(() => {
+    ref.current = callback;
+  }, [callback, ...dependencies]);
+  
+  return useCallback((...args) => ref.current(...args), []);
+};
+
+
 // --- MAIN APP ---
 const App = () => {
+  return /*#__PURE__*/React.createElement(ToastProvider, null, 
   const [view, setView] = useState('login');
   const [selectedVehicleId, setSelectedVehicleId] = useState('WXX 1234');
   const [routeMode, setRouteMode] = useState(false);
@@ -3209,7 +3418,7 @@ const App = () => {
     currentView: view
   }), /*#__PURE__*/React.createElement("div", {
     key: view,
-    className: "view-fade-in flex-1 flex flex-col w-full min-h-0"
+    className: "view-fade-in flex-1 flex flex-col w-full min-h-0" id="main-content" role="main"
   }, view === 'login' && /*#__PURE__*/React.createElement(LoginView, {
     setView: navigate
   }), " ", view === 'dashboard' && /*#__PURE__*/React.createElement(DashboardView, {
