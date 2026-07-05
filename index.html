@@ -4,11 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
     <title>FleetMate App</title>
-        <!-- PWA Manifest -->
-    <link rel="manifest" href="data:application/json;charset=utf-8,{"name":"FleetMate","short_name":"FleetMate","description":"Track, Manage, and Optimize your fleet operations","start_url":".","display":"standalone","background_color":"#FF6F00","theme_color":"#FF6F00"}" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="theme-color" content="#FF6F00" />
 
     <!-- Tailwind CSS (precompiled at build time — no runtime JIT on device) -->
     <style>
@@ -27,18 +22,25 @@
     <!-- Recharts -->
     <script crossorigin src="https://unpkg.com/react-is@18.2.0/umd/react-is.production.min.js">
     </script>
-    <script src="https://unpkg.com/prop-types@15.8.1/prop-types.min.js">
+    <script crossorigin src="https://unpkg.com/prop-types@15.8.1/prop-types.min.js">
     </script>
-    <script src="https://unpkg.com/recharts@2.12.7/umd/Recharts.js">
+    <script crossorigin src="https://unpkg.com/recharts@2.12.7/umd/Recharts.js">
     </script>
 
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@1.22.0">
+    <script crossorigin src="https://unpkg.com/lucide@1.22.0">
     </script>
 
     <!-- Leaflet Maps -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    <script crossorigin src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+
+    <!-- MapLibre GL JS + Leaflet binding — renders OpenFreeMap's live vector tiles inside the existing Leaflet maps -->
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
+    <script crossorigin src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js">
+    </script>
+    <script crossorigin src="https://unpkg.com/@maplibre/maplibre-gl-leaflet@0.0.22/leaflet-maplibre-gl.js">
     </script>
 
     <style>
@@ -365,49 +367,7 @@
             animation: dotFade 200ms ease forwards;
         }
 
-        /* Focus and accessibility styles */
-
-        @keyframes fadeInOut {
-            0% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
-            20% { opacity: 1; transform: translateX(-50%) translateY(0); }
-            80% { opacity: 1; transform: translateX(-50%) translateY(0); }
-            100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
-        }
-        .animate-fadeInOut {
-            animation: fadeInOut 3s ease forwards;
-        }
-
-        /* Focus visible styles for keyboard navigation */
-        *:focus-visible {
-            outline: 2px solid #FF6F00;
-            outline-offset: 2px;
-        }
-        button:focus-visible,
-        a:focus-visible,
-        input:focus-visible,
-        select:focus-visible,
-        textarea:focus-visible {
-            outline: 2px solid #FF6F00;
-            outline-offset: 2px;
-        }
-        /* Skip link focus */
-        .skip-link:focus {
-            left: 0;
-            width: auto;
-            padding: 8px 16px;
-        }
-        /* Reduced motion */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-
-/* screen-scroll */
+        /* screen-scroll */
         #mobile-container .screen-scroll {
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.52) 0%, rgba(244, 248, 251, 0) 28%), linear-gradient(180deg, #F7FAFC 0%, #EEF3F7 100%);
         }
@@ -436,18 +396,189 @@
             color: #9CA3AF;
             margin-bottom: 12px;
         }
+
+        /* --- accessibility: focus visible --- */
+        /* Clear 2px orange focus outline for keyboard users, without adding
+           an outline on mouse/touch interactions (:focus-visible handles that). */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible,
+        select:focus-visible,
+        [role="button"]:focus-visible,
+        [tabindex]:focus-visible {
+            outline: 2px solid #FF6F00 !important;
+            outline-offset: 2px;
+            border-radius: 8px;
+        }
+        /* Fallback for browsers without :focus-visible support */
+        .js-focus-visible a:focus:not(.focus-visible),
+        .js-focus-visible button:focus:not(.focus-visible) {
+            outline: none;
+        }
+
+        /* --- accessibility: skip link --- */
+        .skip-link {
+            position: absolute;
+            top: -60px;
+            left: 8px;
+            z-index: 9999;
+            background: #FF6F00;
+            color: #fff;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: top 160ms ease;
+        }
+        .skip-link:focus {
+            top: 8px;
+            outline: 2px solid #001A33;
+            outline-offset: 2px;
+        }
+
+        /* ============================================================
+           DARK MODE
+           The stylesheet above is precompiled Tailwind (no runtime JIT),
+           so `dark:` variants aren't available. Instead we scope a full
+           palette override under `#mobile-container.dark` that targets
+           the same utility class selectors already used throughout the
+           app's JSX, so no className strings need to change per-view.
+           ============================================================ */
+        #mobile-container.dark {
+            background: linear-gradient(180deg, #0B1220 0%, #0A0E16 100%);
+            color-scheme: dark;
+        }
+        #mobile-container.dark .screen-scroll {
+            background: linear-gradient(180deg, rgba(17, 24, 39, 0.45) 0%, rgba(11, 18, 32, 0) 28%), linear-gradient(180deg, #0F172A 0%, #0B1220 100%);
+        }
+        #mobile-container.dark .bg-bgLight { background-color: #0B1220 !important; }
+        #mobile-container.dark .fleet-card {
+            background: rgba(17, 24, 39, 0.92);
+            border-color: rgba(51, 65, 85, 0.7);
+            box-shadow: 0 10px 24px -18px rgba(0, 0, 0, 0.65);
+        }
+        #mobile-container.dark .fleet-card:hover { border-color: rgba(255, 111, 0, 0.4); }
+        #mobile-container.dark .bottom-nav-shell {
+            background: rgba(15, 23, 42, 0.94);
+            box-shadow: 0 -16px 30px -28px rgba(0, 0, 0, 0.75);
+        }
+        #mobile-container.dark .bottom-nav-item.active { background: rgba(255, 111, 0, 0.16); }
+        #mobile-container.dark .empty-state { color: #64748B; }
+        #mobile-container.dark .empty-state .icon-chip { background: #1E293B; color: #64748B; }
+        #mobile-container.dark .dismiss-btn { background: #1E293B; color: #64748B; }
+        #mobile-container.dark .dismiss-btn:hover { background: #334155; color: #F87171; }
+        #mobile-container.dark .status-item:active { background: rgba(255, 255, 255, 0.03); }
+
+        /* surfaces */
+        #mobile-container.dark .bg-white:not(.toggle-knob) { background-color: #111827 !important; }
+        #mobile-container.dark .bg-white\/95 { background-color: rgba(17, 24, 39, 0.95) !important; }
+        #mobile-container.dark .bg-white\/90 { background-color: rgba(17, 24, 39, 0.9) !important; }
+        #mobile-container.dark .bg-white\/50 { background-color: rgba(17, 24, 39, 0.5) !important; }
+        #mobile-container.dark .bg-white\/20 { background-color: rgba(255, 255, 255, 0.08) !important; }
+        #mobile-container.dark .bg-gray-50 { background-color: #1E293B !important; }
+        #mobile-container.dark .bg-gray-50\/80 { background-color: rgba(30, 41, 59, 0.8) !important; }
+        #mobile-container.dark .bg-gray-100 { background-color: #243244 !important; }
+        #mobile-container.dark .bg-gray-200 { background-color: #2E3F55 !important; }
+        #mobile-container.dark .bg-gray-400 { background-color: #475569 !important; }
+        #mobile-container.dark .bg-slate-100 { background-color: #1E293B !important; }
+        #mobile-container.dark .bg-slate-400 { background-color: #475569 !important; }
+
+        /* borders */
+        #mobile-container.dark .border-gray-50 { border-color: #1E293B !important; }
+        #mobile-container.dark .border-gray-100 { border-color: #263344 !important; }
+        #mobile-container.dark .border-gray-100\/80 { border-color: rgba(38, 51, 68, 0.8) !important; }
+        #mobile-container.dark .border-gray-200 { border-color: #334155 !important; }
+        #mobile-container.dark .border-gray-300 { border-color: #475569 !important; }
+        #mobile-container.dark .divide-gray-50 > :not([hidden]) ~ :not([hidden]) { border-color: #1E293B !important; }
+
+        /* text */
+        #mobile-container.dark .text-gray-900 { color: #F1F5F9 !important; }
+        #mobile-container.dark .text-gray-800 { color: #E2E8F0 !important; }
+        #mobile-container.dark .text-gray-700 { color: #CBD5E1 !important; }
+        #mobile-container.dark .text-gray-600 { color: #B0BEC9 !important; }
+        #mobile-container.dark .text-gray-500 { color: #94A3B8 !important; }
+        #mobile-container.dark .text-gray-400 { color: #64748B !important; }
+        #mobile-container.dark .text-gray-300 { color: #475569 !important; }
+        #mobile-container.dark .text-slate-400 { color: #64748B !important; }
+        #mobile-container.dark .text-slate-500 { color: #94A3B8 !important; }
+        #mobile-container.dark .text-slate-600 { color: #CBD5E1 !important; }
+        #mobile-container.dark .text-secondary { color: #E2E8F0 !important; }
+
+        /* accent chips - soften pastel backgrounds, keep brand color legible */
+        #mobile-container.dark .bg-orange-50 { background-color: rgba(255, 111, 0, 0.12) !important; }
+        #mobile-container.dark .bg-orange-50\/70 { background-color: rgba(255, 111, 0, 0.1) !important; }
+        #mobile-container.dark .bg-orange-100 { background-color: rgba(255, 111, 0, 0.18) !important; }
+        #mobile-container.dark .border-orange-100 { border-color: rgba(255, 111, 0, 0.25) !important; }
+        #mobile-container.dark .text-orange-800 { color: #FFB877 !important; }
+        #mobile-container.dark .bg-blue-50 { background-color: rgba(59, 130, 246, 0.14) !important; }
+        #mobile-container.dark .bg-blue-100 { background-color: rgba(59, 130, 246, 0.2) !important; }
+        #mobile-container.dark .bg-blue-200 { background-color: rgba(59, 130, 246, 0.28) !important; }
+        #mobile-container.dark .text-blue-600 { color: #60A5FA !important; }
+        #mobile-container.dark .text-blue-800 { color: #93C5FD !important; }
+        #mobile-container.dark .bg-green-50 { background-color: rgba(34, 197, 94, 0.14) !important; }
+        #mobile-container.dark .bg-green-100 { background-color: rgba(34, 197, 94, 0.2) !important; }
+        #mobile-container.dark .text-green-600 { color: #4ADE80 !important; }
+        #mobile-container.dark .bg-red-50 { background-color: rgba(239, 68, 68, 0.14) !important; }
+        #mobile-container.dark .text-red-500 { color: #F87171 !important; }
+        #mobile-container.dark .text-red-600 { color: #F87171 !important; }
+        #mobile-container.dark .hover\:bg-red-50:hover { background-color: rgba(239, 68, 68, 0.14) !important; }
+        #mobile-container.dark .bg-yellow-50 { background-color: rgba(234, 179, 8, 0.14) !important; }
+        #mobile-container.dark .text-yellow-600 { color: #FACC15 !important; }
+
+        /* hover/active states */
+        #mobile-container.dark .hover\:bg-gray-50:hover { background-color: #1E293B !important; }
+        #mobile-container.dark .hover\:bg-gray-50\/80:hover { background-color: rgba(30, 41, 59, 0.8) !important; }
+        #mobile-container.dark .active\:bg-gray-100:active { background-color: #243244 !important; }
+        #mobile-container.dark .active\:bg-gray-50:active { background-color: #1E293B !important; }
+
+        /* form controls */
+        #mobile-container.dark input,
+        #mobile-container.dark textarea,
+        #mobile-container.dark select {
+            color: #F1F5F9;
+        }
+        #mobile-container.dark input::placeholder,
+        #mobile-container.dark textarea::placeholder {
+            color: #64748B;
+        }
+
+        /* map + charts */
+        #mobile-container.dark .leaflet-container { background: #1E293B !important; }
+        #mobile-container.dark .map-bg { filter: brightness(0.7) saturate(0.85); }
+        #mobile-container.dark .recharts-cartesian-axis-tick text { fill: #94A3B8; }
+        #mobile-container.dark .recharts-cartesian-grid-horizontal line,
+        #mobile-container.dark .recharts-cartesian-grid-vertical line {
+            stroke: #263344;
+        }
     </style>
 </head>
 <body>
-    <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:0;background:#000;color:#fff;padding:8px;z-index:10000;text-decoration:none;">Skip to main content</a>
 
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <div id="root" style="width:100%;height:100%;display:flex;justify-content:center;align-items:center;"></div>
 
     <script>
+// Surface real error detail in the console instead of the browser's opaque
+// "Script error." (which happens for exceptions thrown inside a script that
+// was loaded without CORS/crossorigin). This doesn't change app behavior -
+// it just makes the underlying error visible for debugging instead of a
+// bare, uninformative "Uncaught Error: Script error." with no stack.
+window.addEventListener('error', event => {
+    // eslint-disable-next-line no-console
+    console.error('[FleetMate] Uncaught error:', event.error || event.message, event);
+});
+window.addEventListener('unhandledrejection', event => {
+    // eslint-disable-next-line no-console
+    console.error('[FleetMate] Unhandled promise rejection:', event.reason);
+});
+
 const {
   useState,
   useEffect,
-  useRef
+  useRef,
+  useCallback
 } = React;
 const {
   LineChart,
@@ -461,6 +592,103 @@ const {
   Bar
 } = window.Recharts;
 
+// --- HAPTIC FEEDBACK ---
+// Fires a short vibration on supported devices (mobile Safari/Chrome).
+// Silently no-ops on desktop/unsupported browsers - never throws.
+const haptic = (pattern = 10) => {
+  try {
+    if (typeof navigator !== 'undefined' && navigator.vibrate) {
+      navigator.vibrate(pattern);
+    }
+  } catch (e) {
+    /* no-op: some browsers throw if called outside a user gesture */
+  }
+};
+
+// --- TOAST NOTIFICATIONS ---
+// Lightweight, non-blocking toast system used in place of window.alert().
+// showToast() can be called from anywhere in the app; ToastContainer
+// (mounted once near the root) listens for the event and renders the
+// queue as an accessible, auto-dismissing stack.
+let toastIdCounter = 0;
+const showToast = (message, type = 'info') => {
+  const id = ++toastIdCounter;
+  window.dispatchEvent(new CustomEvent('app:toast', {
+    detail: {
+      id,
+      message,
+      type
+    }
+  }));
+  return id;
+};
+const TOAST_ICONS = {
+  success: 'check-circle',
+  error: 'alert-circle',
+  info: 'info'
+};
+const ToastContainer = () => {
+  const [toasts, setToasts] = useState([]);
+  useEffect(() => {
+    const handleToast = e => {
+      const {
+        id,
+        message,
+        type
+      } = e.detail;
+      setToasts(prev => [...prev, {
+        id,
+        message,
+        type
+      }]);
+      setTimeout(() => {
+        setToasts(prev => prev.filter(t => t.id !== id));
+      }, 2600);
+    };
+    window.addEventListener('app:toast', handleToast);
+    return () => window.removeEventListener('app:toast', handleToast);
+  }, []);
+  if (toasts.length === 0) return null;
+  return /*#__PURE__*/React.createElement("div", {
+    className: "pointer-events-none",
+    style: {
+      position: 'absolute',
+      top: '16px',
+      left: 0,
+      right: 0,
+      zIndex: 80,
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      gap: '8px',
+      padding: '0 16px'
+    },
+    "aria-live": "polite",
+    role: "status"
+  }, toasts.map(t => /*#__PURE__*/React.createElement("div", {
+    key: t.id,
+    className: "pointer-events-auto shadow-lg",
+    style: {
+      background: t.type === 'error' ? '#DC2626' : t.type === 'success' ? '#16A34A' : 'rgba(15, 23, 42, 0.92)',
+      color: '#fff',
+      padding: '10px 16px',
+      borderRadius: '12px',
+      fontSize: '13px',
+      fontWeight: 600,
+      maxWidth: '92%',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '8px',
+      animation: 'fadeInOut 2.6s ease'
+    }
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: TOAST_ICONS[t.type] || 'info',
+    size: 16
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "line-clamp-1"
+  }, t.message))));
+};
+
 // --- COMPANY LOGO ---
 const LOGO_DATA_URI = "data:image/jpeg;base64,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";
 
@@ -472,8 +700,11 @@ const Icon = ({
 }) => {
   const iconRef = useRef(null);
   useEffect(() => {
+    // 'rm' is a pseudo-icon (see render below) - lucide has no Malaysian
+    // Ringgit glyph, so there's nothing to hand off to it here.
+    if (name === 'rm') return;
     if (iconRef.current && window.lucide) {
-      iconRef.current.innerHTML = `<i data-lucide="${name}" className="${className}"></i>`;
+      iconRef.current.innerHTML = `<i data-lucide="${name}" class="${className}"></i>`;
       window.lucide.createIcons({
         root: iconRef.current,
         attrs: {
@@ -483,6 +714,18 @@ const Icon = ({
       });
     }
   }, [name, size, className]);
+  if (name === 'rm') {
+    return /*#__PURE__*/React.createElement("span", {
+      className: `inline-flex items-center justify-center shrink-0 font-bold ${className}`,
+      style: {
+        width: size,
+        height: size,
+        fontSize: Math.max(9, Math.round(size * 0.42)),
+        lineHeight: 1,
+        letterSpacing: '-0.03em'
+      }
+    }, "RM");
+  }
   return /*#__PURE__*/React.createElement("span", {
     ref: iconRef,
     className: "inline-flex items-center justify-center shrink-0",
@@ -919,7 +1162,9 @@ const SidebarMenu = ({
   isOpen,
   onClose,
   setView,
-  currentView
+  currentView,
+  darkMode,
+  onToggleDarkMode
 }) => {
   const menuItems = [{
     id: 'dashboard',
@@ -942,15 +1187,15 @@ const SidebarMenu = ({
     label: 'Reports',
     icon: 'bar-chart-2'
   }];
-  const handleItemClick = viewId => {
+  const handleItemClick = useCallback(viewId => {
     setView(viewId);
     onClose();
-  };
+  }, [setView, onClose]);
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     onClick: onClose,
     className: `absolute inset-0 bg-black/40 z-[60] transition-opacity duration-300 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`
   }), " ", /*#__PURE__*/React.createElement("div", {
-    className: `absolute top-0 left-0 h-full w-[280px] bg-white z-[70] shadow-2xl transition-transform duration-300 ease-out flex flex-col ${isOpen ? 'translate-x-0' : '-translate-x-full'}` role="navigation" aria-label="Main navigation"
+    className: `absolute top-0 left-0 h-full w-[280px] bg-white z-[70] shadow-2xl transition-transform duration-300 ease-out flex flex-col ${isOpen ? 'translate-x-0' : '-translate-x-full'}`
   }, /*#__PURE__*/React.createElement("div", {
     className: "app-header text-white pt-10 pb-5 px-5"
   }, /*#__PURE__*/React.createElement("div", {
@@ -976,16 +1221,13 @@ const SidebarMenu = ({
   }, " Termizi "), " ", /*#__PURE__*/React.createElement("p", {
     className: "text-xs text-gray-500"
   }, " Fleet Manager "), " "), " "), " "), /*#__PURE__*/React.createElement("div", {
-    className: "flex-1 py-3 px-3 space-y-1" role="menu"
+    className: "flex-1 py-3 px-3 space-y-1"
   }, " ", menuItems.map(item => {
     const isActive = currentView === item.id;
     return /*#__PURE__*/React.createElement("button", {
       key: item.id,
       onClick: () => handleItemClick(item.id),
       className: `w-full flex items-center space-x-3 px-3 py-3 rounded-xl transition-colors text-left ${isActive ? 'bg-primary text-white shadow-md' : 'text-gray-700 hover:bg-gray-50'}`
-      role="menuitem"
-      tabIndex={0}
-      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); handleItemClick(item.id); } }}
     }, /*#__PURE__*/React.createElement(Icon, {
       name: item.icon,
       size: 20,
@@ -1014,6 +1256,19 @@ const SidebarMenu = ({
   })), " ", /*#__PURE__*/React.createElement("span", {
     className: "font-medium text-sm"
   }, " Notifications "), " "), " ", /*#__PURE__*/React.createElement("button", {
+    onClick: onToggleDarkMode,
+    "aria-pressed": darkMode,
+    className: "w-full flex items-center space-x-3 px-3 py-3 rounded-xl transition-colors text-left text-gray-700 hover:bg-gray-50"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: darkMode ? 'moon' : 'sun',
+    size: 20,
+    className: "text-gray-500"
+  }), " ", /*#__PURE__*/React.createElement("span", {
+    className: "font-medium text-sm flex-1"
+  }, " Dark Mode "), " ", /*#__PURE__*/React.createElement("span", {
+    className: `relative inline-flex items-center h-6 w-11 rounded-full transition-colors shrink-0 ${darkMode ? 'bg-primary' : 'bg-gray-200'}`,
+    "aria-hidden": "true"
+  })), " ", /*#__PURE__*/React.createElement("button", {
     onClick: () => {
       setView('login');
       onClose();
@@ -1051,26 +1306,31 @@ const BottomNav = ({
     label: 'More',
     icon: 'more-horizontal'
   }];
-  return /*#__PURE__*/React.createElement("div", {
-    className: "bottom-nav-shell px-3 py-2 flex justify-between items-center w-full" role="tablist"
+  return /*#__PURE__*/React.createElement("nav", {
+    "aria-label": "Primary",
+    className: "bottom-nav-shell px-3 py-2 flex justify-between items-center w-full"
   }, " ", tabs.map(tab => {
     const isActive = activeTab === tab.id;
+    const activate = () => setView(tab.id);
     return /*#__PURE__*/React.createElement("button", {
       key: tab.id,
-      onClick: () => setView(tab.id),
-      onKeyDown: (e) => {
+      type: "button",
+      onClick: activate,
+      onKeyDown: e => {
+        // Explicit Enter/Space support (native <button> already fires
+        // onClick for these, this just guards against any preventDefault
+        // upstream ever suppressing the native behavior).
         if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
           e.preventDefault();
-          setView(tab.id);
+          activate();
         }
       },
+      "aria-current": isActive ? 'page' : undefined,
+      "aria-label": tab.label,
       className: `bottom-nav-item relative flex flex-col items-center justify-center ${isActive ? 'active' : 'text-gray-400'}`
-      role="tab"
-      aria-selected={isActive}
-      aria-label={tab.label}
-      tabIndex={0}
     }, isActive && /*#__PURE__*/React.createElement("span", {
-      className: "absolute -top-1.5 w-1 h-1 rounded-full bg-primary"
+      className: "absolute -top-1.5 w-1 h-1 rounded-full bg-primary",
+      "aria-hidden": "true"
     }, " "), " ", /*#__PURE__*/React.createElement(Icon, {
       name: tab.icon,
       size: 22,
@@ -1090,11 +1350,10 @@ const Header = ({
   badgeCount = 0
 }) => {
   return /*#__PURE__*/React.createElement("div", {
-    className: "app-header text-white pt-10 pb-3 px-4 flex justify-between items-center shrink-0" role="banner"
+    className: "app-header text-white pt-10 pb-3 px-4 flex justify-between items-center shrink-0"
   }, /*#__PURE__*/React.createElement("button", {
     onClick: onLeftClick,
     className: "header-button"
-    aria-label: leftIcon === "menu" ? "Open menu" : "Go back"
   }, /*#__PURE__*/React.createElement(Icon, {
     name: leftIcon,
     size: 24
@@ -1103,7 +1362,6 @@ const Header = ({
   }, " ", title, " "), " ", /*#__PURE__*/React.createElement("button", {
     onClick: onRightClick,
     className: "header-button relative"
-    aria-label: rightIcon === "bell" ? "Notifications" : "More options"
   }, " ", rightIcon && /*#__PURE__*/React.createElement(Icon, {
     name: rightIcon,
     size: 24
@@ -1174,7 +1432,7 @@ const LoginView = ({
     defaultChecked: true
   }), /*#__PURE__*/React.createElement("span", null, " Remember Me "), " "), " ", /*#__PURE__*/React.createElement("button", {
     type: "button",
-    onClick: () => addToast("Password reset coming soon", "info"),
+    onClick: () => showToast('Password reset coming soon'),
     className: "hover:underline"
   }, " Forgot Password ? "), " "), /*#__PURE__*/React.createElement("button", {
     onClick: () => setView('dashboard'),
@@ -1189,7 +1447,7 @@ const LoginView = ({
     className: "flex-1 border-t border-white/30"
   }, " "), " "), /*#__PURE__*/React.createElement("button", {
     type: "button",
-    onClick: () => addToast("Google sign-in coming soon", "info"),
+    onClick: () => showToast('Google sign-in coming soon'),
     className: "touch-lift w-full bg-white text-gray-700 font-medium py-3 rounded-2xl shadow-md hover:shadow-lg flex items-center justify-center space-x-2 active:bg-gray-50 transition-shadow"
   }, /*#__PURE__*/React.createElement("svg", {
     viewBox: "0 0 24 24",
@@ -1212,7 +1470,7 @@ const LoginView = ({
     className: "mt-8 text-sm pb-4"
   }, /*#__PURE__*/React.createElement("span", null, " Don't have an account? "), " ", /*#__PURE__*/React.createElement("button", {
     type: "button",
-    onClick: () => addToast("Sign-up coming soon", "info"),
+    onClick: () => showToast('Sign-up coming soon'),
     className: "font-bold hover:underline"
   }, " Sign Up "), " "), " "), " ");
 };
@@ -1243,19 +1501,19 @@ const DashboardView = ({
   // --- Mini live-tracking map (real Leaflet preview, mirrors the full Tracking map) ---
   const miniMapRef = useRef(null);
   const miniMapInstanceRef = useRef(null);
-  const openVehicle = id => {
+  const openVehicle = useCallback(id => {
     onSelectVehicle && onSelectVehicle(id);
     setView('tracking');
-  };
+  }, [onSelectVehicle, setView]);
 
   // Used by "View All" and by tapping the mini-map background (not a specific
   // vehicle pin) — clears any previously selected vehicle so the full Tracking
   // map opens showing an overview of the whole fleet, instead of flying in on
   // whichever vehicle happened to be selected last.
-  const viewAllVehicles = () => {
+  const viewAllVehicles = useCallback(() => {
     onSelectVehicle && onSelectVehicle(null);
     setView('tracking');
-  };
+  }, [onSelectVehicle, setView]);
   useEffect(() => {
     if (!miniMapRef.current || miniMapInstanceRef.current) return;
     let cancelled = false;
@@ -1288,10 +1546,11 @@ const DashboardView = ({
         doubleClickZoom: false,
         boxZoom: false,
         keyboard: false,
-        tap: false
-      }).setView([3.07, 101.58], 11);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        tap: false,
         maxZoom: 19
+      }).setView([3.07, 101.58], 11);
+      L.maplibreGL({
+        style: 'https://tiles.openfreemap.org/styles/liberty'
       }).addTo(map);
       const markersLayer = L.layerGroup().addTo(map);
       fleetVehicles.forEach(v => {
@@ -1500,7 +1759,7 @@ const DashboardView = ({
   }, /*#__PURE__*/React.createElement("div", {
     className: "icon-chip bg-orange-50 text-primary"
   }, /*#__PURE__*/React.createElement(Icon, {
-    name: "dollar-sign",
+    name: "rm",
     size: 21
   }), " "), " ", /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
     className: "text-xs text-gray-500"
@@ -1635,10 +1894,11 @@ const TrackingView = ({
       }
       const map = L.map(el, {
         zoomControl: false,
-        attributionControl: false
-      }).setView([3.07, 101.58], 11);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attributionControl: false,
         maxZoom: 19
+      }).setView([3.07, 101.58], 11);
+      L.maplibreGL({
+        style: 'https://tiles.openfreemap.org/styles/liberty'
       }).addTo(map);
       mapRef.current = map;
       markersLayerRef.current = L.layerGroup().addTo(map);
@@ -1808,7 +2068,7 @@ const TrackingView = ({
       });
     }
   }, [vehicleId, mapReady]);
-  const selectVehicle = id => {
+  const selectVehicle = useCallback(id => {
     setSelectedId(id);
     onSelectVehicle && onSelectVehicle(id);
     if (mapRef.current) {
@@ -1817,28 +2077,29 @@ const TrackingView = ({
         duration: 0.5
       });
     }
-  };
-  const openDriverDetails = (id = selectedId) => {
+  }, [onSelectVehicle]);
+  const openDriverDetails = useCallback((id = selectedId) => {
     const v = fleetVehicles.find(veh => veh.id === id);
     if (!v || v.inMaintenance || !v.driver) return;
     selectVehicle(id);
     setView('driver_details');
-  };
-  const zoomIn = () => mapRef.current && mapRef.current.zoomIn();
-  const zoomOut = () => mapRef.current && mapRef.current.zoomOut();
-  const recenter = () => {
+  }, [selectedId, selectVehicle, setView]);
+  const zoomIn = useCallback(() => mapRef.current && mapRef.current.zoomIn(), []);
+  const zoomOut = useCallback(() => mapRef.current && mapRef.current.zoomOut(), []);
+  const recenter = useCallback(() => {
     if (!mapRef.current) return;
     const target = routeMode && routePoints && routePoints.length > 0 ? routePoints[routePoints.length - 1] : selectedVehicle;
+    if (!target || typeof target.lat !== 'number' || typeof target.lng !== 'number') return;
     mapRef.current.flyTo([target.lat, target.lng], 14, {
       duration: 0.5
     });
     setRecenterPulse(true);
     setTimeout(() => setRecenterPulse(false), 500);
-  };
-  const handleBack = () => {
+  }, [routeMode, routePoints, selectedVehicle]);
+  const handleBack = useCallback(() => {
     onExitRoute && onExitRoute();
     setView('trip_details');
-  };
+  }, [onExitRoute, setView]);
   return /*#__PURE__*/React.createElement("div", {
     className: "flex-1 flex flex-col bg-bgLight w-full h-full overflow-hidden relative"
   }, /*#__PURE__*/React.createElement(Header, {
@@ -2327,7 +2588,7 @@ const AddMaintenanceModal = ({
   const [task, setTask] = useState('');
   const [date, setDate] = useState('');
   const isValid = vehicle.trim() && task.trim() && date.trim();
-  const handleSave = () => {
+  const handleSave = useCallback(() => {
     if (!isValid) return;
     onSave({
       id: Date.now(),
@@ -2339,7 +2600,7 @@ const AddMaintenanceModal = ({
       iconBg: 'bg-blue-50',
       iconColor: 'text-blue-600'
     });
-  };
+  }, [isValid, onSave, vehicle, task, date]);
   return /*#__PURE__*/React.createElement("div", {
     className: "absolute inset-0 z-50 flex items-end justify-center bg-black/40",
     onClick: onClose
@@ -2394,10 +2655,10 @@ const MaintenanceView = ({
   const [activeTab, setActiveTab] = useState('Upcoming');
   const [items, setItems] = useState(initialMaintenance);
   const [showAddModal, setShowAddModal] = useState(false);
-  const handleSave = newItem => {
+  const handleSave = useCallback(newItem => {
     setItems(prev => [newItem, ...prev]);
     setShowAddModal(false);
-  };
+  }, []);
   const tabData = {
     Upcoming: {
       list: items,
@@ -2826,7 +3087,7 @@ const TripDetailsView = ({
   }, {
     label: 'Fuel Cost',
     val: trip.fuelCost,
-    icon: 'dollar-sign'
+    icon: 'rm'
   }, {
     label: 'Avg Speed',
     val: trip.avgSpeed,
@@ -2839,13 +3100,7 @@ const TripDetailsView = ({
     leftIcon: "arrow-left",
     rightIcon: "share-2",
     onLeftClick: () => setView('fuel'),
-    onRightClick: () => {
-                        const toast = document.createElement('div');
-                        toast.textContent = `Shared trip details for ${id}`;
-                        toast.style.cssText = 'position:fixed;top:20%;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.8);color:white;padding:12px 24px;border-radius:12px;z-index:9999;font-size:14px;animation:fadeInOut 2s ease';
-                        document.body.appendChild(toast);
-                        setTimeout(() => toast.remove(), 2000);
-                    }
+    onRightClick: () => showToast(`Shared trip details for ${id}`, 'success')
   }), /*#__PURE__*/React.createElement("div", {
     className: "screen-scroll flex-1 overflow-y-auto p-4 space-y-3 pb-4 no-scrollbar"
   }, /*#__PURE__*/React.createElement("div", {
@@ -3223,160 +3478,32 @@ const ReportsView = ({
   }), " "), " ")), " ");
 };
 
-
-// --- TOAST NOTIFICATION SYSTEM ---
-const ToastContext = React.createContext();
-
-const ToastProvider = ({ children }) => {
-  const [toasts, setToasts] = useState([]);
-  
-  const addToast = (message, type = 'info', duration = 3000) => {
-    const id = Date.now();
-    setToasts(prev => [...prev, { id, message, type }]);
-    
-    // Auto-remove after duration
-    setTimeout(() => {
-      setToasts(prev => prev.filter(toast => toast.id !== id));
-    }, duration);
-    
-    // Haptic feedback for mobile devices
-    if (navigator.vibrate) {
-      navigator.vibrate(50); // 50ms vibration
-    }
-  };
-  
-  const ToastContainer = () => (
-    /*#__PURE__*/React.createElement("div", {
-      className: "fixed top-4 left-1/2 transform -translate-x-1/2 z-[10000] flex flex-col space-y-2",
-      role: "status",
-      "aria-live": "polite",
-      "aria-atomic": "true"
-    }, toasts.map(toast => (
-      /*#__PURE__*/React.createElement("div", {
-        key: toast.id,
-        className: `min-w-[280px] max-w-[320px] px-4 py-3 rounded-xl shadow-lg text-white text-sm font-medium 
-                   ${toast.type === 'success' ? 'bg-green-500' : 
-                     toast.type === 'error' ? 'bg-red-500' : 
-                     toast.type === 'warning' ? 'bg-yellow-500' : 'bg-gray-800'}
-                   animate-fadeInOut`,
-        role: "alert",
-        "aria-live": "polite"
-      }, toast.message)
-    ))
-  );
-  
-  return /*#__PURE__*/React.createElement(ToastContext.Provider, { value: { addToast } },
-    children,
-    /*#__PURE__*/React.createElement(ToastContainer, null)
-  );
-};
-
-// --- INTL UTILITIES ---
-const formatCurrency = (amount, currency = 'MYR') => {
-  return new Intl.NumberFormat('en-MY', {
-    style: 'currency',
-    currency: currency,
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  }).format(amount);
-};
-
-const formatDate = (date, options = {}) => {
-  const defaultOptions = {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    ...options
-  };
-  return new Intl.DateTimeFormat('en-MY', defaultOptions).format(date);
-};
-
-// --- LOADING OVERLAY COMPONENT ---
-const LoadingOverlay = ({ isLoading = false, message = 'Loading...' }) => {
-  if (!isLoading) return null;
-  
-  return /*#__PURE__*/React.createElement("div", {
-    className: "fixed inset-0 bg-black/50 backdrop-blur-sm z-[10000] flex items-center justify-center",
-    role: "status",
-    "aria-live": "polite"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "bg-white rounded-2xl p-6 shadow-2xl max-w-[300px] text-center"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"
-  }), /*#__PURE__*/React.createElement("p", {
-    className: "text-gray-700 font-medium"
-  }, message)));
-};
-
-// --- SKELETON COMPONENT ---
-const Skeleton = ({ className = '', width = '100%', height = '20px', variant = 'text' }) => {
-  const baseClasses = 'bg-gray-200 rounded animate-pulse';
-  const variants = {
-    text: 'h-4 rounded',
-    circular: 'rounded-full aspect-square',
-    rectangular: 'rounded-lg',
-    card: 'rounded-xl'
-  };
-  
-  return /*#__PURE__*/React.createElement("div", {
-    className: `${baseClasses} ${variants[variant] || ''} ${className}`,
-    style: { width, height },
-    role: "status",
-    "aria-live": "polite"
-  });
-};
-
-// --- DARK MODE UTILITIES ---
-const useDarkMode = () => {
-  const [isDark, setIsDark] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('fleetmate-theme');
-      if (saved) return saved === 'dark';
-      return window.matchMedia('(prefers-color-scheme: dark)').matches;
-    }
-    return false;
-  });
-  
-  useEffect(() => {
-    const root = document.documentElement;
-    if (isDark) {
-      root.setAttribute('data-theme', 'dark');
-    } else {
-      root.setAttribute('data-theme', 'light');
-    }
-    localStorage.setItem('fleetmate-theme', isDark ? 'dark' : 'light');
-  }, [isDark]);
-  
-  const toggle = () => setIsDark(prev => !prev);
-  const enable = () => setIsDark(true);
-  const disable = () => setIsDark(false);
-  
-  return { isDark, toggle, enable, disable };
-};
-
-// --- HOOK FOR CONSISTENT HANDLER PATTERNS ---
-const useStableCallback = (callback, dependencies) => {
-  const ref = useRef(callback);
-  
-  useEffect(() => {
-    ref.current = callback;
-  }, [callback, ...dependencies]);
-  
-  return useCallback((...args) => ref.current(...args), []);
-};
-
-
 // --- MAIN APP ---
 const App = () => {
-  return /*#__PURE__*/React.createElement(ToastProvider, null, 
   const [view, setView] = useState('login');
   const [selectedVehicleId, setSelectedVehicleId] = useState('WXX 1234');
   const [routeMode, setRouteMode] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [notifications, setNotifications] = useState(initialNotifs);
-  const markAsRead = id => {
+  const [darkMode, setDarkMode] = useState(() => {
+    try {
+      return localStorage.getItem('fleetmate-theme') === 'dark';
+    } catch (e) {
+      return false;
+    }
+  });
+  useEffect(() => {
+    try {
+      localStorage.setItem('fleetmate-theme', darkMode ? 'dark' : 'light');
+    } catch (e) {
+      /* no-op: storage may be unavailable (private mode, etc.) */
+    }
+  }, [darkMode]);
+  const toggleDarkMode = useCallback(() => {
+    setDarkMode(d => !d);
+    showToast(darkMode ? 'Light mode on' : 'Dark mode on');
+  }, [darkMode]);
+  const markAsRead = useCallback(id => {
     setNotifications(prev => prev.map(n => {
       if (n.id === id) return {
         ...n,
@@ -3386,39 +3513,43 @@ const App = () => {
       };
       return n;
     }));
-  };
-  const dismissNotification = id => {
+  }, []);
+  const dismissNotification = useCallback(id => {
     setNotifications(prev => prev.filter(n => n.id !== id));
-  };
-  const markAllAsRead = () => {
+  }, []);
+  const markAllAsRead = useCallback(() => {
     setNotifications(prev => prev.map(n => ({
       ...n,
       unread: false,
       showDot: false,
       dotColor: null
     })));
-  };
+  }, []);
   const unreadCount = notifications.filter(n => n.unread).length;
-  const navigate = v => {
+  const navigate = useCallback(v => {
     setRouteMode(false);
     setSidebarOpen(false);
     setView(v);
-  };
+  }, []);
   const showBottomNav = view !== 'login' && !sidebarOpen;
   const showSidebar = view !== 'login';
   return /*#__PURE__*/React.createElement("div", {
     id: "mobile-container",
-    className: "shadow-2xl"
-  }, /*#__PURE__*/React.createElement("div", {
+    className: `shadow-2xl ${darkMode ? 'dark' : ''}`
+  }, /*#__PURE__*/React.createElement(ToastContainer, null), /*#__PURE__*/React.createElement("div", {
     className: "flex-1 flex flex-col w-full min-h-0 overflow-hidden relative"
   }, showSidebar && /*#__PURE__*/React.createElement(SidebarMenu, {
     isOpen: sidebarOpen,
     onClose: () => setSidebarOpen(false),
     setView: navigate,
-    currentView: view
+    currentView: view,
+    darkMode: darkMode,
+    onToggleDarkMode: toggleDarkMode
   }), /*#__PURE__*/React.createElement("div", {
     key: view,
-    className: "view-fade-in flex-1 flex flex-col w-full min-h-0" id="main-content" role="main"
+    id: "main-content",
+    tabIndex: -1,
+    className: "view-fade-in flex-1 flex flex-col w-full min-h-0"
   }, view === 'login' && /*#__PURE__*/React.createElement(LoginView, {
     setView: navigate
   }), " ", view === 'dashboard' && /*#__PURE__*/React.createElement(DashboardView, {
@@ -3468,12 +3599,79 @@ const App = () => {
     setView: navigate
   }), " "), " ");
 };
+// --- ERROR BOUNDARY ---
+// Catches render/lifecycle errors that would otherwise crash the whole app to a
+// blank screen. Because this uses React's componentDidCatch (a normal JS try/catch
+// under the hood), it always receives the REAL error object and component stack -
+// unlike window.onerror, which browsers deliberately blank out to "Script error."
+// when they can't verify the script's origin (e.g. inside a sandboxed preview
+// iframe). This gives us the actual bug instead of that placeholder.
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { error: null, info: null };
+  }
+  static getDerivedStateFromError(error) {
+    return { error };
+  }
+  componentDidCatch(error, info) {
+    // eslint-disable-next-line no-console
+    console.error('[FleetMate] Render error caught by ErrorBoundary:', error, info?.componentStack);
+    this.setState({ info });
+  }
+  render() {
+    if (this.state.error) {
+      const { error, info } = this.state;
+      return /*#__PURE__*/React.createElement("div", {
+        style: {
+          fontFamily: 'monospace',
+          fontSize: '12px',
+          padding: '16px',
+          color: '#7f1d1d',
+          background: '#fef2f2',
+          height: '100%',
+          width: '100%',
+          overflow: 'auto',
+          boxSizing: 'border-box'
+        }
+      }, /*#__PURE__*/React.createElement("strong", null, "FleetMate crashed: ", String(error && error.message || error)), /*#__PURE__*/React.createElement("pre", {
+        style: { whiteSpace: 'pre-wrap', marginTop: '8px' }
+      }, (error && error.stack) || 'No stack available'), info && info.componentStack && /*#__PURE__*/React.createElement("pre", {
+        style: { whiteSpace: 'pre-wrap', marginTop: '8px', color: '#991b1b' }
+      }, info.componentStack));
+    }
+    return this.props.children;
+  }
+}
+
 // Fix React 18 UMD createRoot warning (github.com/facebook/react/issues/24372)
 if (ReactDOM.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED) {
     ReactDOM.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.usingClientEntryPoint = true;
 }
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(/*#__PURE__*/React.createElement(App, null));
+try {
+    root.render(/*#__PURE__*/React.createElement(ErrorBoundary, null, /*#__PURE__*/React.createElement(App, null)));
+} catch (error) {
+    // Synchronous errors during the initial render call (rare, but possible
+    // before React's own error handling kicks in) get the same treatment.
+    console.error('[FleetMate] Uncaught error during initial render:', error);
+    document.getElementById('root').innerHTML =
+        '<pre style="font-family:monospace;font-size:12px;padding:16px;color:#7f1d1d;white-space:pre-wrap;">FleetMate crashed: ' +
+        String((error && error.stack) || error) + '</pre>';
+}
+
+// --- HAPTIC FEEDBACK ON BUTTON PRESSES ---
+// Delegated listener (rather than editing every onClick) so every button
+// in the app - nav tabs, primary actions, icon buttons, dismiss/close
+// controls, etc. - gets a short tactile pulse on supported devices.
+document.addEventListener('click', e => {
+    const btn = e.target.closest('button, [role="button"]');
+    if (btn && !btn.disabled) {
+        haptic(10);
+    }
+}, {
+    passive: true
+});
     </script>
 </body>
 </html>
