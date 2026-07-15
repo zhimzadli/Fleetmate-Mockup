@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
     <title>FleetMate App</title>
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self' https://unpkg.com https://fonts.googleapis.com 'unsafe-inline'; style-src 'self' https://unpkg.com https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https:; frame-src 'self'; base-uri 'self'; form-action 'self';" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Permissions-Policy" content="geolocation=(self), microphone=(), camera=()" />
 
     <!-- Tailwind CSS (precompiled at build time — no runtime JIT on device) -->
     <style>
@@ -14,34 +21,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
     <!-- React & ReactDOM -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js">
-    </script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js">
-    </script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js" integrity="sha384-MhvFknC0AhqKZXwSCyPeIirpE1IhTafmLXTvTCai5pxjAqFcqEAAqKH/2lXrFVPn"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" integrity="sha384-VQePqH/QE94Buf4g/4MI5NrqDYjdqT7JW6KzhieQUlw6w7U7VD59fPqCAunpXEu6"></script>
 
     <!-- Recharts -->
-    <script crossorigin src="https://unpkg.com/react-is@18.2.0/umd/react-is.production.min.js">
-    </script>
-    <script crossorigin src="https://unpkg.com/prop-types@15.8.1/prop-types.min.js">
-    </script>
-    <script crossorigin src="https://unpkg.com/recharts@2.12.7/umd/Recharts.js">
-    </script>
+    <script crossorigin src="https://unpkg.com/react-is@18.2.0/umd/react-is.production.min.js" integrity="sha384-XYVQ7LtYqgha4ByzNRLR6NHo9p0yVDvmTNuQkiIweU0U8WqLWBkH1L771VlP6fYx"></script>
+    <script crossorigin src="https://unpkg.com/prop-types@15.8.1/prop-types.min.js" integrity="sha384-/AfDwVDXNopzPvhxMPQ11y1OCpR6mVkWx47qzSwIiquvxkcMkZddEzDNtIOtfCpk"></script>
+    <script crossorigin src="https://unpkg.com/recharts@2.12.7/umd/Recharts.js" integrity="sha384-d1XH4LhwLW8j0l6VXMP8yJabdGY9ZqtZk7k7PaPk5NoUCcZ/hDkL5aaKioKQbcZg"></script>
 
     <!-- Lucide Icons -->
-    <script crossorigin src="https://unpkg.com/lucide@1.22.0">
-    </script>
+    <script crossorigin src="https://unpkg.com/lucide@1.22.0" integrity="sha384-0zSYAmZorMI/71a9m8F48P0dZcNUkN1K0AyGVz5c3KsIYlltz4FqRiBQFpoxacMt"></script>
 
     <!-- Leaflet Maps -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script crossorigin src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
-    </script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" />
+    <script crossorigin src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH"></script>
 
     <!-- MapLibre GL JS + Leaflet binding — renders OpenFreeMap's live vector tiles inside the existing Leaflet maps -->
-    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
-    <script crossorigin src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js">
-    </script>
-    <script crossorigin src="https://unpkg.com/@maplibre/maplibre-gl-leaflet@0.0.22/leaflet-maplibre-gl.js">
-    </script>
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" integrity="sha384-MinO0mNliZ3vwppuPOUnGa+iq619pfMhLVUXfC4LHwSCvF9H+6P/KO4Q7qBOYV5V" />
+    <script crossorigin src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js" integrity="sha384-SYKAG6cglRMN0RVvhNeBY0r3FYKNOJtznwA0v7B5Vp9tr31xAHsZC0DqkQ/pZDmj"></script>
+    <script crossorigin src="https://unpkg.com/@maplibre/maplibre-gl-leaflet@0.0.22/leaflet-maplibre-gl.js" integrity="sha384-4CB9Vtol9LN6lGgBCvmPLbUEZwilrqIvPieSRurgAXAB7FVJaLS9n8WyAIA5wjQ+"></script>
 
     <style>
         /* --- base reset & container --- */
@@ -704,7 +702,10 @@ const Icon = ({
     // Ringgit glyph, so there's nothing to hand off to it here.
     if (name === 'rm') return;
     if (iconRef.current && window.lucide) {
-      iconRef.current.innerHTML = `<i data-lucide="${name}" class="${className}"></i>`;
+      // Sanitize inputs to prevent XSS when inserting into innerHTML
+      const sanitizedName = String(name).replace(/[<>\"'&]/g, '');
+      const sanitizedClassName = String(className).replace(/[<>\"'&]/g, '');
+      iconRef.current.innerHTML = `<i data-lucide="${sanitizedName}" class="${sanitizedClassName}"></i>`;
       window.lucide.createIcons({
         root: iconRef.current,
         attrs: {
@@ -3709,9 +3710,15 @@ try {
     // Synchronous errors during the initial render call (rare, but possible
     // before React's own error handling kicks in) get the same treatment.
     console.error('[FleetMate] Uncaught error during initial render:', error);
-    document.getElementById('root').innerHTML =
-        '<pre style="font-family:monospace;font-size:12px;padding:16px;color:#7f1d1d;white-space:pre-wrap;">FleetMate crashed: ' +
-        String((error && error.stack) || error) + '</pre>';
+    const errorDiv = document.getElementById('root');
+    if (errorDiv) {
+        // Use textContent instead of innerHTML to prevent XSS
+        const pre = document.createElement('pre');
+        pre.style.cssText = 'font-family:monospace;font-size:12px;padding:16px;color:#7f1d1d;white-space:pre-wrap;';
+        pre.textContent = 'FleetMate crashed: ' + String((error && error.stack) || error);
+        errorDiv.innerHTML = '';
+        errorDiv.appendChild(pre);
+    }
 }
 
 // --- HAPTIC FEEDBACK ON BUTTON PRESSES ---
