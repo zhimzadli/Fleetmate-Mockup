@@ -4,13 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
     <title>FleetMate App</title>
-    
-    <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self' https://unpkg.com https://fonts.googleapis.com 'unsafe-inline'; style-src 'self' https://unpkg.com https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https:; frame-src 'self'; base-uri 'self'; form-action 'self';" />
-    <meta http-equiv="X-Frame-Options" content="DENY" />
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
-    <meta http-equiv="Permissions-Policy" content="geolocation=(self), microphone=(), camera=()" />
 
     <!-- Tailwind CSS (precompiled at build time — no runtime JIT on device) -->
     <style>
@@ -21,25 +14,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
     <!-- React & ReactDOM -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js" integrity="sha384-MhvFknC0AhqKZXwSCyPeIirpE1IhTafmLXTvTCai5pxjAqFcqEAAqKH/2lXrFVPn"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" integrity="sha384-VQePqH/QE94Buf4g/4MI5NrqDYjdqT7JW6KzhieQUlw6w7U7VD59fPqCAunpXEu6"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js">
+    </script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js">
+    </script>
 
     <!-- Recharts -->
-    <script crossorigin src="https://unpkg.com/react-is@18.2.0/umd/react-is.production.min.js" integrity="sha384-XYVQ7LtYqgha4ByzNRLR6NHo9p0yVDvmTNuQkiIweU0U8WqLWBkH1L771VlP6fYx"></script>
-    <script crossorigin src="https://unpkg.com/prop-types@15.8.1/prop-types.min.js" integrity="sha384-/AfDwVDXNopzPvhxMPQ11y1OCpR6mVkWx47qzSwIiquvxkcMkZddEzDNtIOtfCpk"></script>
-    <script crossorigin src="https://unpkg.com/recharts@2.12.7/umd/Recharts.js" integrity="sha384-d1XH4LhwLW8j0l6VXMP8yJabdGY9ZqtZk7k7PaPk5NoUCcZ/hDkL5aaKioKQbcZg"></script>
+    <script crossorigin src="https://unpkg.com/react-is@18.2.0/umd/react-is.production.min.js">
+    </script>
+    <script crossorigin src="https://unpkg.com/prop-types@15.8.1/prop-types.min.js">
+    </script>
+    <script crossorigin src="https://unpkg.com/recharts@2.12.7/umd/Recharts.js">
+    </script>
 
     <!-- Lucide Icons -->
-    <script crossorigin src="https://unpkg.com/lucide@1.22.0" integrity="sha384-0zSYAmZorMI/71a9m8F48P0dZcNUkN1K0AyGVz5c3KsIYlltz4FqRiBQFpoxacMt"></script>
+    <script crossorigin src="https://unpkg.com/lucide@1.22.0">
+    </script>
 
     <!-- Leaflet Maps -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" />
-    <script crossorigin src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script crossorigin src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
 
     <!-- MapLibre GL JS + Leaflet binding — renders OpenFreeMap's live vector tiles inside the existing Leaflet maps -->
-    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" integrity="sha384-MinO0mNliZ3vwppuPOUnGa+iq619pfMhLVUXfC4LHwSCvF9H+6P/KO4Q7qBOYV5V" />
-    <script crossorigin src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js" integrity="sha384-SYKAG6cglRMN0RVvhNeBY0r3FYKNOJtznwA0v7B5Vp9tr31xAHsZC0DqkQ/pZDmj"></script>
-    <script crossorigin src="https://unpkg.com/@maplibre/maplibre-gl-leaflet@0.0.22/leaflet-maplibre-gl.js" integrity="sha384-4CB9Vtol9LN6lGgBCvmPLbUEZwilrqIvPieSRurgAXAB7FVJaLS9n8WyAIA5wjQ+"></script>
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
+    <script crossorigin src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js">
+    </script>
+    <script crossorigin src="https://unpkg.com/@maplibre/maplibre-gl-leaflet@0.0.22/leaflet-maplibre-gl.js">
+    </script>
 
     <style>
         /* --- base reset & container --- */
@@ -702,10 +704,7 @@ const Icon = ({
     // Ringgit glyph, so there's nothing to hand off to it here.
     if (name === 'rm') return;
     if (iconRef.current && window.lucide) {
-      // Sanitize inputs to prevent XSS when inserting into innerHTML
-      const sanitizedName = String(name).replace(/[<>\"'&]/g, '');
-      const sanitizedClassName = String(className).replace(/[<>\"'&]/g, '');
-      iconRef.current.innerHTML = `<i data-lucide="${sanitizedName}" class="${sanitizedClassName}"></i>`;
+      iconRef.current.innerHTML = `<i data-lucide="${name}" class="${className}"></i>`;
       window.lucide.createIcons({
         root: iconRef.current,
         attrs: {
@@ -1483,27 +1482,17 @@ const DashboardView = ({
   unreadCount,
   onSelectVehicle
 }) => {
-  // Vehicle status list data (all 5) - memoized to avoid recomputation on every render
-  const statusList = useMemo(() => {
-    return fleetVehicles.slice().sort((a, b) => a.inMaintenance === b.inMaintenance ? 0 : a.inMaintenance ? 1 : -1).map(v => ({
-      ...v,
-      label: statusLabel[v.statusColor] || v.status,
-      dotColor: statusDotClass[v.statusColor],
-      textColor: statusTextClass[v.statusColor]
-    }));
-  }, [fleetVehicles]);
+  // Vehicle status list data (all 5)
+  const statusList = fleetVehicles.slice().sort((a, b) => a.inMaintenance === b.inMaintenance ? 0 : a.inMaintenance ? 1 : -1).map(v => ({
+    ...v,
+    label: statusLabel[v.statusColor] || v.status,
+    dotColor: statusDotClass[v.statusColor],
+    textColor: statusTextClass[v.statusColor]
+  }));
 
-  // Count active (Moving) and in maintenance - computed in single pass with statusList
-  const { activeCount, maintenanceCount } = useMemo(() => {
-    let active = 0;
-    let maintenance = 0;
-    for (let i = 0; i < fleetVehicles.length; i++) {
-      const v = fleetVehicles[i];
-      if (v.statusColor === 'green') active++;
-      if (v.inMaintenance) maintenance++;
-    }
-    return { activeCount: active, maintenanceCount: maintenance };
-  }, [fleetVehicles]);
+  // Count active (Moving) and in maintenance
+  const activeCount = fleetVehicles.filter(v => v.statusColor === 'green').length;
+  const maintenanceCount = fleetVehicles.filter(v => v.inMaintenance).length;
 
   // Greet based on time of day
   const hour = new Date().getHours();
@@ -1835,49 +1824,18 @@ const TrackingView = ({
   const selectedVehicle = fleetVehicles.find(v => v.id === selectedId) || fleetVehicles[0] || {};
   const trip = tripDataByVehicle[selectedId];
   const routePoints = routeMode && trip ? trip.route : null;
-  const filterMap = useMemo(() => ({
+  const filterMap = {
     'All': null,
     'Moving': 'green',
     'Idle': 'yellow',
     'Stopped': 'red'
-  }), []);
-  
-  // Memoize search query processing to avoid redundant computations
-  const q = useMemo(() => searchQuery.trim().toLowerCase(), [searchQuery]);
-  
-  // Memoize matchesSearchText function to avoid recreation on every render
-  const matchesSearchText = useCallback(v => {
-    if (!q) return true;
-    return v.id.toLowerCase().includes(q) || 
-           (v.driver && v.driver.toLowerCase().includes(q)) || 
-           (v.inMaintenance && 'maintenance'.includes(q));
-  }, [q]);
-  
-  // Single-pass computation for filtered vehicles and counts - O(n) instead of O(5n)
-  const { visibleVehicles, filterCounts } = useMemo(() => {
-    const counts = { All: 0, Moving: 0, Idle: 0, Stopped: 0 };
-    const visible = [];
-    
-    for (let i = 0; i < fleetVehicles.length; i++) {
-      const v = fleetVehicles[i];
-      const matches = matchesSearchText(v);
-      
-      if (matches) {
-        counts.All++;
-        if (v.statusColor === 'green') counts.Moving++;
-        else if (v.statusColor === 'yellow') counts.Idle++;
-        else if (v.statusColor === 'red') counts.Stopped++;
-      }
-      
-      const matchesStatus = !filterMap[filter] || v.statusColor === filterMap[filter];
-      if (matchesStatus && matches) {
-        visible.push(v);
-      }
-    }
-    
-    return { visibleVehicles: visible, filterCounts: counts };
-  }, [fleetVehicles, filter, matchesSearchText, filterMap]);
-  
+  };
+  const q = searchQuery.trim().toLowerCase();
+  const matchesSearchText = v => !q || v.id.toLowerCase().includes(q) || v.driver && v.driver.toLowerCase().includes(q) || v.inMaintenance && 'maintenance'.includes(q);
+  const visibleVehicles = fleetVehicles.filter(v => {
+    const matchesStatus = !filterMap[filter] || v.statusColor === filterMap[filter];
+    return matchesStatus && matchesSearchText(v);
+  });
   // The quick-jump dropdown lists vehicles that are actually available right
   // now — matching both the typed search text AND the active status filter —
   // so it never offers a vehicle the map itself isn't showing. With no text
@@ -1885,14 +1843,22 @@ const TrackingView = ({
   // so tapping the search box lets you browse instead of forcing you to type
   // a plate or driver name first.
   const searchResults = visibleVehicles;
-  
+  // Per-status counts of vehicles matching the current search text (independent of
+  // the active filter), so the All/Moving/Idle/Stopped pills can dynamically reflect
+  // what's actually searchable as the user types.
+  const filterCounts = {
+    All: fleetVehicles.filter(matchesSearchText).length,
+    Moving: fleetVehicles.filter(v => v.statusColor === 'green' && matchesSearchText(v)).length,
+    Idle: fleetVehicles.filter(v => v.statusColor === 'yellow' && matchesSearchText(v)).length,
+    Stopped: fleetVehicles.filter(v => v.statusColor === 'red' && matchesSearchText(v)).length
+  };
   // If the active filter has no matches for the current search text, fall back to
   // "All" rather than leaving a disabled, highlighted pill and an empty map.
   useEffect(() => {
     if (q && filter !== 'All' && filterCounts[filter] === 0 && filterCounts.All > 0) {
       setFilter('All');
     }
-  }, [q, filter, filterCounts]);
+  }, [q, filter, filterCounts.All, filterCounts.Moving, filterCounts.Idle, filterCounts.Stopped]);
   const trackedCount = visibleVehicles.length;
   const liveBadgeText = filter === 'Moving' ? `${trackedCount} vehicle${trackedCount !== 1 ? 's' : ''} live` : filter === 'All' ? `${trackedCount} vehicle${trackedCount !== 1 ? 's' : ''} tracked` : `${trackedCount} vehicle${trackedCount !== 1 ? 's' : ''} ${filter.toLowerCase()}`;
   const badgeDotClass = {
@@ -2989,37 +2955,19 @@ const NotificationsView = ({
   const [activeTab, setActiveTab] = useState('All');
   const tabs = ['All', 'Alerts', 'Maintenance', 'System'];
   const [dismissingId, setDismissingId] = useState(null);
-  
-  // Memoize tabTypeMap to avoid recreation on every render
-  const tabTypeMap = useMemo(() => ({
+  const tabTypeMap = {
     'All': null,
     'Alerts': 'alert',
     'Maintenance': 'maintenance',
     'System': 'system'
-  }), []);
-  
-  // Single-pass computation for visible notifications and unread count - O(n) instead of O(2n)
-  const { visibleNotifs, hasUnread } = useMemo(() => {
-    let hasUnreadFlag = false;
-    const visible = [];
-    
-    for (let i = 0; i < notifications.length; i++) {
-      const n = notifications[i];
-      if (n.unread) hasUnreadFlag = true;
-      
-      if (!tabTypeMap[activeTab] || n.type === tabTypeMap[activeTab]) {
-        visible.push(n);
-      }
-    }
-    
-    return { visibleNotifs: visible, hasUnread: hasUnreadFlag };
-  }, [notifications, activeTab, tabTypeMap]);
-  
-  const getDotColor = useCallback(item => {
+  };
+  const visibleNotifs = notifications.filter(n => !tabTypeMap[activeTab] || n.type === tabTypeMap[activeTab]);
+  const hasUnread = notifications.some(n => n.unread);
+  const getDotColor = item => {
     if (item.unread) return 'bg-red-500';
     if (item.dotColor) return item.dotColor;
     return null;
-  }, []);
+  };
   return /*#__PURE__*/React.createElement("div", {
     className: "flex-1 flex flex-col bg-bgLight w-full h-full overflow-hidden"
   }, /*#__PURE__*/React.createElement("div", {
@@ -3577,10 +3525,7 @@ const App = () => {
       dotColor: null
     })));
   }, []);
-  
-  // Memoize unreadCount to avoid O(n) computation on every render
-  const unreadCount = useMemo(() => notifications.filter(n => n.unread).length, [notifications]);
-  
+  const unreadCount = notifications.filter(n => n.unread).length;
   const navigate = useCallback(v => {
     setRouteMode(false);
     setSidebarOpen(false);
@@ -3710,15 +3655,9 @@ try {
     // Synchronous errors during the initial render call (rare, but possible
     // before React's own error handling kicks in) get the same treatment.
     console.error('[FleetMate] Uncaught error during initial render:', error);
-    const errorDiv = document.getElementById('root');
-    if (errorDiv) {
-        // Use textContent instead of innerHTML to prevent XSS
-        const pre = document.createElement('pre');
-        pre.style.cssText = 'font-family:monospace;font-size:12px;padding:16px;color:#7f1d1d;white-space:pre-wrap;';
-        pre.textContent = 'FleetMate crashed: ' + String((error && error.stack) || error);
-        errorDiv.innerHTML = '';
-        errorDiv.appendChild(pre);
-    }
+    document.getElementById('root').innerHTML =
+        '<pre style="font-family:monospace;font-size:12px;padding:16px;color:#7f1d1d;white-space:pre-wrap;">FleetMate crashed: ' +
+        String((error && error.stack) || error) + '</pre>';
 }
 
 // --- HAPTIC FEEDBACK ON BUTTON PRESSES ---
